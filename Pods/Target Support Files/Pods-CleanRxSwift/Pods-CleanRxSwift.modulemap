@@ -1,0 +1,6 @@
+framework module Pods_CleanRxSwift {
+  umbrella header "Pods-CleanRxSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

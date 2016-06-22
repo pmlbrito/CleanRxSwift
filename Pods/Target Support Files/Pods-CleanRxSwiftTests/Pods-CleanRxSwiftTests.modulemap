@@ -1,0 +1,6 @@
+framework module Pods_CleanRxSwiftTests {
+  umbrella header "Pods-CleanRxSwiftTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

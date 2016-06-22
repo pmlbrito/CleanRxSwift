@@ -1,0 +1,6 @@
+framework module QuickShotUtils {
+  umbrella header "QuickShotUtils-umbrella.h"
+
+  export *
+  module * { export * }
+}
