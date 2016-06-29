@@ -14,7 +14,9 @@ import RxSwift
 
 protocol SplashInteractorInput
 {
-  func checkUserOnBoardingState(request: SplashRequest)
+//  func checkUserOnBoardingState(request: SplashRequest)
+  
+//  func updateUserIsDone() -> Observable<Bool>
 }
 
 protocol SplashInteractorOutput
@@ -25,32 +27,23 @@ protocol SplashInteractorOutput
 class SplashInteractor: SplashInteractorInput
 {
   var output: SplashInteractorOutput!
-  var worker: SplashWorker!
   
   var process: SplashProcess!;
   
   // MARK: Business logic
   
-  func checkUserOnBoardingState(request: SplashRequest){
-    self.lazyInitializeBIProcess();
-    // NOTE: Create some Worker to do the work
-    worker = SplashWorker()
-    worker.doSomeWork()
-    
-    // NOTE: Pass the result to the Presenter
-    
-    let response = SplashResponse()
-    output.presentSomething(response)
-  }
+//  func checkUserOnBoardingState(request: SplashRequest){
+//    self.updateUserIsDone();
+//  }
   
   
   func updateUserIsDone() -> Observable<Bool>
   {
     self.lazyInitializeBIProcess();
     
-    return process.checkIfOnboardingIsDone().observeOn(MainScheduler.instance).doOnError { error in
+    return process.checkIfOnboardingIsDone().delaySubscription(RxTimeInterval(5), scheduler: ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background)).observeOn(MainScheduler.instance).doOnError { error in
       print("ERROR: \(error)");
-    };
+    }
   }
   
   func lazyInitializeBIProcess(){

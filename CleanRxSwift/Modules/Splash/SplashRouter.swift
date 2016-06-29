@@ -29,6 +29,8 @@ class SplashRouter: SplashRouterInput
   
   func navigateToNextScreen(destination: SplashDestination?, transitionType: ViewControllerPresentationType?)
   {
+    viewController.hideProgressIndicator();
+    
     var destinationViewController: UIViewController? = nil
     
     if let dest = destination {

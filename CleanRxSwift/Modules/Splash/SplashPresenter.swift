@@ -11,10 +11,11 @@
 
 import UIKit
 import RxSwift
+import QuickShotUtils;
 
 protocol SplashPresenterInput
 {
-  func presentSomething(response: SplashResponse)
+//  func presentSomething(response: SplashResponse)
 }
 
 protocol SplashPresenterOutput: class
@@ -28,27 +29,34 @@ class SplashPresenter: SplashPresenterInput
  
   weak var interactor: SplashInteractor!;
   
+  var disposeBag = DisposeBag()
+  var subscription: Disposable!
+  
+  init(interactor: SplashInteractor){
+    self.interactor = interactor
+    subscription = self.interactor.updateUserIsDone().observeOn(MainScheduler.instance).subscribeNext({ (result) in
+      self.processOnBoardingState(result);
+    })
+    disposeBag.addDisposable(subscription);
+  }
+
+  
   // MARK: Presentation logic
-  
-  var subscription: Observable<Bool>!
-  
   func presentSomething(response: SplashResponse)
   {
     // NOTE: Format the response from the Interactor and pass the result back to the View Controller
     
     let viewModel = SplashViewModel()
     output.displaySomething(viewModel)
-    
-    
-//    subscription = interactor.updateUserIsDone().observeOn(MainScheduler.instance).subscribe({ (event) in
-//      
-//    })
-
-    
+    self.output.displaySomething(viewModel);
   }
-  
+
 
   func processOnBoardingState(isDone: Bool){
-  
+    var response = SplashResponse();
+    response.destination = isDone == true ? SplashDestination.InApp : SplashDestination.OnBoarding;
+    response.transitionType = ViewControllerPresentationType.ReplaceAtRoot;
+    
+    self.presentSomething(response);
   }
 }

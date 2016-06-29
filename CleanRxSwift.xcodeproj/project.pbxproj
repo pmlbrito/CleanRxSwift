@@ -21,7 +21,6 @@
 		423607421D1ADD4800808990 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073B1D1ADD4800808990 /* SplashPresenter.swift */; };
 		423607431D1ADD4800808990 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073C1D1ADD4800808990 /* SplashRouter.swift */; };
 		423607441D1ADD4800808990 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073D1D1ADD4800808990 /* SplashViewController.swift */; };
-		423607451D1ADD4800808990 /* SplashWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073E1D1ADD4800808990 /* SplashWorker.swift */; };
 		4236074A1D1AEDB800808990 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 423607491D1AEDB800808990 /* Localizable.strings */; };
 		4236074D1D1AF8A100808990 /* SplashProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236074C1D1AF8A100808990 /* SplashProcess.swift */; };
 		977643AD018C6B4F4A38BB68 /* Pods_CleanRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3336F22AAC33D4FC630C814 /* Pods_CleanRxSwift.framework */; };
@@ -58,7 +57,6 @@
 		4236073B1D1ADD4800808990 /* SplashPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		4236073C1D1ADD4800808990 /* SplashRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
 		4236073D1D1ADD4800808990 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		4236073E1D1ADD4800808990 /* SplashWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashWorker.swift; sourceTree = "<group>"; };
 		423607491D1AEDB800808990 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		4236074C1D1AF8A100808990 /* SplashProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashProcess.swift; sourceTree = "<group>"; };
 		522B61BFDBB7B6D08D7C5A25 /* Pods-CleanRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanRxSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanRxSwift/Pods-CleanRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 				4236073B1D1ADD4800808990 /* SplashPresenter.swift */,
 				4236073C1D1ADD4800808990 /* SplashRouter.swift */,
 				4236073D1D1ADD4800808990 /* SplashViewController.swift */,
-				4236073E1D1ADD4800808990 /* SplashWorker.swift */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -459,7 +456,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				423607401D1ADD4800808990 /* SplashInteractor.swift in Sources */,
-				423607451D1ADD4800808990 /* SplashWorker.swift in Sources */,
 				4236073F1D1ADD4800808990 /* SplashConfigurator.swift in Sources */,
 				423607301D1AD63E00808990 /* CRXBaseViewController.swift in Sources */,
 				423607411D1ADD4800808990 /* SplashModels.swift in Sources */,

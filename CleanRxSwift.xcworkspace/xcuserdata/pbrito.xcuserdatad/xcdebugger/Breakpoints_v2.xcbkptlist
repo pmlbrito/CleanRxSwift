@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CleanRxSwift/Modules/Splash/SplashViewController.swift"
-            timestampString = "488303561.719493"
+            filePath = "CleanRxSwift/Modules/Splash/SplashRouter.swift"
+            timestampString = "488897202.165916"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "navigateToNextScreen(_:transitionType:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -20,7 +20,7 @@ protocol SplashViewControllerInput
 
 protocol SplashViewControllerOutput
 {
-  func checkUserOnBoardingState(request: SplashRequest)
+//  func checkUserOnBoardingState(request: SplashRequest)
 }
 
 class SplashViewController: CRXBaseViewController, SplashViewControllerInput
@@ -64,9 +64,6 @@ class SplashViewController: CRXBaseViewController, SplashViewControllerInput
     }
 
     self.showProgressIndicator();
-    
-    let request = SplashRequest()
-    output.checkUserOnBoardingState(request)
   }
   
   // MARK: Display logic

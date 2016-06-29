@@ -50,10 +50,10 @@ class SplashConfigurator
     let router = SplashRouter()
     router.viewController = viewController
     
-    let presenter = SplashPresenter()
-    presenter.output = viewController
-    
     let interactor = SplashInteractor()
+    
+    let presenter = SplashPresenter(interactor: interactor);
+    presenter.output = viewController
     interactor.output = presenter
     
     viewController.output = interactor
