@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,38 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clean RXSwift" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTY-dN-89m">
+                                <rect key="frame" x="201" y="70" width="198" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All rights reserved pedroml.brito@gmail.com ©2016 " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="B69-GS-Cf3">
+                                <rect key="frame" x="73" y="563" width="455" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7zV-vV-egV">
+                                <rect key="frame" x="30" y="175" width="540" height="72"/>
+                                <string key="text">Clean RxSwift in an experiment project on mobile architecturing, trying to develop a clean design pattern for applications using Reactive Functional Programming</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.30588235289999999" green="0.59999999999999998" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7zV-vV-egV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5p4-XL-rQt"/>
+                            <constraint firstItem="B69-GS-Cf3" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="73" id="Ay4-1B-PNH"/>
+                            <constraint firstItem="uTY-dN-89m" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="50" id="Eqh-HJ-fRg"/>
+                            <constraint firstItem="uTY-dN-89m" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="M0p-n3-bYP"/>
+                            <constraint firstItem="7zV-vV-egV" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.9" id="QuP-oX-QkL"/>
+                            <constraint firstItem="7zV-vV-egV" firstAttribute="top" secondItem="uTY-dN-89m" secondAttribute="bottom" constant="69" id="ewX-V0-Hff"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="B69-GS-Cf3" secondAttribute="bottom" constant="20" id="htO-ZJ-Ngf"/>
+                            <constraint firstAttribute="trailing" secondItem="B69-GS-Cf3" secondAttribute="trailing" constant="72" id="ydU-XP-crx"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
