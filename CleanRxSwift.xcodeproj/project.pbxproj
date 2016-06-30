@@ -23,6 +23,7 @@
 		423607441D1ADD4800808990 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073D1D1ADD4800808990 /* SplashViewController.swift */; };
 		4236074A1D1AEDB800808990 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 423607491D1AEDB800808990 /* Localizable.strings */; };
 		4236074D1D1AF8A100808990 /* SplashProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236074C1D1AF8A100808990 /* SplashProcess.swift */; };
+		428D31351D256E02007C9BCC /* CRXUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D31341D256E02007C9BCC /* CRXUserDefaults.swift */; };
 		977643AD018C6B4F4A38BB68 /* Pods_CleanRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3336F22AAC33D4FC630C814 /* Pods_CleanRxSwift.framework */; };
 		F658687932D4EF37043DFC9D /* Pods_CleanRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F17E2F00840A00ACAA2FD44 /* Pods_CleanRxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		4236073D1D1ADD4800808990 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		423607491D1AEDB800808990 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		4236074C1D1AF8A100808990 /* SplashProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashProcess.swift; sourceTree = "<group>"; };
+		428D31341D256E02007C9BCC /* CRXUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXUserDefaults.swift; sourceTree = "<group>"; };
 		522B61BFDBB7B6D08D7C5A25 /* Pods-CleanRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanRxSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanRxSwift/Pods-CleanRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		C3336F22AAC33D4FC630C814 /* Pods_CleanRxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanRxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10C0EF88C5E6B28C9339E4A /* Pods-CleanRxSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanRxSwiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanRxSwiftTests/Pods-CleanRxSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		423606F11D1ACA6800808990 /* CleanRxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				428D31331D256DCE007C9BCC /* Extensions */,
 				423607481D1AED8B00808990 /* Resources */,
 				4236072C1D1AD5A700808990 /* Base */,
 				423607151D1AD08300808990 /* Modules */,
@@ -232,6 +235,14 @@
 				4236074C1D1AF8A100808990 /* SplashProcess.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		428D31331D256DCE007C9BCC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				428D31341D256E02007C9BCC /* CRXUserDefaults.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4CCC57FE693A4E2EE76A453B /* Pods */ = {
@@ -463,6 +474,7 @@
 				423607351D1ADC8000808990 /* CRXViewProtocol.swift in Sources */,
 				423607371D1ADCA300808990 /* CRXPresenterProtocol.swift in Sources */,
 				423606F31D1ACA6800808990 /* AppDelegate.swift in Sources */,
+				428D31351D256E02007C9BCC /* CRXUserDefaults.swift in Sources */,
 				423607421D1ADD4800808990 /* SplashPresenter.swift in Sources */,
 				4236074D1D1AF8A100808990 /* SplashProcess.swift in Sources */,
 				423607441D1ADD4800808990 /* SplashViewController.swift in Sources */,

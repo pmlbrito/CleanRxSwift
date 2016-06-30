@@ -14,7 +14,7 @@ class SplashProcess {
   //apply delay before responding
   
   func checkIfOnboardingIsDone() -> Observable<Bool> {
-    let onboardingDone = true;
+    let onboardingDone = CRXUserDefaults.isUserOnboardingDone();
     return Observable.just(onboardingDone);
   }
 }
