@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
     if let window = window {
-      window.rootViewController = SplashViewController()
+      window.rootViewController = CRXSplashViewController()
       window.makeKeyAndVisible()
     }
 

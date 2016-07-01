@@ -1,5 +1,5 @@
 //
-//  SplashRouter.swift
+//  CRXSplashRouter.swift
 //  CleanRxSwift
 //
 //  Created by Pedro Brito on 22/06/16.
@@ -12,21 +12,21 @@
 import UIKit
 import QuickShotUtils
 
-enum SplashDestination: String {
+enum CRXSplashDestination: String {
   case OnBoarding, Login, SignIn, InApp
 }
 
-protocol SplashRouterInput
+protocol CRXSplashRouterInput
 {
 }
 
-class SplashRouter: SplashRouterInput
+class CRXSplashRouter: CRXSplashRouterInput
 {
-  weak var viewController: SplashViewController!
+  weak var viewController: CRXSplashViewController!
   
   // MARK: Navigation
   
-  func navigateToNextScreen(destination: SplashDestination?, transitionType: ViewControllerPresentationType?)
+  func navigateToNextScreen(destination: CRXSplashDestination?, transitionType: ViewControllerPresentationType?)
   {
     viewController.hideProgressIndicator();
     

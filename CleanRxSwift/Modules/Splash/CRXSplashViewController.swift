@@ -1,5 +1,5 @@
 //
-//  SplashViewController.swift
+//  CRXSplashViewController.swift
 //  CleanRxSwift
 //
 //  Created by Pedro Brito on 22/06/16.
@@ -13,26 +13,26 @@ import UIKit
 import QuickShotUtils
 import SnapKit
 
-protocol SplashViewControllerInput
+protocol CRXSplashViewControllerInput
 {
-  func finishSplashPage(viewModel: SplashViewModel)
+  func finishSplashPage(viewModel: CRXSplashViewModel)
 }
 
-protocol SplashViewControllerOutput
+protocol CRXSplashViewControllerOutput
 {
 //  func checkUserOnBoardingState(request: SplashRequest)
 }
 
-class SplashViewController: CRXBaseViewController, SplashViewControllerInput
+class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInput
 {
-  var output: SplashViewControllerOutput!
-  var router: SplashRouter!
+  var output: CRXSplashViewControllerOutput!
+  var router: CRXSplashRouter!
   
   // MARK: Object lifecycle
   
   override init() {
     super.init()
-    SplashConfigurator.sharedInstance.configure(self);
+    CRXSplashConfigurator.sharedInstance.configure(self);
   }
   
   required convenience init(coder: NSCoder) {
@@ -82,7 +82,7 @@ class SplashViewController: CRXBaseViewController, SplashViewControllerInput
   
   // MARK: Display logic
   
-  func finishSplashPage(viewModel: SplashViewModel)
+  func finishSplashPage(viewModel: CRXSplashViewModel)
   {
     self.hideProgressIndicator();
     self.router.navigateToNextScreen(viewModel.destination, transitionType: viewModel.transitionType);

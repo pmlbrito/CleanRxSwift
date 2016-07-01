@@ -1,5 +1,5 @@
 //
-//  SplashConfigurator.swift
+//  CRXSplashConfigurator.swift
 //  CleanRxSwift
 //
 //  Created by Pedro Brito on 22/06/16.
@@ -14,31 +14,31 @@ import QuickShotUtils
 
 // MARK: Connect View, Interactor, and Presenter
 
-extension SplashViewController: SplashPresenterOutput
+extension CRXSplashViewController: CRXSplashPresenterOutput
 {
 }
 
-extension SplashInteractor: SplashViewControllerOutput
+extension CRXSplashInteractor: CRXSplashViewControllerOutput
 {
 }
 
-extension SplashPresenter: SplashInteractorOutput
+extension CRXSplashPresenter: CRXSplashInteractorOutput
 {
 }
 
-class SplashConfigurator
+class CRXSplashConfigurator
 {
   // MARK: Object lifecycle
   
-  class var sharedInstance: SplashConfigurator
+  class var sharedInstance: CRXSplashConfigurator
   {
     struct Static {
-      static var instance: SplashConfigurator?
+      static var instance: CRXSplashConfigurator?
       static var token: dispatch_once_t = 0
     }
     
     dispatch_once(&Static.token) {
-      Static.instance = SplashConfigurator()
+      Static.instance = CRXSplashConfigurator()
     }
     
     return Static.instance!
@@ -46,14 +46,14 @@ class SplashConfigurator
   
   // MARK: Configuration
   
-  func configure(viewController: SplashViewController)
+  func configure(viewController: CRXSplashViewController)
   {
-    let router = SplashRouter()
+    let router = CRXSplashRouter()
     router.viewController = viewController
     
-    let interactor = SplashInteractor()
+    let interactor = CRXSplashInteractor()
     
-    let presenter = SplashPresenter(interactor: interactor);
+    let presenter = CRXSplashPresenter(interactor: interactor);
     presenter.output = viewController
     interactor.output = presenter
     

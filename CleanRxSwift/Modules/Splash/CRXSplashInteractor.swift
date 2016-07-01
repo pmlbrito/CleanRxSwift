@@ -1,5 +1,5 @@
 //
-//  SplashInteractor.swift
+//  CRXSplashInteractor.swift
 //  CleanRxSwift
 //
 //  Created by Pedro Brito on 22/06/16.
@@ -12,19 +12,19 @@
 import UIKit
 import RxSwift
 
-protocol SplashInteractorInput
+protocol CRXSplashInteractorInput
 {
 }
 
-protocol SplashInteractorOutput
+protocol CRXSplashInteractorOutput
 {
 }
 
-class SplashInteractor: SplashInteractorInput
+class CRXSplashInteractor: CRXSplashInteractorInput
 {
-  var output: SplashInteractorOutput!
+  var output: CRXSplashInteractorOutput!
   
-  var process: SplashProcess!;
+  var process: CRXSplashProcess!;
   
   // MARK: Business logic
   
@@ -39,7 +39,7 @@ class SplashInteractor: SplashInteractorInput
   
   func lazyInitializeBIProcess(){
     if(self.process == nil){
-      self.process = SplashProcess();
+      self.process = CRXSplashProcess();
     }
   }
 }

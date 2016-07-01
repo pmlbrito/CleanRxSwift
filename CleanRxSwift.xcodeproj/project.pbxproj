@@ -15,19 +15,26 @@
 		423607301D1AD63E00808990 /* CRXBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236072F1D1AD63E00808990 /* CRXBaseViewController.swift */; };
 		423607351D1ADC8000808990 /* CRXViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607341D1ADC8000808990 /* CRXViewProtocol.swift */; };
 		423607371D1ADCA300808990 /* CRXPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607361D1ADCA300808990 /* CRXPresenterProtocol.swift */; };
-		4236073F1D1ADD4800808990 /* SplashConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607381D1ADD4800808990 /* SplashConfigurator.swift */; };
-		423607401D1ADD4800808990 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607391D1ADD4800808990 /* SplashInteractor.swift */; };
-		423607411D1ADD4800808990 /* SplashModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073A1D1ADD4800808990 /* SplashModels.swift */; };
-		423607421D1ADD4800808990 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073B1D1ADD4800808990 /* SplashPresenter.swift */; };
-		423607431D1ADD4800808990 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073C1D1ADD4800808990 /* SplashRouter.swift */; };
-		423607441D1ADD4800808990 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073D1D1ADD4800808990 /* SplashViewController.swift */; };
+		4236073F1D1ADD4800808990 /* CRXSplashConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607381D1ADD4800808990 /* CRXSplashConfigurator.swift */; };
+		423607401D1ADD4800808990 /* CRXSplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607391D1ADD4800808990 /* CRXSplashInteractor.swift */; };
+		423607411D1ADD4800808990 /* CRXSplashModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073A1D1ADD4800808990 /* CRXSplashModels.swift */; };
+		423607421D1ADD4800808990 /* CRXSplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073B1D1ADD4800808990 /* CRXSplashPresenter.swift */; };
+		423607431D1ADD4800808990 /* CRXSplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073C1D1ADD4800808990 /* CRXSplashRouter.swift */; };
+		423607441D1ADD4800808990 /* CRXSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073D1D1ADD4800808990 /* CRXSplashViewController.swift */; };
 		4236074A1D1AEDB800808990 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 423607491D1AEDB800808990 /* Localizable.strings */; };
-		4236074D1D1AF8A100808990 /* SplashProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236074C1D1AF8A100808990 /* SplashProcess.swift */; };
+		4236074D1D1AF8A100808990 /* CRXSplashProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236074C1D1AF8A100808990 /* CRXSplashProcess.swift */; };
 		428D31351D256E02007C9BCC /* CRXUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D31341D256E02007C9BCC /* CRXUserDefaults.swift */; };
 		428D31381D26896C007C9BCC /* CRXViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D31371D26896C007C9BCC /* CRXViewFactory.swift */; };
 		428D313B1D26BA73007C9BCC /* CRXAppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D313A1D26BA73007C9BCC /* CRXAppUtils.swift */; };
 		428D31441D26D06E007C9BCC /* CRXOnBoardingPageBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D31431D26D06E007C9BCC /* CRXOnBoardingPageBaseViewController.swift */; };
 		428D31461D26D291007C9BCC /* CRXOnBoardingPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D31451D26D291007C9BCC /* CRXOnBoardingPagerViewController.swift */; };
+		428D31501D26DA31007C9BCC /* CRXOnBoardingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D31491D26DA31007C9BCC /* CRXOnBoardingConfigurator.swift */; };
+		428D31511D26DA31007C9BCC /* CRXOnBoardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D314A1D26DA31007C9BCC /* CRXOnBoardingInteractor.swift */; };
+		428D31521D26DA31007C9BCC /* CRXOnBoardingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D314B1D26DA31007C9BCC /* CRXOnBoardingModels.swift */; };
+		428D31531D26DA31007C9BCC /* CRXOnBoardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D314C1D26DA31007C9BCC /* CRXOnBoardingPresenter.swift */; };
+		428D31541D26DA31007C9BCC /* CRXOnBoardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D314D1D26DA31007C9BCC /* CRXOnBoardingRouter.swift */; };
+		428D31551D26DA31007C9BCC /* CRXOnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D314E1D26DA31007C9BCC /* CRXOnBoardingViewController.swift */; };
+		428D31561D26DA31007C9BCC /* CRXOnBoardingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D314F1D26DA31007C9BCC /* CRXOnBoardingWorker.swift */; };
 		977643AD018C6B4F4A38BB68 /* Pods_CleanRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3336F22AAC33D4FC630C814 /* Pods_CleanRxSwift.framework */; };
 		F658687932D4EF37043DFC9D /* Pods_CleanRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F17E2F00840A00ACAA2FD44 /* Pods_CleanRxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -56,19 +63,26 @@
 		4236072F1D1AD63E00808990 /* CRXBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXBaseViewController.swift; sourceTree = "<group>"; };
 		423607341D1ADC8000808990 /* CRXViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXViewProtocol.swift; sourceTree = "<group>"; };
 		423607361D1ADCA300808990 /* CRXPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXPresenterProtocol.swift; sourceTree = "<group>"; };
-		423607381D1ADD4800808990 /* SplashConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashConfigurator.swift; sourceTree = "<group>"; };
-		423607391D1ADD4800808990 /* SplashInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
-		4236073A1D1ADD4800808990 /* SplashModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashModels.swift; sourceTree = "<group>"; };
-		4236073B1D1ADD4800808990 /* SplashPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
-		4236073C1D1ADD4800808990 /* SplashRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
-		4236073D1D1ADD4800808990 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		423607381D1ADD4800808990 /* CRXSplashConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashConfigurator.swift; sourceTree = "<group>"; };
+		423607391D1ADD4800808990 /* CRXSplashInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashInteractor.swift; sourceTree = "<group>"; };
+		4236073A1D1ADD4800808990 /* CRXSplashModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashModels.swift; sourceTree = "<group>"; };
+		4236073B1D1ADD4800808990 /* CRXSplashPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashPresenter.swift; sourceTree = "<group>"; };
+		4236073C1D1ADD4800808990 /* CRXSplashRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashRouter.swift; sourceTree = "<group>"; };
+		4236073D1D1ADD4800808990 /* CRXSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashViewController.swift; sourceTree = "<group>"; };
 		423607491D1AEDB800808990 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		4236074C1D1AF8A100808990 /* SplashProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashProcess.swift; sourceTree = "<group>"; };
+		4236074C1D1AF8A100808990 /* CRXSplashProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashProcess.swift; sourceTree = "<group>"; };
 		428D31341D256E02007C9BCC /* CRXUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXUserDefaults.swift; sourceTree = "<group>"; };
 		428D31371D26896C007C9BCC /* CRXViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXViewFactory.swift; sourceTree = "<group>"; };
 		428D313A1D26BA73007C9BCC /* CRXAppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXAppUtils.swift; sourceTree = "<group>"; };
 		428D31431D26D06E007C9BCC /* CRXOnBoardingPageBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingPageBaseViewController.swift; sourceTree = "<group>"; };
 		428D31451D26D291007C9BCC /* CRXOnBoardingPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingPagerViewController.swift; sourceTree = "<group>"; };
+		428D31491D26DA31007C9BCC /* CRXOnBoardingConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingConfigurator.swift; sourceTree = "<group>"; };
+		428D314A1D26DA31007C9BCC /* CRXOnBoardingInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingInteractor.swift; sourceTree = "<group>"; };
+		428D314B1D26DA31007C9BCC /* CRXOnBoardingModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingModels.swift; sourceTree = "<group>"; };
+		428D314C1D26DA31007C9BCC /* CRXOnBoardingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingPresenter.swift; sourceTree = "<group>"; };
+		428D314D1D26DA31007C9BCC /* CRXOnBoardingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingRouter.swift; sourceTree = "<group>"; };
+		428D314E1D26DA31007C9BCC /* CRXOnBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingViewController.swift; sourceTree = "<group>"; };
+		428D314F1D26DA31007C9BCC /* CRXOnBoardingWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingWorker.swift; sourceTree = "<group>"; };
 		522B61BFDBB7B6D08D7C5A25 /* Pods-CleanRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanRxSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanRxSwift/Pods-CleanRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		C3336F22AAC33D4FC630C814 /* Pods_CleanRxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanRxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10C0EF88C5E6B28C9339E4A /* Pods-CleanRxSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanRxSwiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanRxSwiftTests/Pods-CleanRxSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +168,7 @@
 		423607151D1AD08300808990 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				428D31471D26D9F0007C9BCC /* OnBoarding */,
 				423607171D1AD0DB00808990 /* Splash */,
 			);
 			path = Modules;
@@ -213,12 +228,12 @@
 		423607321D1ADC2900808990 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				423607381D1ADD4800808990 /* SplashConfigurator.swift */,
-				423607391D1ADD4800808990 /* SplashInteractor.swift */,
-				4236073A1D1ADD4800808990 /* SplashModels.swift */,
-				4236073B1D1ADD4800808990 /* SplashPresenter.swift */,
-				4236073C1D1ADD4800808990 /* SplashRouter.swift */,
-				4236073D1D1ADD4800808990 /* SplashViewController.swift */,
+				423607381D1ADD4800808990 /* CRXSplashConfigurator.swift */,
+				423607391D1ADD4800808990 /* CRXSplashInteractor.swift */,
+				4236073A1D1ADD4800808990 /* CRXSplashModels.swift */,
+				4236073B1D1ADD4800808990 /* CRXSplashPresenter.swift */,
+				4236073C1D1ADD4800808990 /* CRXSplashRouter.swift */,
+				4236073D1D1ADD4800808990 /* CRXSplashViewController.swift */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -243,7 +258,7 @@
 		4236074B1D1AF88400808990 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				4236074C1D1AF8A100808990 /* SplashProcess.swift */,
+				4236074C1D1AF8A100808990 /* CRXSplashProcess.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -279,6 +294,28 @@
 				428D31451D26D291007C9BCC /* CRXOnBoardingPagerViewController.swift */,
 			);
 			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		428D31471D26D9F0007C9BCC /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				428D31481D26DA06007C9BCC /* Scene */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		428D31481D26DA06007C9BCC /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				428D31491D26DA31007C9BCC /* CRXOnBoardingConfigurator.swift */,
+				428D314A1D26DA31007C9BCC /* CRXOnBoardingInteractor.swift */,
+				428D314B1D26DA31007C9BCC /* CRXOnBoardingModels.swift */,
+				428D314C1D26DA31007C9BCC /* CRXOnBoardingPresenter.swift */,
+				428D314D1D26DA31007C9BCC /* CRXOnBoardingRouter.swift */,
+				428D314E1D26DA31007C9BCC /* CRXOnBoardingViewController.swift */,
+				428D314F1D26DA31007C9BCC /* CRXOnBoardingWorker.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		4CCC57FE693A4E2EE76A453B /* Pods */ = {
@@ -502,22 +539,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				423607401D1ADD4800808990 /* SplashInteractor.swift in Sources */,
-				4236073F1D1ADD4800808990 /* SplashConfigurator.swift in Sources */,
+				423607401D1ADD4800808990 /* CRXSplashInteractor.swift in Sources */,
+				428D31541D26DA31007C9BCC /* CRXOnBoardingRouter.swift in Sources */,
+				4236073F1D1ADD4800808990 /* CRXSplashConfigurator.swift in Sources */,
 				428D31381D26896C007C9BCC /* CRXViewFactory.swift in Sources */,
+				428D31521D26DA31007C9BCC /* CRXOnBoardingModels.swift in Sources */,
+				428D31551D26DA31007C9BCC /* CRXOnBoardingViewController.swift in Sources */,
 				423607301D1AD63E00808990 /* CRXBaseViewController.swift in Sources */,
-				423607411D1ADD4800808990 /* SplashModels.swift in Sources */,
-				423607431D1ADD4800808990 /* SplashRouter.swift in Sources */,
+				423607411D1ADD4800808990 /* CRXSplashModels.swift in Sources */,
+				428D31511D26DA31007C9BCC /* CRXOnBoardingInteractor.swift in Sources */,
+				423607431D1ADD4800808990 /* CRXSplashRouter.swift in Sources */,
 				423607351D1ADC8000808990 /* CRXViewProtocol.swift in Sources */,
+				428D31561D26DA31007C9BCC /* CRXOnBoardingWorker.swift in Sources */,
 				428D313B1D26BA73007C9BCC /* CRXAppUtils.swift in Sources */,
 				423607371D1ADCA300808990 /* CRXPresenterProtocol.swift in Sources */,
 				423606F31D1ACA6800808990 /* AppDelegate.swift in Sources */,
 				428D31351D256E02007C9BCC /* CRXUserDefaults.swift in Sources */,
-				423607421D1ADD4800808990 /* SplashPresenter.swift in Sources */,
+				423607421D1ADD4800808990 /* CRXSplashPresenter.swift in Sources */,
 				428D31441D26D06E007C9BCC /* CRXOnBoardingPageBaseViewController.swift in Sources */,
-				4236074D1D1AF8A100808990 /* SplashProcess.swift in Sources */,
-				423607441D1ADD4800808990 /* SplashViewController.swift in Sources */,
+				428D31501D26DA31007C9BCC /* CRXOnBoardingConfigurator.swift in Sources */,
+				4236074D1D1AF8A100808990 /* CRXSplashProcess.swift in Sources */,
+				423607441D1ADD4800808990 /* CRXSplashViewController.swift in Sources */,
 				428D31461D26D291007C9BCC /* CRXOnBoardingPagerViewController.swift in Sources */,
+				428D31531D26DA31007C9BCC /* CRXOnBoardingPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

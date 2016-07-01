@@ -1,5 +1,5 @@
 //
-//  SplashPresenter.swift
+//  CRXSplashPresenter.swift
 //  CleanRxSwift
 //
 //  Created by Pedro Brito on 22/06/16.
@@ -13,25 +13,25 @@ import UIKit
 import RxSwift
 import QuickShotUtils;
 
-protocol SplashPresenterInput
+protocol CRXSplashPresenterInput
 {
 }
 
-protocol SplashPresenterOutput: class
+protocol CRXSplashPresenterOutput: class
 {
-  func finishSplashPage(viewModel: SplashViewModel)
+  func finishSplashPage(viewModel: CRXSplashViewModel)
 }
 
-class SplashPresenter: SplashPresenterInput
+class CRXSplashPresenter: CRXSplashPresenterInput
 {
-  weak var output: SplashPresenterOutput!
+  weak var output: CRXSplashPresenterOutput!
  
-  weak var interactor: SplashInteractor!;
+  weak var interactor: CRXSplashInteractor!;
   
   var disposeBag = DisposeBag()
   var subscription: Disposable!
   
-  init(interactor: SplashInteractor){
+  init(interactor: CRXSplashInteractor){
     self.interactor = interactor
     subscription = self.interactor.updateUserIsDone().observeOn(MainScheduler.instance).subscribeNext({ (result) in
       self.processOnBoardingState(result);
@@ -41,16 +41,16 @@ class SplashPresenter: SplashPresenterInput
 
   
   // MARK: Presentation logic
-  func presentSomething(response: SplashResponse)
+  func presentSomething(response: CRXSplashResponse)
   {
     // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-    output.finishSplashPage(SplashViewModel(destination: response.destination, transitionType: response.transitionType));
+    output.finishSplashPage(CRXSplashViewModel(destination: response.destination, transitionType: response.transitionType));
   }
 
 
   func processOnBoardingState(isDone: Bool){
-    var response = SplashResponse();
-    response.destination = isDone == true ? SplashDestination.InApp : SplashDestination.OnBoarding;
+    var response = CRXSplashResponse();
+    response.destination = isDone == true ? CRXSplashDestination.InApp : CRXSplashDestination.OnBoarding;
     response.transitionType = ViewControllerPresentationType.ReplaceAtRoot;
     
     self.presentSomething(response);

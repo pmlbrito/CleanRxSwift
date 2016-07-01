@@ -1,5 +1,5 @@
 //
-//  SplashModels.swift
+//  CRXSplashModels.swift
 //  CleanRxSwift
 //
 //  Created by Pedro Brito on 22/06/16.
@@ -12,18 +12,18 @@
 import UIKit
 import QuickShotUtils
 
-struct SplashRequest
+struct CRXSplashRequest
 {
 }
 
-struct SplashResponse
+struct CRXSplashResponse
 {
-  var destination: SplashDestination?
+  var destination: CRXSplashDestination?
   var transitionType: ViewControllerPresentationType?
 }
 
-struct SplashViewModel
+struct CRXSplashViewModel
 {
-  var destination: SplashDestination?
+  var destination: CRXSplashDestination?
   var transitionType: ViewControllerPresentationType?
 }
