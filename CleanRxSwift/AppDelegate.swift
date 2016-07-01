@@ -23,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       window.makeKeyAndVisible()
     }
 
+    CRXAppUtils.checkForFirstLaunch(){ (isFirstRun: Bool?, error: NSError?) in
+      if(isFirstRun != nil && isFirstRun! == true){
+        //TODO: cleanup all data that can carry from install to install
+      }
+    }
     
     return true
   }
@@ -48,7 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
-
 
 }
 
