@@ -11,6 +11,7 @@ def cleanrxswift_pods
     pod 'Locksmith'
     pod 'Kingfisher'
     pod "AsyncSwift"
+    pod 'SwiftEventBus', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
 end
 
 target 'CleanRxSwift' do
