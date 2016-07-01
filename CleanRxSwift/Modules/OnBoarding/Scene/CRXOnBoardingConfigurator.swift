@@ -15,10 +15,6 @@ import UIKit
 
 extension CRXOnBoardingViewController: CRXOnBoardingPresenterOutput
 {
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-  {
-    router.passDataToNextScene(segue)
-  }
 }
 
 extension CRXOnBoardingInteractor: CRXOnBoardingViewControllerOutput

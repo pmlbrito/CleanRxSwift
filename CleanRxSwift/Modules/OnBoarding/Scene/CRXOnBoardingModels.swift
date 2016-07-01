@@ -17,8 +17,12 @@ struct CRXOnBoardingRequest
 
 struct CRXOnBoardingResponse
 {
+  var sliderContent: [CRXOnBoardingContent];
 }
 
 struct CRXOnBoardingViewModel
 {
+  var sliderItems: [CRXOnBoardingPageBaseViewController]?;
+  
+//  var error: CRXErrorModel?
 }

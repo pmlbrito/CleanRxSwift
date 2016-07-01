@@ -18,6 +18,7 @@ enum CRXSplashDestination: String {
 
 protocol CRXSplashRouterInput
 {
+  func navigateToNextScreen(destination: CRXSplashDestination?, transitionType: ViewControllerPresentationType?)
 }
 
 class CRXSplashRouter: CRXSplashRouterInput
@@ -35,7 +36,7 @@ class CRXSplashRouter: CRXSplashRouterInput
     if let dest = destination {
       switch(dest){
       case .OnBoarding:
-        //destinationViewController = OnBoardingViewController();
+        destinationViewController = CRXOnBoardingViewController();
         break;
       case .Login:
 //        destinationViewController = RFLoginViewController()

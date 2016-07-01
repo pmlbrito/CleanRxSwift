@@ -13,12 +13,16 @@ import UIKit
 
 protocol CRXOnBoardingInteractorInput
 {
-  func doSomething(request: CRXOnBoardingRequest)
+//  func doSomething(request: CRXOnBoardingRequest)
+  
+  func initializeOnboarding();
+  
+  func triggeOnboardingFinish();
 }
 
 protocol CRXOnBoardingInteractorOutput
 {
-  func presentSomething(response: CRXOnBoardingResponse)
+  func presentOnboardingSlider(response: CRXOnBoardingResponse)
 }
 
 class CRXOnBoardingInteractor: CRXOnBoardingInteractorInput
@@ -37,7 +41,61 @@ class CRXOnBoardingInteractor: CRXOnBoardingInteractorInput
     
     // NOTE: Pass the result to the Presenter
     
-    let response = CRXOnBoardingResponse()
-    output.presentSomething(response)
+//    let response = CRXOnBoardingResponse()
+//    output.presentSomething(response)
+  }
+  
+  func initializeOnboarding(){
+    var sliderPagesContent = [CRXOnBoardingContent]();
+    
+    var item1 = CRXOnBoardingContent();
+    item1.titleText = "On Boarding Title 1";
+    item1.descriptionText = "Bacon ipsum dolor amet tri-tip short ribs shankle, frankfurter ham beef spare ribs prosciutto filet mignon tongue pancetta jerky pork belly venison. Pastrami brisket meatball";
+    item1.imageName = "img_page_1";
+    item1.bgColor = UIColor(hexString: "#D8941AFF");
+    
+    sliderPagesContent.append(item1);
+    
+    
+    var item2 = CRXOnBoardingContent();
+    item2.titleText = "On Boarding Title 2";
+    item2.descriptionText = "Shankle short loin pork tail shank. Sirloin picanha beef pork belly. Meatball beef ribs shank, pork loin drumstick bacon fatback kielbasa frankfurter tenderloin beef biltong meatloaf";
+    item2.imageName = "img_page_2";
+    item2.bgColor = UIColor(hexString: "#998CD9FF");
+    
+    sliderPagesContent.append(item2);
+    
+    var item3 = CRXOnBoardingContent();
+    item3.titleText = "On Boarding Title 3";
+    item3.descriptionText = "Shankle porchetta bacon, fatback bresaola kevin cow. Leberkas swine brisket venison, drumstick rump picanha capicola ball tip. Spare ribs pork chop ribeye cow.";
+    item3.imageName = "img_page_3";
+    item3.bgColor = UIColor(hexString: "#8B81FFFF");
+    
+    sliderPagesContent.append(item3);
+    
+    var item4 = CRXOnBoardingContent();
+    item4.titleText = "On Boarding Title 4";
+    item4.descriptionText = "Beef ribs bresaola meatloaf, shankle swine biltong ribeye cupim tongue pig tri-tip ground round. Turducken turkey ball tip tongue jowl strip steak sausage pork drumstick shank doner.";
+    item4.imageName = "img_page_4";
+    item4.bgColor = UIColor(hexString: "#8BAAFAFF");
+    
+    sliderPagesContent.append(item4);
+    
+    var item5 = CRXOnBoardingContent();
+    item5.titleText = "On Boarding Title 5";
+    item5.descriptionText = "Tongue shankle prosciutto tenderloin, bresaola tri-tip ground round sausage pig shoulder pork andouille.";
+    item5.imageName = "img_page_5";
+    item5.bgColor = UIColor(hexString: "#FE8AB3FF");
+    
+    sliderPagesContent.append(item5);
+    
+    let response = CRXOnBoardingResponse(sliderContent: sliderPagesContent);
+    output.presentOnboardingSlider(response);
+  }
+  
+  func triggeOnboardingFinish(){
+//    self.lazyInitializeBIProcess();
+//    
+//    worker.finishWelcomeWizard(userBIProcess);
   }
 }

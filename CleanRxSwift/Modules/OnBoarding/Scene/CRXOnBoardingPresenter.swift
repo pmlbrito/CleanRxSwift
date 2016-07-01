@@ -13,7 +13,7 @@ import UIKit
 
 protocol CRXOnBoardingPresenterInput
 {
-  func presentSomething(response: CRXOnBoardingResponse)
+  func presentOnboardingSlider(response: CRXOnBoardingResponse)
 }
 
 protocol CRXOnBoardingPresenterOutput: class
@@ -27,7 +27,7 @@ class CRXOnBoardingPresenter: CRXOnBoardingPresenterInput
   
   // MARK: Presentation logic
   
-  func presentSomething(response: CRXOnBoardingResponse)
+  func presentOnboardingSlider(response: CRXOnBoardingResponse)
   {
     // NOTE: Format the response from the Interactor and pass the result back to the View Controller
     
