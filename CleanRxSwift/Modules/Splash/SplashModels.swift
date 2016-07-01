@@ -24,4 +24,6 @@ struct SplashResponse
 
 struct SplashViewModel
 {
+  var destination: SplashDestination?
+  var transitionType: ViewControllerPresentationType?
 }

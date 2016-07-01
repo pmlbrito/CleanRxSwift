@@ -14,14 +14,10 @@ import RxSwift
 
 protocol SplashInteractorInput
 {
-//  func checkUserOnBoardingState(request: SplashRequest)
-  
-//  func updateUserIsDone() -> Observable<Bool>
 }
 
 protocol SplashInteractorOutput
 {
-  func presentSomething(response: SplashResponse)
 }
 
 class SplashInteractor: SplashInteractorInput
@@ -31,11 +27,6 @@ class SplashInteractor: SplashInteractorInput
   var process: SplashProcess!;
   
   // MARK: Business logic
-  
-//  func checkUserOnBoardingState(request: SplashRequest){
-//    self.updateUserIsDone();
-//  }
-  
   
   func updateUserIsDone() -> Observable<Bool>
   {

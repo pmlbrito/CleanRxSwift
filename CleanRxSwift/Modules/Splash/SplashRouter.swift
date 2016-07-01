@@ -18,7 +18,6 @@ enum SplashDestination: String {
 
 protocol SplashRouterInput
 {
-  func navigateToNextScreen(destination: SplashDestination?, transitionType: ViewControllerPresentationType?)
 }
 
 class SplashRouter: SplashRouterInput

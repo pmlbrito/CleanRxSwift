@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import QuickShotUtils
 
 // MARK: Connect View, Interactor, and Presenter
 

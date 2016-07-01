@@ -15,12 +15,11 @@ import QuickShotUtils;
 
 protocol SplashPresenterInput
 {
-//  func presentSomething(response: SplashResponse)
 }
 
 protocol SplashPresenterOutput: class
 {
-  func displaySomething(viewModel: SplashViewModel)
+  func finishSplashPage(viewModel: SplashViewModel)
 }
 
 class SplashPresenter: SplashPresenterInput
@@ -45,10 +44,7 @@ class SplashPresenter: SplashPresenterInput
   func presentSomething(response: SplashResponse)
   {
     // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-    
-    let viewModel = SplashViewModel()
-    output.displaySomething(viewModel)
-    self.output.displaySomething(viewModel);
+    output.finishSplashPage(SplashViewModel(destination: response.destination, transitionType: response.transitionType));
   }
 
 

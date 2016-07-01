@@ -15,7 +15,7 @@ import SnapKit
 
 protocol SplashViewControllerInput
 {
-  func displaySomething(viewModel: SplashViewModel)
+  func finishSplashPage(viewModel: SplashViewModel)
 }
 
 protocol SplashViewControllerOutput
@@ -41,7 +41,9 @@ class SplashViewController: CRXBaseViewController, SplashViewControllerInput
 
   
   // MARK: View lifecycle
+  lazy var splash_title = CRXViewFactory.boldLabelWithTextAndSize("Clean RxSwift", textColor: UIColor(hexString:"#344146FF")!, fontSize: CGFloat(24))
   lazy var box = UIView()
+  lazy var imageView = UIImageView()
   
   
   override func viewDidLoad()
@@ -55,12 +57,24 @@ class SplashViewController: CRXBaseViewController, SplashViewControllerInput
   func buildViewLayout()
   {
     // NOTE: Ask the Interactor to do some work
+    self.view.addSubview(self.splash_title);
+    splash_title.snp_makeConstraints { make in
+      make.left.equalTo(self.view).offset(20)
+      make.right.equalTo(self.view).offset(-20)
+      make.top.equalTo(self.view).offset(70)
+    }
     
-    box.backgroundColor = UIColor.randomColor();
     self.view.addSubview(box)
     box.snp_makeConstraints { make in
-      make.width.height.equalTo(50)
+      make.width.equalTo(self.view.width - 50)
+      make.height.equalTo(self.view.height / 3)
       make.center.equalTo(self.view)
+    }
+    
+    imageView.image = UIImage(named: "marvel_logo");
+    box.addSubview(imageView);
+    imageView.snp_makeConstraints { make in
+      make.edges.equalTo(box).inset(UIEdgeInsetsZero);
     }
 
     self.showProgressIndicator();
@@ -68,10 +82,9 @@ class SplashViewController: CRXBaseViewController, SplashViewControllerInput
   
   // MARK: Display logic
   
-  func displaySomething(viewModel: SplashViewModel)
+  func finishSplashPage(viewModel: SplashViewModel)
   {
-    // NOTE: Display the result from the Presenter
-    
-    // nameTextField.text = viewModel.name
+    self.hideProgressIndicator();
+    self.router.navigateToNextScreen(viewModel.destination, transitionType: viewModel.transitionType);
   }
 }
