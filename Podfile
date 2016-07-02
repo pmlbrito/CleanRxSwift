@@ -12,6 +12,7 @@ def cleanrxswift_pods
     pod 'Kingfisher'
     pod "AsyncSwift"
     pod 'SwiftEventBus', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
+    pod 'Swinject', '~> 1.1.0'
 end
 
 target 'CleanRxSwift' do

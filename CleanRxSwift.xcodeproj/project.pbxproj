@@ -15,11 +15,9 @@
 		423607301D1AD63E00808990 /* CRXBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236072F1D1AD63E00808990 /* CRXBaseViewController.swift */; };
 		423607351D1ADC8000808990 /* CRXViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607341D1ADC8000808990 /* CRXViewProtocol.swift */; };
 		423607371D1ADCA300808990 /* CRXPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607361D1ADCA300808990 /* CRXPresenterProtocol.swift */; };
-		4236073F1D1ADD4800808990 /* CRXSplashConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607381D1ADD4800808990 /* CRXSplashConfigurator.swift */; };
 		423607401D1ADD4800808990 /* CRXSplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607391D1ADD4800808990 /* CRXSplashInteractor.swift */; };
 		423607411D1ADD4800808990 /* CRXSplashModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073A1D1ADD4800808990 /* CRXSplashModels.swift */; };
 		423607421D1ADD4800808990 /* CRXSplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073B1D1ADD4800808990 /* CRXSplashPresenter.swift */; };
-		423607431D1ADD4800808990 /* CRXSplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073C1D1ADD4800808990 /* CRXSplashRouter.swift */; };
 		423607441D1ADD4800808990 /* CRXSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236073D1D1ADD4800808990 /* CRXSplashViewController.swift */; };
 		4236074A1D1AEDB800808990 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 423607491D1AEDB800808990 /* Localizable.strings */; };
 		4236074D1D1AF8A100808990 /* CRXSplashProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236074C1D1AF8A100808990 /* CRXSplashProcess.swift */; };
@@ -35,6 +33,8 @@
 		428D31541D26DA31007C9BCC /* CRXOnBoardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D314D1D26DA31007C9BCC /* CRXOnBoardingRouter.swift */; };
 		428D31551D26DA31007C9BCC /* CRXOnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D314E1D26DA31007C9BCC /* CRXOnBoardingViewController.swift */; };
 		428D31561D26DA31007C9BCC /* CRXOnBoardingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D314F1D26DA31007C9BCC /* CRXOnBoardingWorker.swift */; };
+		428D31D31D282073007C9BCC /* CRXSplashSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D31D21D282073007C9BCC /* CRXSplashSetup.swift */; };
+		428D31D51D28254E007C9BCC /* CRXSplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D31D41D28254E007C9BCC /* CRXSplashRouter.swift */; };
 		977643AD018C6B4F4A38BB68 /* Pods_CleanRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3336F22AAC33D4FC630C814 /* Pods_CleanRxSwift.framework */; };
 		F658687932D4EF37043DFC9D /* Pods_CleanRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F17E2F00840A00ACAA2FD44 /* Pods_CleanRxSwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -63,11 +63,9 @@
 		4236072F1D1AD63E00808990 /* CRXBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXBaseViewController.swift; sourceTree = "<group>"; };
 		423607341D1ADC8000808990 /* CRXViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXViewProtocol.swift; sourceTree = "<group>"; };
 		423607361D1ADCA300808990 /* CRXPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXPresenterProtocol.swift; sourceTree = "<group>"; };
-		423607381D1ADD4800808990 /* CRXSplashConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashConfigurator.swift; sourceTree = "<group>"; };
 		423607391D1ADD4800808990 /* CRXSplashInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashInteractor.swift; sourceTree = "<group>"; };
 		4236073A1D1ADD4800808990 /* CRXSplashModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashModels.swift; sourceTree = "<group>"; };
 		4236073B1D1ADD4800808990 /* CRXSplashPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashPresenter.swift; sourceTree = "<group>"; };
-		4236073C1D1ADD4800808990 /* CRXSplashRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashRouter.swift; sourceTree = "<group>"; };
 		4236073D1D1ADD4800808990 /* CRXSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashViewController.swift; sourceTree = "<group>"; };
 		423607491D1AEDB800808990 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		4236074C1D1AF8A100808990 /* CRXSplashProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashProcess.swift; sourceTree = "<group>"; };
@@ -83,6 +81,8 @@
 		428D314D1D26DA31007C9BCC /* CRXOnBoardingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingRouter.swift; sourceTree = "<group>"; };
 		428D314E1D26DA31007C9BCC /* CRXOnBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingViewController.swift; sourceTree = "<group>"; };
 		428D314F1D26DA31007C9BCC /* CRXOnBoardingWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXOnBoardingWorker.swift; sourceTree = "<group>"; };
+		428D31D21D282073007C9BCC /* CRXSplashSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashSetup.swift; sourceTree = "<group>"; };
+		428D31D41D28254E007C9BCC /* CRXSplashRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashRouter.swift; sourceTree = "<group>"; };
 		522B61BFDBB7B6D08D7C5A25 /* Pods-CleanRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanRxSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanRxSwift/Pods-CleanRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		C3336F22AAC33D4FC630C814 /* Pods_CleanRxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanRxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10C0EF88C5E6B28C9339E4A /* Pods-CleanRxSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanRxSwiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanRxSwiftTests/Pods-CleanRxSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +133,7 @@
 		423606F11D1ACA6800808990 /* CleanRxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				428D31D11D282050007C9BCC /* Injection */,
 				428D31391D26BA44007C9BCC /* Utils */,
 				428D31331D256DCE007C9BCC /* Extensions */,
 				423607481D1AED8B00808990 /* Resources */,
@@ -186,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				423607321D1ADC2900808990 /* Scene */,
-				423607311D1ADC0A00808990 /* Protocols */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -218,22 +218,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		423607311D1ADC0A00808990 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Protocols;
-			sourceTree = "<group>";
-		};
 		423607321D1ADC2900808990 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				423607381D1ADD4800808990 /* CRXSplashConfigurator.swift */,
 				423607391D1ADD4800808990 /* CRXSplashInteractor.swift */,
 				4236073A1D1ADD4800808990 /* CRXSplashModels.swift */,
 				4236073B1D1ADD4800808990 /* CRXSplashPresenter.swift */,
-				4236073C1D1ADD4800808990 /* CRXSplashRouter.swift */,
 				4236073D1D1ADD4800808990 /* CRXSplashViewController.swift */,
+				428D31D41D28254E007C9BCC /* CRXSplashRouter.swift */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -318,6 +310,14 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		428D31D11D282050007C9BCC /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				428D31D21D282073007C9BCC /* CRXSplashSetup.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
 		4CCC57FE693A4E2EE76A453B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,12 +345,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4236070C1D1ACA6800808990 /* Build configuration list for PBXNativeTarget "CleanRxSwift" */;
 			buildPhases = (
-				833DAB049EDCE6C20923AF93 /* 📦 Check Pods Manifest.lock */,
+				833DAB049EDCE6C20923AF93 /* [CP] Check Pods Manifest.lock */,
 				423606EB1D1ACA6800808990 /* Sources */,
 				423606EC1D1ACA6800808990 /* Frameworks */,
 				423606ED1D1ACA6800808990 /* Resources */,
-				9469D78FE14AC229865FB3A3 /* 📦 Embed Pods Frameworks */,
-				91E62821815E2FBC46B0C798 /* 📦 Copy Pods Resources */,
+				9469D78FE14AC229865FB3A3 /* [CP] Embed Pods Frameworks */,
+				91E62821815E2FBC46B0C798 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -365,12 +365,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4236070F1D1ACA6800808990 /* Build configuration list for PBXNativeTarget "CleanRxSwiftTests" */;
 			buildPhases = (
-				3AD2845731F0D1F37DAE0050 /* 📦 Check Pods Manifest.lock */,
+				3AD2845731F0D1F37DAE0050 /* [CP] Check Pods Manifest.lock */,
 				423606FF1D1ACA6800808990 /* Sources */,
 				423607001D1ACA6800808990 /* Frameworks */,
 				423607011D1ACA6800808990 /* Resources */,
-				4D5EDB3EDEAA19FA9A0F4961 /* 📦 Embed Pods Frameworks */,
-				C1F464E440B8E60DBD2DF319 /* 📦 Copy Pods Resources */,
+				4D5EDB3EDEAA19FA9A0F4961 /* [CP] Embed Pods Frameworks */,
+				C1F464E440B8E60DBD2DF319 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -442,14 +442,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3AD2845731F0D1F37DAE0050 /* 📦 Check Pods Manifest.lock */ = {
+		3AD2845731F0D1F37DAE0050 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,14 +457,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		4D5EDB3EDEAA19FA9A0F4961 /* 📦 Embed Pods Frameworks */ = {
+		4D5EDB3EDEAA19FA9A0F4961 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,14 +472,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanRxSwiftTests/Pods-CleanRxSwiftTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		833DAB049EDCE6C20923AF93 /* 📦 Check Pods Manifest.lock */ = {
+		833DAB049EDCE6C20923AF93 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,14 +487,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		91E62821815E2FBC46B0C798 /* 📦 Copy Pods Resources */ = {
+		91E62821815E2FBC46B0C798 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,14 +502,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanRxSwift/Pods-CleanRxSwift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9469D78FE14AC229865FB3A3 /* 📦 Embed Pods Frameworks */ = {
+		9469D78FE14AC229865FB3A3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,14 +517,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanRxSwift/Pods-CleanRxSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C1F464E440B8E60DBD2DF319 /* 📦 Copy Pods Resources */ = {
+		C1F464E440B8E60DBD2DF319 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,23 +541,23 @@
 			files = (
 				423607401D1ADD4800808990 /* CRXSplashInteractor.swift in Sources */,
 				428D31541D26DA31007C9BCC /* CRXOnBoardingRouter.swift in Sources */,
-				4236073F1D1ADD4800808990 /* CRXSplashConfigurator.swift in Sources */,
 				428D31381D26896C007C9BCC /* CRXViewFactory.swift in Sources */,
 				428D31521D26DA31007C9BCC /* CRXOnBoardingModels.swift in Sources */,
 				428D31551D26DA31007C9BCC /* CRXOnBoardingViewController.swift in Sources */,
 				423607301D1AD63E00808990 /* CRXBaseViewController.swift in Sources */,
 				423607411D1ADD4800808990 /* CRXSplashModels.swift in Sources */,
 				428D31511D26DA31007C9BCC /* CRXOnBoardingInteractor.swift in Sources */,
-				423607431D1ADD4800808990 /* CRXSplashRouter.swift in Sources */,
 				423607351D1ADC8000808990 /* CRXViewProtocol.swift in Sources */,
 				428D31561D26DA31007C9BCC /* CRXOnBoardingWorker.swift in Sources */,
 				428D313B1D26BA73007C9BCC /* CRXAppUtils.swift in Sources */,
 				423607371D1ADCA300808990 /* CRXPresenterProtocol.swift in Sources */,
 				423606F31D1ACA6800808990 /* AppDelegate.swift in Sources */,
 				428D31351D256E02007C9BCC /* CRXUserDefaults.swift in Sources */,
+				428D31D31D282073007C9BCC /* CRXSplashSetup.swift in Sources */,
 				423607421D1ADD4800808990 /* CRXSplashPresenter.swift in Sources */,
 				428D31441D26D06E007C9BCC /* CRXOnBoardingPageBaseViewController.swift in Sources */,
 				428D31501D26DA31007C9BCC /* CRXOnBoardingConfigurator.swift in Sources */,
+				428D31D51D28254E007C9BCC /* CRXSplashRouter.swift in Sources */,
 				4236074D1D1AF8A100808990 /* CRXSplashProcess.swift in Sources */,
 				423607441D1ADD4800808990 /* CRXSplashViewController.swift in Sources */,
 				428D31461D26D291007C9BCC /* CRXOnBoardingPagerViewController.swift in Sources */,

@@ -15,6 +15,7 @@ import QuickShotUtils;
 
 protocol CRXSplashPresenterInput
 {
+  func bindView(view: CRXSplashViewController)
 }
 
 protocol CRXSplashPresenterOutput: class
@@ -24,16 +25,16 @@ protocol CRXSplashPresenterOutput: class
 
 class CRXSplashPresenter: CRXSplashPresenterInput
 {
-  weak var output: CRXSplashPresenterOutput!
+  var _view: CRXSplashViewController!
  
-  weak var interactor: CRXSplashInteractor!;
+  weak var _interactor: CRXSplashInteractor!;
   
   var disposeBag = DisposeBag()
   var subscription: Disposable!
   
   init(interactor: CRXSplashInteractor){
-    self.interactor = interactor
-    subscription = self.interactor.updateUserIsDone().observeOn(MainScheduler.instance).subscribeNext({ (result) in
+    self._interactor = interactor
+    subscription = self._interactor.updateUserIsDone().observeOn(MainScheduler.instance).subscribeNext({ (result) in
       self.processOnBoardingState(result);
     })
     disposeBag.addDisposable(subscription);
@@ -44,9 +45,13 @@ class CRXSplashPresenter: CRXSplashPresenterInput
   func presentSomething(response: CRXSplashResponse)
   {
     // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-    output.finishSplashPage(CRXSplashViewModel(destination: response.destination, transitionType: response.transitionType));
+    _view.finishSplashPage(CRXSplashViewModel(destination: response.destination, transitionType: response.transitionType));
   }
 
+  
+  func bindView(view: CRXSplashViewController){
+    self._view = view;
+  }
 
   func processOnBoardingState(isDone: Bool){
     var response = CRXSplashResponse();

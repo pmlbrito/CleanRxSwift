@@ -16,10 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    self.initModules();
     
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
     if let window = window {
-      window.rootViewController = CRXSplashViewController()
+      window.rootViewController = CRXSplashSetup.container.resolve(CRXSplashViewController.self);
       window.makeKeyAndVisible()
     }
 
@@ -54,5 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
 
+  func initModules(){
+    CRXSplashSetup.setup();
+  }
 }
 

@@ -7,7 +7,9 @@ PODS:
     - RxSwift (~> 2.5)
   - RxSwift (2.5.0)
   - SnapKit (0.21.1)
+  - SwiftEventBus (1.1.0)
   - SwiftyUserDefaults (2.2.0)
+  - Swinject (1.1.2)
 
 DEPENDENCIES:
   - AsyncSwift
@@ -17,16 +19,23 @@ DEPENDENCIES:
   - RxCocoa (~> 2.0)
   - RxSwift (~> 2.0)
   - SnapKit
+  - SwiftEventBus (from `https://github.com/cesarferreira/SwiftEventBus.git`)
   - SwiftyUserDefaults
+  - Swinject (~> 1.1.0)
 
 EXTERNAL SOURCES:
   QuickShotUtils:
     :git: https://github.com/pmlbrito/QuickShotUtils.git
+  SwiftEventBus:
+    :git: https://github.com/cesarferreira/SwiftEventBus.git
 
 CHECKOUT OPTIONS:
   QuickShotUtils:
     :commit: 235a30d957ad20d8d2ca46e77d671eb9ef1742ae
     :git: https://github.com/pmlbrito/QuickShotUtils.git
+  SwiftEventBus:
+    :commit: 4b8cbb5a8227b3c29af75e0416689d26178733d8
+    :git: https://github.com/cesarferreira/SwiftEventBus.git
 
 SPEC CHECKSUMS:
   AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
@@ -36,8 +45,10 @@ SPEC CHECKSUMS:
   RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
   SnapKit: bbad04cb016c7cead63965f16b00c09318d271ee
+  SwiftEventBus: d334f7aecbddbd995c3de5c262cf35c72db550f3
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
+  Swinject: 3debc5ac926dcd1be00947265a9db7a5f31b272a
 
-PODFILE CHECKSUM: bc31223023ca90dab799280712f55e502e3c9b9e
+PODFILE CHECKSUM: d5cbc4c3e9544242ebaefd98e03725b7ccce840b
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

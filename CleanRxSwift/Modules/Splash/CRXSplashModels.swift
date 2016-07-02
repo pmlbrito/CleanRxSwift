@@ -12,6 +12,10 @@
 import UIKit
 import QuickShotUtils
 
+enum CRXSplashDestination: String {
+  case OnBoarding, Login, SignIn, InApp
+}
+
 struct CRXSplashRequest
 {
 }

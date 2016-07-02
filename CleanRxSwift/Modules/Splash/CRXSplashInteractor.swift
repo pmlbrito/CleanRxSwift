@@ -14,32 +14,25 @@ import RxSwift
 
 protocol CRXSplashInteractorInput
 {
+  func updateUserIsDone() -> Observable<Bool>;
 }
 
-protocol CRXSplashInteractorOutput
-{
-}
 
 class CRXSplashInteractor: CRXSplashInteractorInput
 {
-  var output: CRXSplashInteractorOutput!
+ 
+  var _process: CRXSplashProcess!;
   
-  var process: CRXSplashProcess!;
+  init(process: CRXSplashProcess) {
+    self._process = process;
+  }
   
   // MARK: Business logic
   
   func updateUserIsDone() -> Observable<Bool>
   {
-    self.lazyInitializeBIProcess();
-    
-    return process.checkIfOnboardingIsDone().delaySubscription(RxTimeInterval(5), scheduler: ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background)).observeOn(MainScheduler.instance).doOnError { error in
+    return self._process.checkIfOnboardingIsDone().delaySubscription(RxTimeInterval(5), scheduler: ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background)).observeOn(MainScheduler.instance).doOnError { error in
       print("ERROR: \(error)");
-    }
-  }
-  
-  func lazyInitializeBIProcess(){
-    if(self.process == nil){
-      self.process = CRXSplashProcess();
     }
   }
 }

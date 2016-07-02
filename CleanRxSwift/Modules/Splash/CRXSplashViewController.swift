@@ -18,27 +18,17 @@ protocol CRXSplashViewControllerInput
   func finishSplashPage(viewModel: CRXSplashViewModel)
 }
 
-protocol CRXSplashViewControllerOutput
-{
-//  func checkUserOnBoardingState(request: SplashRequest)
-}
 
 class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInput
 {
-  var output: CRXSplashViewControllerOutput!
-  var router: CRXSplashRouter!
+  var presenter: CRXSplashPresenterInput!
+  var router: CRXSplashRouterProtocol!
   
   // MARK: Object lifecycle
   
   override init() {
     super.init()
-    CRXSplashConfigurator.sharedInstance.configure(self);
   }
-  
-  required convenience init(coder: NSCoder) {
-    self.init(coder: coder);
-  }
-
   
   // MARK: View lifecycle
   lazy var splash_title = CRXViewFactory.boldLabelWithTextAndSize("Clean RxSwift", textColor: UIColor(hexString:"#344146FF")!, fontSize: CGFloat(24))
@@ -49,6 +39,7 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    self.bindView();
     buildViewLayout()
   }
   
@@ -86,5 +77,10 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
   {
     self.hideProgressIndicator();
     self.router.navigateToNextScreen(viewModel.destination, transitionType: viewModel.transitionType);
+  }
+  
+  //MARK: Helpers
+  func bindView() {
+    self.presenter?.bindView(self);
   }
 }
