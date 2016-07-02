@@ -24,7 +24,7 @@ struct CRXPagerConfig {
   }
 }
 
-class RFPagerViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate {
+class CRXPagerViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate {
   var sliderConfig: CRXPagerConfig? {
     didSet {
       _currentSlide = sliderConfig!.defaultSlide
