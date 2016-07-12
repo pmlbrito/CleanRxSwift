@@ -13,7 +13,7 @@ import UIKit
 import QuickShotUtils
 import SnapKit
 
-protocol CRXSplashViewControllerInput
+protocol CRXSplashViewControllerInput: CRXViewProtocol
 {
   func finishSplashPage(viewModel: CRXSplashViewModel)
 }

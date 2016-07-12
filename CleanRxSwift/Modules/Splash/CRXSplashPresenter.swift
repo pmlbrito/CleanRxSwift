@@ -13,9 +13,9 @@ import UIKit
 import RxSwift
 import QuickShotUtils;
 
-protocol CRXSplashPresenterInput
+protocol CRXSplashPresenterInput: CRXPresenterProtocol
 {
-  func bindView(view: CRXSplashViewController)
+//  func bindView(view: CRXSplashViewController)
 }
 
 protocol CRXSplashPresenterOutput: class
@@ -42,15 +42,15 @@ class CRXSplashPresenter: CRXSplashPresenterInput
 
   
   // MARK: Presentation logic
-  func presentSomething(response: CRXSplashResponse)
+  func presentNextScreen(response: CRXSplashResponse)
   {
     // NOTE: Format the response from the Interactor and pass the result back to the View Controller
     _view.finishSplashPage(CRXSplashViewModel(destination: response.destination, transitionType: response.transitionType));
   }
 
   
-  func bindView(view: CRXSplashViewController){
-    self._view = view;
+  func bindView(view: CRXViewProtocol){
+    self._view = view as! CRXSplashViewController;
   }
 
   func processOnBoardingState(isDone: Bool){
@@ -58,6 +58,6 @@ class CRXSplashPresenter: CRXSplashPresenterInput
     response.destination = isDone == true ? CRXSplashDestination.InApp : CRXSplashDestination.OnBoarding;
     response.transitionType = ViewControllerPresentationType.ReplaceAtRoot;
     
-    self.presentSomething(response);
+    self.presentNextScreen(response);
   }
 }
