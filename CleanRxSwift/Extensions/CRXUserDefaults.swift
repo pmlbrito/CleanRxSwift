@@ -19,12 +19,13 @@ extension DefaultsKeys {
 }
 
 
-class CRXUserDefaults {
+class CRXUserDefaultsService {
   static func isUserOnboardingDone() -> Bool {
     return Defaults[.onboarding_user_done];
   }
-
-  static func setUserOnboardingDone(isDone: Bool) {
+  
+  static func setUserOnboardingDone(isDone: Bool) -> Bool {
     Defaults[.onboarding_user_done] = isDone;
+    return true;
   }
 }

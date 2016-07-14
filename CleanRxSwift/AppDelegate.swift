@@ -57,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func initModules(){
     CRXSplashSetup.setup();
+    CRXOnBoardingSetup.setup();
   }
 }
 

@@ -19,5 +19,10 @@ class CRXOnBoardingRouter: CRXOnBoardingRouterInput
 {
   weak var viewController: CRXOnBoardingViewController!
   
+  init(viewController: CRXOnBoardingViewController!) {
+    self.viewController = viewController;
+  }
+
+  
   // MARK: Navigation
 }

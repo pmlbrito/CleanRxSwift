@@ -13,28 +13,22 @@ import UIKit
 import RxSwift
 import QuickShotUtils;
 
-protocol CRXSplashPresenterInput: CRXPresenterProtocol
+protocol CRXSplashPresenterProtocol: CRXPresenterProtocol
 {
-//  func bindView(view: CRXSplashViewController)
 }
 
-protocol CRXSplashPresenterOutput: class
+class CRXSplashPresenter: CRXSplashPresenterProtocol
 {
-  func finishSplashPage(viewModel: CRXSplashViewModel)
-}
-
-class CRXSplashPresenter: CRXSplashPresenterInput
-{
-  var _view: CRXSplashViewController!
+  var view: CRXSplashViewController!
  
-  weak var _interactor: CRXSplashInteractor!;
+  weak var interactor: CRXSplashInteractor!;
   
   var disposeBag = DisposeBag()
   var subscription: Disposable!
   
   init(interactor: CRXSplashInteractor){
-    self._interactor = interactor
-    subscription = self._interactor.updateUserIsDone().observeOn(MainScheduler.instance).subscribeNext({ (result) in
+    self.interactor = interactor
+    subscription = self.interactor.updateUserIsDone().observeOn(MainScheduler.instance).subscribeNext({ (result) in
       self.processOnBoardingState(result);
     })
     disposeBag.addDisposable(subscription);
@@ -45,12 +39,12 @@ class CRXSplashPresenter: CRXSplashPresenterInput
   func presentNextScreen(response: CRXSplashResponse)
   {
     // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-    _view.finishSplashPage(CRXSplashViewModel(destination: response.destination, transitionType: response.transitionType));
+    self.view.finishSplashPage(CRXSplashViewModel(destination: response.destination, transitionType: response.transitionType));
   }
 
   
   func bindView(view: CRXViewProtocol){
-    self._view = view as! CRXSplashViewController;
+    self.view = view as! CRXSplashViewController;
   }
 
   func processOnBoardingState(isDone: Bool){

@@ -21,7 +21,7 @@ protocol CRXSplashViewControllerInput: CRXViewProtocol
 
 class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInput
 {
-  var presenter: CRXSplashPresenterInput!
+  var presenter: CRXSplashPresenterProtocol!
   var router: CRXSplashRouterProtocol!
   
   // MARK: Object lifecycle

@@ -9,7 +9,7 @@
 import UIKit
 //import SwiftEventBus
 
-public enum RFOnboardingEvents: String {
+public enum CRXOnboardingEvents: String {
   case FINISH = "finish_button_click"
 }
 
@@ -58,6 +58,23 @@ class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
   func displayPageContent(){
     
     self.view.backgroundColor = self.pageContent.bgColor != nil ? self.pageContent.bgColor! : UIColor.whiteColor();
+    
+    self.headingContainer.backgroundColor = UIColor.randomColor();
+    self.view.addSubview(self.headingContainer);
+    
+    self.headingContainer.snp_makeConstraints { make in
+      make.width.equalTo(self.view.width - 50)
+      make.height.equalTo(40)
+      make.center.equalTo(self.view)
+    }
+    
+    self.headingContainer.addSubview(self.headingLabel)
+    self.headingLabel.text = pageContent.titleText;
+    self.headingLabel.snp_makeConstraints { make in
+      make.width.equalTo(self.headingContainer.width - 20)
+      //      make.height.equalTo(40)
+      make.center.equalTo(self.headingContainer)
+    }
     
 //    self.headingContainer = UIView.newAutoLayoutView();
 //    //    self.headingContainer.backgroundColor = UIColor.randomColor();

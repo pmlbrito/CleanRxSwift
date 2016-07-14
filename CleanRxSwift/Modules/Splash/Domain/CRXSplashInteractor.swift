@@ -12,13 +12,13 @@
 import UIKit
 import RxSwift
 
-protocol CRXSplashInteractorInput
+protocol CRXSplashInteractorProtocol
 {
   func updateUserIsDone() -> Observable<Bool>;
 }
 
 
-class CRXSplashInteractor: CRXSplashInteractorInput
+class CRXSplashInteractor: CRXSplashInteractorProtocol
 {
  
   var _process: CRXSplashProcess!;

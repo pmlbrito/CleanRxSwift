@@ -9,43 +9,32 @@
 //  clean architecture to your iOS and Mac projects, see http://clean-swift.com
 //
 
-import UIKit
+import Foundation
+import RxSwift
 
-protocol CRXOnBoardingInteractorInput
+protocol CRXOnBoardingInteractorProtocol
 {
 //  func doSomething(request: CRXOnBoardingRequest)
   
-  func initializeOnboarding();
+  func getSlides() -> Observable<[CRXOnBoardingContent]>
   
   func triggeOnboardingFinish();
+  
+  func updateUserIsDone(isDone: Bool) -> Observable<Bool>;
 }
 
-protocol CRXOnBoardingInteractorOutput
-{
-  func presentOnboardingSlider(response: CRXOnBoardingResponse)
-}
 
-class CRXOnBoardingInteractor: CRXOnBoardingInteractorInput
+class CRXOnBoardingInteractor: CRXOnBoardingInteractorProtocol
 {
-  var output: CRXOnBoardingInteractorOutput!
-  var worker: CRXOnBoardingWorker!
+  var process: CRXOnBoardingProcess!;
+  
+  init(process: CRXOnBoardingProcess) {
+    self.process = process;
+  }
   
   // MARK: Business logic
   
-  func doSomething(request: CRXOnBoardingRequest)
-  {
-    // NOTE: Create some Worker to do the work
-    
-    worker = CRXOnBoardingWorker()
-    worker.doSomeWork()
-    
-    // NOTE: Pass the result to the Presenter
-    
-//    let response = CRXOnBoardingResponse()
-//    output.presentSomething(response)
-  }
-  
-  func initializeOnboarding(){
+  func getSlides() -> Observable<[CRXOnBoardingContent]> {
     var sliderPagesContent = [CRXOnBoardingContent]();
     
     var item1 = CRXOnBoardingContent();
@@ -89,13 +78,20 @@ class CRXOnBoardingInteractor: CRXOnBoardingInteractorInput
     
     sliderPagesContent.append(item5);
     
-    let response = CRXOnBoardingResponse(sliderContent: sliderPagesContent);
-    output.presentOnboardingSlider(response);
+    return Observable.just(sliderPagesContent);
   }
   
   func triggeOnboardingFinish(){
 //    self.lazyInitializeBIProcess();
 //    
 //    worker.finishWelcomeWizard(userBIProcess);
+  }
+  
+  func updateUserIsDone(isDone: Bool) -> Observable<Bool>
+  {
+    //apply delay before responding
+    return process.updateUserOnboardingIsDone(isDone).subscribeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background)).observeOn(MainScheduler.instance).doOnError { error in
+      print("ERROR: \(error)");
+    }
   }
 }

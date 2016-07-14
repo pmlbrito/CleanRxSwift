@@ -9,6 +9,7 @@
 
 import UIKit
 import QuickShotUtils
+import RxSwift
 
 protocol CRXSplashRouterProtocol
 {
@@ -17,10 +18,10 @@ protocol CRXSplashRouterProtocol
 
 class CRXSplashRouter: CRXSplashRouterProtocol
 {
-  var _viewController: CRXSplashViewController!
+  var viewController: CRXSplashViewController!
   
   init(viewController: CRXSplashViewController!) {
-    self._viewController = viewController;
+    self.viewController = viewController;
   }
   
   // MARK: Navigation
@@ -31,7 +32,7 @@ class CRXSplashRouter: CRXSplashRouterProtocol
     if let dest = destination {
       switch(dest){
       case .OnBoarding:
-        destinationViewController = CRXOnBoardingViewController();
+        destinationViewController = CRXOnBoardingSetup.container.resolve(CRXOnBoardingViewController.self);
         break;
       case .Login:
         //        destinationViewController = RFLoginViewController()
@@ -45,6 +46,6 @@ class CRXSplashRouter: CRXSplashRouterProtocol
       }
     }
     
-    _viewController.transtitionToNextViewController(_viewController, destinationViewController: destinationViewController, transitionType: transitionType);
+    viewController.transtitionToNextViewController(viewController, destinationViewController: destinationViewController, transitionType: transitionType);
   }
 }
