@@ -62,7 +62,7 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
       make.center.equalTo(self.view)
     }
     
-    imageView.image = UIImage(named: "marvel_logo");
+    imageView.image = UIImage(named: "splash_logo");
     box.addSubview(imageView);
     imageView.snp_makeConstraints { make in
       make.edges.equalTo(box).inset(UIEdgeInsetsZero);
