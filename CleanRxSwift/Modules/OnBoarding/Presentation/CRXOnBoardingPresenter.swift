@@ -47,13 +47,17 @@ class CRXOnBoardingPresenter: CRXOnBoardingPresenterProtocol
   
   func userIsDoneWithOnBoarding() {
     userIsDoneSubscription = self.interactor.updateUserIsDone(true).observeOn(MainScheduler.instance).subscribeNext({ success in
-      self.view.userIsDone();
+      var onBoardingResultModel = CRXOnBoardingViewModel();
+      onBoardingResultModel.destination = CRXOnBoardingDestination.InApp;
+      onBoardingResultModel.transitionType = ViewControllerPresentationType.ReplaceAtRoot
+  
+      self.view.userFinishedOnBoarding(onBoardingResultModel);
     })
     disposeBag.addDisposable(contentLoadSubscription);
   }
   
   func processOnBoardingPagesContent(content: [CRXOnBoardingContent]){
-    //TODO: create page content controllers from
+    //create page content controllers from content
     var sliderPages = [CRXOnBoardingPageBaseViewController]();
     
     var itemIdx = Int(-1);
@@ -69,8 +73,8 @@ class CRXOnBoardingPresenter: CRXOnBoardingPresenterProtocol
     
     sliderPages.last!.isFinalStep = true;
     
-    //      let viewModel = OnBoardingViewModel(sliderItems: sliderPages, error: nil);
-    let viewModel = CRXOnBoardingViewModel(sliderItems: sliderPages);
+    var viewModel = CRXOnBoardingViewModel();
+    viewModel.sliderItems = sliderPages
     self.view.displayOnboardingPages(viewModel)
   }
 }

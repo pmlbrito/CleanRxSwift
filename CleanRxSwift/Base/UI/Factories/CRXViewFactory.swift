@@ -13,25 +13,25 @@ class CRXViewFactory {
 
   //MARK: UIButton
   
-//  func buttonWithTitle(buttonTitle: NSString, backgroundNormalImage: UIImage, backgroundHighlightedImage: UIImage?, backgroundSelectedImage: UIImage?, backgroundDisabledImage: UIImage?) -> UIButton {
-//    let button = UIButton(frame:CGRectMake(0.0, 0.0, backgroundNormalImage.size.width, backgroundNormalImage.size.height));
-//    
-//    button.setBackgroundImage(backgroundNormalImage, forState: UIControlState.Normal);
-//    button.setTitle(buttonTitle as String, forState: UIControlState.Normal);
-//    
-//    
-//    if (backgroundHighlightedImage != nil) {
-//      button.setBackgroundImage(backgroundHighlightedImage, forState: UIControlState.Highlighted);
-//    }
-//    if (backgroundSelectedImage != nil) {
-//      button.setBackgroundImage(backgroundSelectedImage, forState: UIControlState.Selected);
-//    }
-//    if (backgroundDisabledImage != nil) {
-//      button.setBackgroundImage(backgroundDisabledImage, forState: UIControlState.Disabled);
-//    }
-//    
-//    return button;
-//  }
+  static func circularButtonImage(buttonImage:UIImage, highlightedButtonImage:UIImage, buttonColor: UIColor, highlightedButtonColor: UIColor) -> UIButton {
+    let button = UIButton(frame:CGRectMake(0.0, 0.0, 56.0, 56.0));
+    
+    button.setBackgroundColor(buttonColor, forState: UIControlState.Normal);
+    button.setBackgroundColor(highlightedButtonColor, forState: UIControlState.Highlighted);
+    button.setBackgroundColor(highlightedButtonColor, forState: UIControlState.Selected);
+    
+    button.setImage(buttonImage, forState: UIControlState.Normal)
+    button.setImage(highlightedButtonImage, forState: UIControlState.Highlighted)
+    button.setImage(highlightedButtonImage, forState: UIControlState.Selected)
+    
+    button.layer.cornerRadius = 0.5 * button.bounds.size.width
+    button.layer.borderWidth = 1.0;
+    button.layer.borderColor = UIColor(hexString: "#E3E3E3FF")!.CGColor;
+    button.clipsToBounds = true
+    
+    return button;
+  }
+
 //  
 //  func buttonWithTitle(buttonTitle: NSString, normalImage: UIImage, highlightedImage: UIImage?, normalColor: UIColor, highlightedColor: UIColor) -> UIButton {
 //    let button = UIButton(frame:CGRectMake(0.0, 0.0, normalImage.size.width, normalImage.size.height));
@@ -228,6 +228,20 @@ class CRXViewFactory {
     label.numberOfLines = 1;
     label.lineBreakMode = .ByWordWrapping;
     label.font = UIFont.boldSystemFontOfSize(fontSize);
+    
+    label.sizeToFit()
+    
+    return label;
+  }
+  
+  static func textLabelWithTextAndSize(labelText: NSString, textColor: UIColor, fontSize: CGFloat) -> UILabel {
+    let label = UILabel();
+    label.text = labelText as String;
+    label.textColor = textColor;
+    label.textAlignment = NSTextAlignment.Center;
+    label.numberOfLines = 0;
+    label.lineBreakMode = .ByWordWrapping;
+    label.font = UIFont.systemFontOfSize(fontSize);
     
     label.sizeToFit()
     

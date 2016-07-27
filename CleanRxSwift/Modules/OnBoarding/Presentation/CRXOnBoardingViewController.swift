@@ -17,7 +17,7 @@ protocol CRXOnBoardingViewControllerProtocol: CRXViewProtocol
 {
   func displayOnboardingPages(viewModel: CRXOnBoardingViewModel)
   
-  func userIsDone();
+  func userFinishedOnBoarding(viewModel: CRXOnBoardingViewModel);
   
 }
 
@@ -44,8 +44,7 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
   
   // MARK: Event handling
   func endContentPresentationEvent(){
-    self.showProgressIndicator()
-    self.presenter!.userIsDoneWithOnBoarding();
+    self.onDonePressed();
   }
   
   // MARK: Display logic
@@ -111,12 +110,18 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
   //    }
   //  }
   
-  func userIsDone(){
-    //TODO something
-    
+  func userFinishedOnBoarding(viewModel: CRXOnBoardingViewModel){
+    self.hideProgressIndicator();
+    self.router.navigateToNextScreen(viewModel.destination, transitionType: viewModel.transitionType);
   }
   
-  //MARK: Helpers
+  
+  //MARK: Handlers
+  func onDonePressed(){
+    self.showProgressIndicator();
+    self.presenter?.userIsDoneWithOnBoarding();
+  }
+
   func bindView() {
     self.presenter?.bindView(self);
   }

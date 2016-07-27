@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import SwiftEventBus
+import SwiftEventBus
 
 public enum CRXOnboardingEvents: String {
   case FINISH = "finish_button_click"
@@ -24,12 +24,13 @@ struct CRXOnBoardingContent
 class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
   
   lazy var headingContainer = UIView();
-  lazy var headingLabel = UILabel();
+  lazy var headingLabel =  CRXViewFactory.boldLabelWithTextAndSize("", textColor: UIColor(hexString:"#000000FF")!, fontSize: CGFloat(24));
   lazy var descriptionContainer = UIView();
-  lazy var descriptionLabel = UILabel();
+  lazy var descriptionLabel = CRXViewFactory.textLabelWithTextAndSize("", textColor: UIColor(hexString:"#000000FF")!, fontSize: CGFloat(16));
   lazy var imageContainer = UIView();
-  lazy var contentImageView = UIInputView();
+  lazy var contentImageView = UIImageView();
   lazy var stepFinishButton = UIButton();
+
   
   var pageIndex: Int?
   var isFinalStep: Bool!
@@ -54,136 +55,85 @@ class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
   }
   
   
-  //TODO: build page content layout
+  //build page content layout
   func displayPageContent(){
-    
     self.view.backgroundColor = self.pageContent.bgColor != nil ? self.pageContent.bgColor! : UIColor.whiteColor();
     
-    self.headingContainer.backgroundColor = UIColor.randomColor();
     self.view.addSubview(self.headingContainer);
     
     self.headingContainer.snp_makeConstraints { make in
-      make.width.equalTo(self.view.width - 50)
+      make.width.equalTo(self.view.snp_width).inset(25);
       make.height.equalTo(40)
-      make.center.equalTo(self.view)
+      make.top.equalTo(self.view).offset(30)
+      make.centerX.equalTo(self.view);
     }
     
     self.headingContainer.addSubview(self.headingLabel)
     self.headingLabel.text = pageContent.titleText;
+    self.headingLabel.sizeToFit();
     self.headingLabel.snp_makeConstraints { make in
-      make.width.equalTo(self.headingContainer.width - 20)
-      //      make.height.equalTo(40)
+      make.width.equalTo(self.headingContainer.snp_width).inset(20)
       make.center.equalTo(self.headingContainer)
     }
     
-//    self.headingContainer = UIView.newAutoLayoutView();
-//    //    self.headingContainer.backgroundColor = UIColor.randomColor();
-//    self.view.addSubview(headingContainer);
-//    
-//    self.headingLabel = RFViewFactory.sharedInstance.headingTitleLabelWithText(pageContent.titleText.uppercaseString, textColor: RFColorScheme.rf_orange);
-//    self.headingContainer.addSubview(self.headingLabel);
-//    
-//    self.descriptionContainer = UIView.newAutoLayoutView();
-//    //    descriptionContainer.backgroundColor = UIColor.randomColor();
-//    self.view.addSubview(descriptionContainer);
-//    
-//    self.descriptionLabel = RFViewFactory.sharedInstance.headingTitleLabelForSizeWithText(pageContent.descriptionText, fontSize: RFUIDimensions.fontSize16 ,textColor: RFColorScheme.greyBlue);
-//    //    descriptionLabel.backgroundColor = UIColor.randomColor();
-//    self.descriptionContainer.addSubview(self.descriptionLabel);
-//    //     self.view.addSubview(self.descriptionLabel);
-//    
-//    self.imageContainer = UIView.newAutoLayoutView();
-//    //    self.imageContainer.backgroundColor = UIColor.randomColor();
-//    self.view.addSubview(imageContainer)
-//    
-//    self.contentImageView = UIImageView.newAutoLayoutView();
-//    self.contentImageView.image = UIImage(named: pageContent.imageName!);
-//    self.contentImageView.contentMode = .ScaleAspectFit;
-//    self.contentImageView.clipsToBounds = true;
-//    self.imageContainer.addSubview(self.contentImageView);
-//    
-//    //prepare animation
-//    self.headingContainer.alpha = 0.1;
-//    self.descriptionContainer.alpha = 0.1;
-//    self.imageContainer.alpha = 0.1;
-//    UIView.animateWithDuration(1.0, animations: { () -> Void in
-//      self.headingContainer.alpha = 1.0;
-//      self.descriptionContainer.alpha = 1.0;
-//      self.imageContainer.alpha = 1.0;
-//    });
-//    
-//    if(self.isFinalStep != nil && self.isFinalStep == true){
-//      stepFinishButton = RFViewFactory.sharedInstance.circularButtonImage(UIImage(named:"ic_check_white")!, highlightedButtonImage: UIImage(named:"ic_check_primary")!, buttonColor: RFColorScheme.primary!, highlightedButtonColor: RFColorScheme.white);
-//      stepFinishButton.center.x = self.view.frame.width - 60.0;
-//      stepFinishButton.center.y = self.view.frame.height - 60.0;
-//      stepFinishButton.addTarget(self, action: #selector(RFOnBoardingPageContentBaseViewController.doOnboardingFinishEventNotification(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-//      self.view.addSubview(stepFinishButton);
-//    }
-//    
-//    self.view.setNeedsUpdateConstraints(); // bootstrap Auto Layout
-  }
-  
-//  override func updateViewConstraints() {
-//    if(!self.didSetupConstraints){
-//      
-//      self.layoutSubviews();
-//      
-//      self.didSetupConstraints = true;
-//    }
-//    super.updateViewConstraints();
-//  }
-  
-  
-  //TODO: layout constraints snapkit
-  func layoutSubviews() {
-//    let headingTopPadding = CGFloat(20.0);
-//    let headingSidePadding = CGFloat(30.0);
-//    let headingTextTopPadding = CGFloat(10.0);
+    self.view.addSubview(self.imageContainer);
+    self.imageContainer.snp_makeConstraints { make in
+      make.width.equalTo(self.view.snp_width).inset(25)
+      make.height.equalTo(self.view.snp_height).multipliedBy(0.45)
+      make.top.equalTo(self.headingContainer.snp_bottom).offset(20)
+      make.centerX.equalTo(self.view);
+    }
     
-    //setup inner views
-//    self.headingContainer.autoPinToTopLayoutGuideOfViewController(self, withInset: headingTopPadding);
-//    headingContainer.autoPinEdgeToSuperviewEdge(.Leading, withInset: headingSidePadding);
-//    headingContainer.autoPinEdgeToSuperviewEdge(.Trailing, withInset: headingSidePadding);
-//    headingContainer.autoSetDimension(.Height, toSize: 40.0);
-//    
-//    //Prevent the headingTitle from compressing smaller than required to fit its single line of text
-//    headingLabel.setContentCompressionResistancePriority(UILayoutPriorityRequired, forAxis: .Vertical)
-//    
-//    //Position the single-line headingTitle at the top of the screen spanning the width, with some small insets
-//    headingLabel.autoPinEdgeToSuperviewEdge(.Top);
-//    headingLabel.autoPinEdgeToSuperviewEdge(.Leading);
-//    headingLabel.autoPinEdgeToSuperviewEdge(.Trailing);
-//    headingLabel.autoPinEdgeToSuperviewEdge(.Bottom);
-//    
-//    //Position the image below the title, spanning the width of the screen with some small insets
-//    imageContainer.autoPinEdge(.Top, toEdge: .Bottom, ofView: headingContainer, withOffset: headingTopPadding);
-//    imageContainer.autoPinEdgeToSuperviewEdge(.Leading, withInset: headingSidePadding);
-//    imageContainer.autoPinEdgeToSuperviewEdge(.Trailing, withInset: headingSidePadding);
-//    imageContainer.autoMatchDimension(.Height, toDimension: .Height, ofView: self.view, withMultiplier: 0.45);
-//    
-//    contentImageView.autoAlignAxis(.Vertical, toSameAxisOfView: self.imageContainer);
-//    contentImageView.autoAlignAxis(.Horizontal, toSameAxisOfView: self.imageContainer);
-//    contentImageView.autoPinEdgesToSuperviewEdges()
-//    
-//    self.descriptionContainer.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.imageContainer, withOffset: headingTextTopPadding);
-//    descriptionContainer.autoPinEdgeToSuperviewEdge(.Leading, withInset: headingSidePadding);
-//    descriptionContainer.autoPinEdgeToSuperviewEdge(.Trailing, withInset: headingSidePadding);
-//    descriptionContainer.autoPinEdgeToSuperviewEdge(.Bottom, withInset: 40.0);
-//    
-//    //Position the multi-line headingTexte below the image, spanning the width of the screen with some small insets
-//    self.descriptionLabel.autoPinEdge(.Top, toEdge: .Top, ofView: self.descriptionContainer)
-//    self.descriptionLabel.autoPinEdgeToSuperviewEdge(.Leading);
-//    self.descriptionLabel.autoPinEdgeToSuperviewEdge(.Trailing);
-//    //    descriptionLabel.autoMatchDimension(.Height, toDimension: .Height, ofView: self.descriptionContainer);
-//    //    descriptionLabel.autoCenterInSuperview();
-//    descriptionLabel.autoAlignAxis(.Vertical, toSameAxisOfView: self.descriptionContainer);
     
+    self.view.addSubview(self.descriptionContainer);
+    self.descriptionContainer.snp_makeConstraints { make in
+      make.width.equalTo(self.view.snp_width).inset(25)
+      make.top.equalTo(self.imageContainer.snp_bottom).offset(10)
+      make.bottom.equalTo(self.view.snp_bottom).inset(40)
+      make.centerX.equalTo(self.view);
+    }
+    
+    self.descriptionLabel.text = self.pageContent.descriptionText;
+    self.descriptionLabel.sizeToFit();
+    self.descriptionContainer.addSubview(self.descriptionLabel)
+    self.descriptionLabel.snp_makeConstraints { make in
+      make.width.equalTo(self.descriptionContainer.snp_width)
+      make.height.equalTo(self.descriptionContainer.snp_height)
+      make.edges.equalTo(self.descriptionContainer)
+    }
+    
+    
+    self.contentImageView.image = UIImage(named: self.pageContent.imageName);
+    self.imageContainer.addSubview(self.contentImageView);
+    self.contentImageView.snp_makeConstraints { make in
+      make.width.equalTo(self.imageContainer.snp_width)
+      make.height.equalTo(self.imageContainer.snp_height)
+      make.center.equalTo(self.imageContainer);
+    }
+    
+    self.headingContainer.alpha = 0.1;
+    self.descriptionContainer.alpha = 0.1;
+    self.imageContainer.alpha = 0.1;
+    UIView.animateWithDuration(1.0, animations: { () -> Void in
+      self.headingContainer.alpha = 1.0;
+      self.descriptionContainer.alpha = 1.0;
+      self.imageContainer.alpha = 1.0;
+    });
+    
+    
+    if(self.isFinalStep != nil && self.isFinalStep == true){
+      stepFinishButton = CRXViewFactory.circularButtonImage(UIImage(named:"ic_check_white")!, highlightedButtonImage: UIImage(named:"ic_check_primary")!, buttonColor: UIColor.randomColor(), highlightedButtonColor: UIColor.randomColor());
+      stepFinishButton.center.x = self.view.frame.width - 60.0;
+      stepFinishButton.center.y = self.view.frame.height - 60.0;
+      stepFinishButton.addTarget(self, action: #selector(CRXOnBoardingPageBaseViewController.doOnboardingFinishEventNotification(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+      self.view.addSubview(stepFinishButton);
+    }
   }
   
   
   // MARK: Event handling
   func doOnboardingFinishEventNotification(sender:UIButton!) {
-    //TODO: notify anyone interested
-//    SwiftEventBus.post(RFOnboardingEvents.FINISH.rawValue);
+    //notify anyone interested
+    SwiftEventBus.post(CRXOnboardingEvents.FINISH.rawValue);
   }
 }

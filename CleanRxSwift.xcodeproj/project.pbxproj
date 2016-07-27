@@ -36,6 +36,7 @@
 		428D32531D37F2A0007C9BCC /* CRXSplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D32501D37F2A0007C9BCC /* CRXSplashRouter.swift */; };
 		428D32541D37F2A0007C9BCC /* CRXSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D32511D37F2A0007C9BCC /* CRXSplashViewController.swift */; };
 		977643AD018C6B4F4A38BB68 /* Pods_CleanRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3336F22AAC33D4FC630C814 /* Pods_CleanRxSwift.framework */; };
+		C4B92141C93E440ECBB9A8AE /* UIButton+CRXAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B92249633E214ECE94061D /* UIButton+CRXAdditions.swift */; };
 		F658687932D4EF37043DFC9D /* Pods_CleanRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F17E2F00840A00ACAA2FD44 /* Pods_CleanRxSwiftTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		428D32511D37F2A0007C9BCC /* CRXSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXSplashViewController.swift; sourceTree = "<group>"; };
 		522B61BFDBB7B6D08D7C5A25 /* Pods-CleanRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanRxSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanRxSwift/Pods-CleanRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		C3336F22AAC33D4FC630C814 /* Pods_CleanRxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanRxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4B92249633E214ECE94061D /* UIButton+CRXAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+CRXAdditions.swift"; sourceTree = "<group>"; };
 		D10C0EF88C5E6B28C9339E4A /* Pods-CleanRxSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanRxSwiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanRxSwiftTests/Pods-CleanRxSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F4DDA3A558FBF50312BAC6B7 /* Pods-CleanRxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanRxSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanRxSwift/Pods-CleanRxSwift.release.xcconfig"; sourceTree = "<group>"; };
 		F8D9C8F921DB5B05E6889CBE /* Pods-CleanRxSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanRxSwiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanRxSwiftTests/Pods-CleanRxSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				428D31341D256E02007C9BCC /* CRXUserDefaults.swift */,
+				C4B92249633E214ECE94061D /* UIButton+CRXAdditions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				428D31441D26D06E007C9BCC /* CRXOnBoardingPageBaseViewController.swift in Sources */,
 				428D324A1D37F286007C9BCC /* CRXSplashModels.swift in Sources */,
 				428D31461D26D291007C9BCC /* CRXOnBoardingPagerViewController.swift in Sources */,
+				C4B92141C93E440ECBB9A8AE /* UIButton+CRXAdditions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
