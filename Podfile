@@ -13,6 +13,9 @@ def cleanrxswift_pods
     pod "AsyncSwift"
     pod 'SwiftEventBus', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
     pod 'Swinject', '~> 1.1.0'
+    pod 'RxAlamofire'
+    pod 'CryptoSwift'
+    pod 'AlamofireObjectMapper'
 end
 
 target 'CleanRxSwift' do

@@ -16,6 +16,12 @@
 		423607351D1ADC8000808990 /* CRXViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607341D1ADC8000808990 /* CRXViewProtocol.swift */; };
 		423607371D1ADCA300808990 /* CRXPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423607361D1ADCA300808990 /* CRXPresenterProtocol.swift */; };
 		4236074A1D1AEDB800808990 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 423607491D1AEDB800808990 /* Localizable.strings */; };
+		424F50331D4CBE14007DB0EE /* CRXPListUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F50321D4CBE14007DB0EE /* CRXPListUtils.swift */; };
+		424F50371D4CBEA7007DB0EE /* CRXAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F50361D4CBEA7007DB0EE /* CRXAPIConfig.swift */; };
+		424F503A1D4CBFB8007DB0EE /* CRXAPIServicesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F50391D4CBFB8007DB0EE /* CRXAPIServicesClient.swift */; };
+		424F503D1D4CC532007DB0EE /* APIConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 424F503C1D4CC532007DB0EE /* APIConfig.plist */; };
+		424F503F1D4CC881007DB0EE /* APIListItemsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F503E1D4CC881007DB0EE /* APIListItemsResponse.swift */; };
+		424F50411D4CC8C2007DB0EE /* APIServicesBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F50401D4CC8C2007DB0EE /* APIServicesBaseResponse.swift */; };
 		428D31351D256E02007C9BCC /* CRXUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D31341D256E02007C9BCC /* CRXUserDefaults.swift */; };
 		428D31381D26896C007C9BCC /* CRXViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D31371D26896C007C9BCC /* CRXViewFactory.swift */; };
 		428D313B1D26BA73007C9BCC /* CRXAppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D313A1D26BA73007C9BCC /* CRXAppUtils.swift */; };
@@ -65,6 +71,12 @@
 		423607341D1ADC8000808990 /* CRXViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXViewProtocol.swift; sourceTree = "<group>"; };
 		423607361D1ADCA300808990 /* CRXPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXPresenterProtocol.swift; sourceTree = "<group>"; };
 		423607491D1AEDB800808990 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		424F50321D4CBE14007DB0EE /* CRXPListUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXPListUtils.swift; sourceTree = "<group>"; };
+		424F50361D4CBEA7007DB0EE /* CRXAPIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXAPIConfig.swift; sourceTree = "<group>"; };
+		424F50391D4CBFB8007DB0EE /* CRXAPIServicesClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXAPIServicesClient.swift; sourceTree = "<group>"; };
+		424F503C1D4CC532007DB0EE /* APIConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIConfig.plist; sourceTree = "<group>"; };
+		424F503E1D4CC881007DB0EE /* APIListItemsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIListItemsResponse.swift; sourceTree = "<group>"; };
+		424F50401D4CC8C2007DB0EE /* APIServicesBaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServicesBaseResponse.swift; sourceTree = "<group>"; };
 		428D31341D256E02007C9BCC /* CRXUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXUserDefaults.swift; sourceTree = "<group>"; };
 		428D31371D26896C007C9BCC /* CRXViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXViewFactory.swift; sourceTree = "<group>"; };
 		428D313A1D26BA73007C9BCC /* CRXAppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXAppUtils.swift; sourceTree = "<group>"; };
@@ -163,6 +175,7 @@
 		423607131D1AD03E00808990 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				424F50341D4CBE3A007DB0EE /* API */,
 				423607161D1AD0A400808990 /* Domain */,
 			);
 			path = Data;
@@ -197,6 +210,7 @@
 		4236072C1D1AD5A700808990 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				424F50311D4CBDD8007DB0EE /* Utils */,
 				4236072D1D1AD5BE00808990 /* UI */,
 			);
 			path = Base;
@@ -236,6 +250,50 @@
 				423607491D1AEDB800808990 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		424F50311D4CBDD8007DB0EE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				424F50321D4CBE14007DB0EE /* CRXPListUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		424F50341D4CBE3A007DB0EE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				424F503B1D4CC41A007DB0EE /* Models */,
+				424F50381D4CBF2A007DB0EE /* Clients */,
+				424F50351D4CBE8B007DB0EE /* Config */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		424F50351D4CBE8B007DB0EE /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				424F50361D4CBEA7007DB0EE /* CRXAPIConfig.swift */,
+				424F503C1D4CC532007DB0EE /* APIConfig.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		424F50381D4CBF2A007DB0EE /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				424F50391D4CBFB8007DB0EE /* CRXAPIServicesClient.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		424F503B1D4CC41A007DB0EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				424F503E1D4CC881007DB0EE /* APIListItemsResponse.swift */,
+				424F50401D4CC8C2007DB0EE /* APIServicesBaseResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		428D31331D256DCE007C9BCC /* Extensions */ = {
@@ -456,6 +514,7 @@
 				4236074A1D1AEDB800808990 /* Localizable.strings in Resources */,
 				423606FA1D1ACA6800808990 /* Assets.xcassets in Resources */,
 				423606F81D1ACA6800808990 /* Main.storyboard in Resources */,
+				424F503D1D4CC532007DB0EE /* APIConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +631,9 @@
 				423607301D1AD63E00808990 /* CRXBaseViewController.swift in Sources */,
 				423607351D1ADC8000808990 /* CRXViewProtocol.swift in Sources */,
 				428D324D1D37F28E007C9BCC /* CRXSplashInteractor.swift in Sources */,
+				424F50331D4CBE14007DB0EE /* CRXPListUtils.swift in Sources */,
 				428D323D1D37D9D5007C9BCC /* CRXOnBoardingViewController.swift in Sources */,
+				424F503A1D4CBFB8007DB0EE /* CRXAPIServicesClient.swift in Sources */,
 				428D323C1D37D9D5007C9BCC /* CRXOnBoardingPresenter.swift in Sources */,
 				428D323F1D37DA0C007C9BCC /* CRXOnBoardingRouter.swift in Sources */,
 				428D32521D37F2A0007C9BCC /* CRXSplashPresenter.swift in Sources */,
@@ -585,9 +646,12 @@
 				428D31351D256E02007C9BCC /* CRXUserDefaults.swift in Sources */,
 				428D32421D37DA13007C9BCC /* CRXOnBoardingInteractor.swift in Sources */,
 				428D31D31D282073007C9BCC /* CRXSplashSetup.swift in Sources */,
+				424F50371D4CBEA7007DB0EE /* CRXAPIConfig.swift in Sources */,
 				428D32531D37F2A0007C9BCC /* CRXSplashRouter.swift in Sources */,
 				428D31441D26D06E007C9BCC /* CRXOnBoardingPageBaseViewController.swift in Sources */,
+				424F503F1D4CC881007DB0EE /* APIListItemsResponse.swift in Sources */,
 				428D324A1D37F286007C9BCC /* CRXSplashModels.swift in Sources */,
+				424F50411D4CC8C2007DB0EE /* APIServicesBaseResponse.swift in Sources */,
 				428D31461D26D291007C9BCC /* CRXOnBoardingPagerViewController.swift in Sources */,
 				C4B92141C93E440ECBB9A8AE /* UIButton+CRXAdditions.swift in Sources */,
 			);

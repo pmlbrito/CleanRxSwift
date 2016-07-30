@@ -1,21 +1,35 @@
 PODS:
-  - AsyncSwift (1.7.2)
-  - Kingfisher (2.4.1)
+  - Alamofire (3.4.1)
+  - AlamofireObjectMapper (3.0.2):
+    - Alamofire (~> 3.2)
+    - ObjectMapper (~> 1.0)
+  - AsyncSwift (1.7.3)
+  - CryptoSwift (0.5.1)
+  - Kingfisher (2.4.2)
   - Locksmith (2.0.8)
+  - ObjectMapper (1.3.0)
   - QuickShotUtils (0.1.0)
-  - RxCocoa (2.5.0):
+  - RxAlamofire (2.5):
+    - RxAlamofire/Core (= 2.5)
+  - RxAlamofire/Core (2.5):
+    - Alamofire (~> 3.4)
     - RxSwift (~> 2.5)
-  - RxSwift (2.5.0)
+  - RxCocoa (2.6.0):
+    - RxSwift (~> 2.5)
+  - RxSwift (2.6.0)
   - SnapKit (0.21.1)
   - SwiftEventBus (1.1.0)
   - SwiftyUserDefaults (2.2.0)
   - Swinject (1.1.2)
 
 DEPENDENCIES:
+  - AlamofireObjectMapper
   - AsyncSwift
+  - CryptoSwift
   - Kingfisher
   - Locksmith
   - QuickShotUtils (from `https://github.com/pmlbrito/QuickShotUtils.git`)
+  - RxAlamofire
   - RxCocoa (~> 2.0)
   - RxSwift (~> 2.0)
   - SnapKit
@@ -31,24 +45,29 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   QuickShotUtils:
-    :commit: 235a30d957ad20d8d2ca46e77d671eb9ef1742ae
+    :commit: b7012417921204ca025c6248494d3d83c1e5ad48
     :git: https://github.com/pmlbrito/QuickShotUtils.git
   SwiftEventBus:
     :commit: 4b8cbb5a8227b3c29af75e0416689d26178733d8
     :git: https://github.com/cesarferreira/SwiftEventBus.git
 
 SPEC CHECKSUMS:
-  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
-  Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  AlamofireObjectMapper: 70f97cbf45c01c48d26aa07a1a7059a60ed7411d
+  AsyncSwift: f3ad5dd077bbd1477e7573e87071a532fedaca1a
+  CryptoSwift: df42dda18baf6c76347a94e227dbcc0a341304bd
+  Kingfisher: 05bf8d04408aaa70fcd2c8c81b9f1d0f1ad313dd
   Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
+  ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
   QuickShotUtils: 400a91f9b43bd9a3b330cbd2d8d91a333731d939
-  RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
-  RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
+  RxAlamofire: b4572a077b6b2410c8732a27266299df4c00736e
+  RxCocoa: 89ab00d5753502520227940e3a0e0a0413683c6b
+  RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
   SnapKit: bbad04cb016c7cead63965f16b00c09318d271ee
   SwiftEventBus: d334f7aecbddbd995c3de5c262cf35c72db550f3
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
   Swinject: 3debc5ac926dcd1be00947265a9db7a5f31b272a
 
-PODFILE CHECKSUM: d5cbc4c3e9544242ebaefd98e03725b7ccce840b
+PODFILE CHECKSUM: 397fa844a7894d83a2eae00c3eac5b3c5e613dd9
 
 COCOAPODS: 1.0.1
