@@ -23,9 +23,9 @@ protocol CRXOnBoardingPresenterProtocol: CRXPresenterProtocol
 
 class CRXOnBoardingPresenter: CRXOnBoardingPresenterProtocol
 {
-  weak var view: CRXOnBoardingViewController!
+  var view: CRXOnBoardingViewController!
   
-  weak var interactor: CRXOnBoardingInteractor!;
+  var interactor: CRXOnBoardingInteractor!;
   
   var disposeBag = DisposeBag()
   var contentLoadSubscription: Disposable!
