@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol CRXPresenterProtocol {
-  func bindView(view: CRXViewProtocol)
+  func bindView(_ view: CRXViewProtocol)
 }

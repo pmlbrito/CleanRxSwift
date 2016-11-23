@@ -31,8 +31,15 @@ class CRXSplashInteractor: CRXSplashInteractorProtocol
   
   func updateUserIsDone() -> Observable<Bool>
   {
-    return self._process.checkIfOnboardingIsDone().delaySubscription(RxTimeInterval(5), scheduler: ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background)).observeOn(MainScheduler.instance).doOnError { error in
-      print("ERROR: \(error)");
-    }
+//    return self._process.checkIfOnboardingIsDone().delaySubscription(RxTimeInterval(5), scheduler: ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .background)).observeOn(MainScheduler.instance).doOnError { error in
+//      print("ERROR: \(error)");
+//    }
+    
+    
+    return self._process.checkIfOnboardingIsDone().delaySubscription(RxTimeInterval(2), scheduler: ConcurrentDispatchQueueScheduler(qos: .background)).observeOn(MainScheduler.instance).catchError({ (error) -> Observable<Bool> in
+        print("ERROR: \(error)");
+        return Observable.just(false);
+    })
+    
   }
 }

@@ -13,7 +13,7 @@ import RxSwift
 
 protocol CRXSplashRouterProtocol
 {
-  func navigateToNextScreen(destination: CRXSplashDestination?, transitionType: ViewControllerPresentationType?);
+  func navigateToNextScreen(_ destination: CRXSplashDestination?, transitionType: ViewControllerPresentationType?);
 }
 
 class CRXSplashRouter: CRXSplashRouterProtocol
@@ -25,7 +25,7 @@ class CRXSplashRouter: CRXSplashRouterProtocol
   }
   
   // MARK: Navigation
-  func navigateToNextScreen(destination: CRXSplashDestination?, transitionType: ViewControllerPresentationType?)
+  func navigateToNextScreen(_ destination: CRXSplashDestination?, transitionType: ViewControllerPresentationType?)
   {
     var destinationViewController: UIViewController? = nil
     
@@ -46,6 +46,6 @@ class CRXSplashRouter: CRXSplashRouterProtocol
       }
     }
     
-    viewController.transtitionToNextViewController(viewController, destinationViewController: destinationViewController, transitionType: transitionType);
+    viewController.transtitionToNextViewController(fromViewController: viewController, destinationViewController: destinationViewController, transitionType: transitionType);
   }
 }

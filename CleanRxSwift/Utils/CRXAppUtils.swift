@@ -12,12 +12,12 @@ typealias FirstRunCompletion = (Bool?, NSError?) -> Void
 
 class CRXAppUtils {
   
-  static func checkForFirstLaunch(onCompletion: FirstRunCompletion){
-    if(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") == false)
+  static func checkForFirstLaunch(_ onCompletion: FirstRunCompletion){
+    if(UserDefaults.standard.bool(forKey: "HasLaunchedOnce") == false)
     {
       // This is the first launch ever
-      NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
-      NSUserDefaults.standardUserDefaults().synchronize()
+      UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
+      UserDefaults.standard.synchronize()
       
       //clear all auth data and other stuff
       onCompletion(true, nil);

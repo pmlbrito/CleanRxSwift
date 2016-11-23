@@ -20,7 +20,7 @@ protocol CRXOnBoardingInteractorProtocol
   
   func triggeOnboardingFinish();
   
-  func updateUserIsDone(isDone: Bool) -> Observable<Bool>;
+  func updateUserIsDone(_ isDone: Bool) -> Observable<Bool>;
 }
 
 
@@ -87,11 +87,19 @@ class CRXOnBoardingInteractor: CRXOnBoardingInteractorProtocol
 //    worker.finishWelcomeWizard(userBIProcess);
   }
   
-  func updateUserIsDone(isDone: Bool) -> Observable<Bool>
+  func updateUserIsDone(_ isDone: Bool) -> Observable<Bool>
   {
     //apply delay before responding
-    return process.updateUserOnboardingIsDone(isDone).subscribeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background)).observeOn(MainScheduler.instance).doOnError { error in
-      print("ERROR: \(error)");
+    return process.updateUserOnboardingIsDone(isDone).subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background)).observeOn(MainScheduler.instance).do(onNext: { (success) in
+        //action success
+    }, onError: { (error) in
+        print("ERROR: \(error)");
+    }, onCompleted: { 
+        //completed action
+    }, onSubscribe: { 
+        //subscribed?
+    }, onDispose: { 
+        //cleanup
+    })
     }
-  }
 }

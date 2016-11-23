@@ -15,7 +15,7 @@ import SnapKit
 
 protocol CRXSplashViewControllerInput: CRXViewProtocol
 {
-  func finishSplashPage(viewModel: CRXSplashViewModel)
+  func finishSplashPage(_ viewModel: CRXSplashViewModel)
 }
 
 
@@ -65,7 +65,7 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
     imageView.image = UIImage(named: "splash_logo");
     box.addSubview(imageView);
     imageView.snp_makeConstraints { make in
-      make.edges.equalTo(box).inset(UIEdgeInsetsZero);
+      make.edges.equalTo(box).inset(UIEdgeInsets.zero);
     }
 
     self.showProgressIndicator();
@@ -73,7 +73,7 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
   
   // MARK: Display logic
   
-  func finishSplashPage(viewModel: CRXSplashViewModel)
+  func finishSplashPage(_ viewModel: CRXSplashViewModel)
   {
     self.hideProgressIndicator();
     self.router.navigateToNextScreen(viewModel.destination, transitionType: viewModel.transitionType);

@@ -1,73 +1,74 @@
 PODS:
-  - Alamofire (3.4.1)
-  - AlamofireObjectMapper (3.0.2):
-    - Alamofire (~> 3.2)
-    - ObjectMapper (~> 1.0)
-  - AsyncSwift (1.7.3)
-  - CryptoSwift (0.5.1)
-  - Kingfisher (2.4.2)
-  - Locksmith (2.0.8)
-  - ObjectMapper (1.3.0)
-  - QuickShotUtils (0.1.0)
-  - RxAlamofire (2.5):
-    - RxAlamofire/Core (= 2.5)
-  - RxAlamofire/Core (2.5):
-    - Alamofire (~> 3.4)
-    - RxSwift (~> 2.5)
-  - RxCocoa (2.6.0):
-    - RxSwift (~> 2.5)
-  - RxSwift (2.6.0)
-  - SnapKit (0.21.1)
-  - SwiftEventBus (1.1.0)
-  - SwiftyUserDefaults (2.2.0)
-  - Swinject (1.1.2)
+  - Alamofire (4.2.0)
+  - AlamofireObjectMapper (4.0.0):
+    - Alamofire (~> 4.0)
+    - ObjectMapper (~> 2.0)
+  - AsyncSwift (2.0.0)
+  - CryptoSwift (0.6.6)
+  - Kingfisher (3.2.1)
+  - Locksmith (3.0.0)
+  - ObjectMapper (2.2.1)
+  - QuickShotUtils (0.2.0)
+  - RxAlamofire (3.0.0):
+    - RxAlamofire/Core (= 3.0.0)
+  - RxAlamofire/Core (3.0.0):
+    - Alamofire (~> 4.0)
+    - RxSwift (~> 3.0)
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
+  - RxSwift (3.0.1)
+  - SnapKit (3.0.2)
+  - SwiftEventBus (2.1.0)
+  - SwiftyUserDefaults (3.0.0)
+  - Swinject (2.0.0-beta.2)
 
 DEPENDENCIES:
-  - AlamofireObjectMapper
+  - AlamofireObjectMapper (~> 4.0)
   - AsyncSwift
   - CryptoSwift
   - Kingfisher
   - Locksmith
   - QuickShotUtils (from `https://github.com/pmlbrito/QuickShotUtils.git`)
   - RxAlamofire
-  - RxCocoa (~> 2.0)
-  - RxSwift (~> 2.0)
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
   - SnapKit
-  - SwiftEventBus (from `https://github.com/cesarferreira/SwiftEventBus.git`)
+  - SwiftEventBus (from `https://github.com/cesarferreira/SwiftEventBus.git`, tag `2.1.2`)
   - SwiftyUserDefaults
-  - Swinject (~> 1.1.0)
+  - Swinject (= 2.0.0-beta.2)
 
 EXTERNAL SOURCES:
   QuickShotUtils:
     :git: https://github.com/pmlbrito/QuickShotUtils.git
   SwiftEventBus:
     :git: https://github.com/cesarferreira/SwiftEventBus.git
+    :tag: 2.1.2
 
 CHECKOUT OPTIONS:
   QuickShotUtils:
-    :commit: b7012417921204ca025c6248494d3d83c1e5ad48
+    :commit: 7ca3976bc5d1436c6d314ed745b49df81919c5c8
     :git: https://github.com/pmlbrito/QuickShotUtils.git
   SwiftEventBus:
-    :commit: 4b8cbb5a8227b3c29af75e0416689d26178733d8
     :git: https://github.com/cesarferreira/SwiftEventBus.git
+    :tag: 2.1.2
 
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  AlamofireObjectMapper: 70f97cbf45c01c48d26aa07a1a7059a60ed7411d
-  AsyncSwift: f3ad5dd077bbd1477e7573e87071a532fedaca1a
-  CryptoSwift: df42dda18baf6c76347a94e227dbcc0a341304bd
-  Kingfisher: 05bf8d04408aaa70fcd2c8c81b9f1d0f1ad313dd
-  Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
-  ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
-  QuickShotUtils: 400a91f9b43bd9a3b330cbd2d8d91a333731d939
-  RxAlamofire: b4572a077b6b2410c8732a27266299df4c00736e
-  RxCocoa: 89ab00d5753502520227940e3a0e0a0413683c6b
-  RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
-  SnapKit: bbad04cb016c7cead63965f16b00c09318d271ee
-  SwiftEventBus: d334f7aecbddbd995c3de5c262cf35c72db550f3
-  SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
-  Swinject: 3debc5ac926dcd1be00947265a9db7a5f31b272a
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
+  AsyncSwift: 6ba6ed9ecb51344458063f7c86fe447ab824e313
+  CryptoSwift: 88592381b73f36e192124539390a7c9bacda76af
+  Kingfisher: 64ef28c6d3d6f344e3ae2d7f5c9da80439505d99
+  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
+  ObjectMapper: 41e43e1a89f8060ef5ea5d04ba852e269a621d68
+  QuickShotUtils: 2c60abe5f4e291b6c12c871eaea48f691f47d82c
+  RxAlamofire: 0b1fa48f545fffe7f7a28af2086bcaa3b5946cc9
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
+  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  SwiftEventBus: 03fb72b65f3ae11912dec2591567b89e5908a781
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
+  Swinject: 69a893192efa9f2cc44be79ef423d04d571b6af9
 
-PODFILE CHECKSUM: 397fa844a7894d83a2eae00c3eac5b3c5e613dd9
+PODFILE CHECKSUM: 5e5a2707efcb7035e21aa93763979cc7b114c8a5
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

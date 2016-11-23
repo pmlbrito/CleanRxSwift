@@ -17,7 +17,7 @@ protocol CRXOnBoardingPresenterProtocol: CRXPresenterProtocol
 {
   func userIsDoneWithOnBoarding()
   
-  func processOnBoardingPagesContent(content: [CRXOnBoardingContent])
+  func processOnBoardingPagesContent(_ content: [CRXOnBoardingContent])
 }
 
 
@@ -34,29 +34,41 @@ class CRXOnBoardingPresenter: CRXOnBoardingPresenterProtocol
   
   init(interactor: CRXOnBoardingInteractor){
     self.interactor = interactor
-    contentLoadSubscription = self.interactor.getSlides().observeOn(MainScheduler.instance).subscribeNext({ slides in
-      self.processOnBoardingPagesContent(slides);
+    contentLoadSubscription = self.interactor.getSlides().observeOn(MainScheduler.instance).subscribe(onNext: { (slides) in
+        self.processOnBoardingPagesContent(slides);
+    }, onError: { (error) in
+        //TODO: log error
+    }, onCompleted: { 
+        //finished
+    }, onDisposed: { 
+        //cleanup
     })
-    disposeBag.addDisposable(contentLoadSubscription);
+    disposeBag.insert(contentLoadSubscription);
   }
   
   // MARK: Presentation logic
-  func bindView(view: CRXViewProtocol){
+  func bindView(_ view: CRXViewProtocol){
     self.view = view as! CRXOnBoardingViewController;
   }
   
   func userIsDoneWithOnBoarding() {
-    userIsDoneSubscription = self.interactor.updateUserIsDone(true).observeOn(MainScheduler.instance).subscribeNext({ success in
-      var onBoardingResultModel = CRXOnBoardingViewModel();
-      onBoardingResultModel.destination = CRXOnBoardingDestination.InApp;
-      onBoardingResultModel.transitionType = ViewControllerPresentationType.ReplaceAtRoot
-  
-      self.view.userFinishedOnBoarding(onBoardingResultModel);
-    })
-    disposeBag.addDisposable(contentLoadSubscription);
+    userIsDoneSubscription = self.interactor.updateUserIsDone(true).observeOn(MainScheduler.instance).subscribe(onNext: { (success) in
+        var onBoardingResultModel = CRXOnBoardingViewModel();
+        onBoardingResultModel.destination = CRXOnBoardingDestination.InApp;
+        onBoardingResultModel.transitionType = ViewControllerPresentationType.ReplaceAtRoot
+        
+        self.view.userFinishedOnBoarding(onBoardingResultModel);
+    }, onError: { (error) in
+        //TODO: log error
+    }, onCompleted: { 
+        //completed action
+    }, onDisposed: { 
+        //cleanup
+    }) 
+    disposeBag.insert(contentLoadSubscription);
   }
   
-  func processOnBoardingPagesContent(content: [CRXOnBoardingContent]){
+  func processOnBoardingPagesContent(_ content: [CRXOnBoardingContent]){
     //create page content controllers from content
     var sliderPages = [CRXOnBoardingPageBaseViewController]();
     

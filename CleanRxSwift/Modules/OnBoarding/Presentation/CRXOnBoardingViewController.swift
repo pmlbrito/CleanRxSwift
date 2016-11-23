@@ -15,9 +15,9 @@ import QuickShotUtils
 
 protocol CRXOnBoardingViewControllerProtocol: CRXViewProtocol
 {
-  func displayOnboardingPages(viewModel: CRXOnBoardingViewModel)
+  func displayOnboardingPages(_ viewModel: CRXOnBoardingViewModel)
   
-  func userFinishedOnBoarding(viewModel: CRXOnBoardingViewModel);
+  func userFinishedOnBoarding(_ viewModel: CRXOnBoardingViewModel);
   
 }
 
@@ -50,7 +50,7 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
   // MARK: Display logic
   var pagerViewController : CRXPagerViewController!
   
-  func displayOnboardingPages(viewModel: CRXOnBoardingViewModel)
+  func displayOnboardingPages(_ viewModel: CRXOnBoardingViewModel)
   {
     self.contentPages = viewModel.sliderItems!;
     
@@ -62,7 +62,7 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
     }
     
     /* Getting the page View controller */
-    pagerViewController = CRXPagerViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
+    pagerViewController = CRXPagerViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     pagerViewController.sliderContent = self.contentPages;
     pagerViewController.sliderConfig = CRXPagerConfig(bounces: false, defaultSlide: 0, showDefaultPageIndicator: true, sendDefaultSlideChange: true)
     
@@ -71,10 +71,10 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
       NSLog("current slide: %d", value);
     }
     
-    self.pagerViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+    self.pagerViewController.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
     self.addChildViewController(pagerViewController)
     self.view.addSubview(pagerViewController.view)
-    self.pagerViewController.didMoveToParentViewController(self)
+    self.pagerViewController.didMove(toParentViewController: self)
   }
   
   //  func displayError(viewModel: OnBoardingViewModel) {
@@ -110,7 +110,7 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
   //    }
   //  }
   
-  func userFinishedOnBoarding(viewModel: CRXOnBoardingViewModel){
+  func userFinishedOnBoarding(_ viewModel: CRXOnBoardingViewModel){
     self.hideProgressIndicator();
     self.router.navigateToNextScreen(viewModel.destination, transitionType: viewModel.transitionType);
   }

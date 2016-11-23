@@ -13,20 +13,20 @@ class CRXViewFactory {
 
   //MARK: UIButton
   
-  static func circularButtonImage(buttonImage:UIImage, highlightedButtonImage:UIImage, buttonColor: UIColor, highlightedButtonColor: UIColor) -> UIButton {
-    let button = UIButton(frame:CGRectMake(0.0, 0.0, 56.0, 56.0));
+  static func circularButtonImage(_ buttonImage:UIImage, highlightedButtonImage:UIImage, buttonColor: UIColor, highlightedButtonColor: UIColor) -> UIButton {
+    let button = UIButton(frame:CGRect(x: 0.0, y: 0.0, width: 56.0, height: 56.0));
     
-    button.setBackgroundColor(buttonColor, forState: UIControlState.Normal);
-    button.setBackgroundColor(highlightedButtonColor, forState: UIControlState.Highlighted);
-    button.setBackgroundColor(highlightedButtonColor, forState: UIControlState.Selected);
+    button.setBackgroundColor(buttonColor, forState: UIControlState());
+    button.setBackgroundColor(highlightedButtonColor, forState: UIControlState.highlighted);
+    button.setBackgroundColor(highlightedButtonColor, forState: UIControlState.selected);
     
-    button.setImage(buttonImage, forState: UIControlState.Normal)
-    button.setImage(highlightedButtonImage, forState: UIControlState.Highlighted)
-    button.setImage(highlightedButtonImage, forState: UIControlState.Selected)
+    button.setImage(buttonImage, for: UIControlState())
+    button.setImage(highlightedButtonImage, for: UIControlState.highlighted)
+    button.setImage(highlightedButtonImage, for: UIControlState.selected)
     
     button.layer.cornerRadius = 0.5 * button.bounds.size.width
     button.layer.borderWidth = 1.0;
-    button.layer.borderColor = UIColor(hexString: "#E3E3E3FF")!.CGColor;
+    button.layer.borderColor = UIColor(hexString: "#E3E3E3FF")!.cgColor;
     button.clipsToBounds = true
     
     return button;
@@ -220,28 +220,28 @@ class CRXViewFactory {
 //    return label;
 //  }
   
-  static func boldLabelWithTextAndSize(labelText: NSString, textColor: UIColor, fontSize: CGFloat) -> UILabel {
+  static func boldLabelWithTextAndSize(_ labelText: NSString, textColor: UIColor, fontSize: CGFloat) -> UILabel {
     let label = UILabel();
     label.text = labelText as String;
     label.textColor = textColor;
-    label.textAlignment = NSTextAlignment.Center;
+    label.textAlignment = NSTextAlignment.center;
     label.numberOfLines = 1;
-    label.lineBreakMode = .ByWordWrapping;
-    label.font = UIFont.boldSystemFontOfSize(fontSize);
+    label.lineBreakMode = .byWordWrapping;
+    label.font = UIFont.boldSystemFont(ofSize: fontSize);
     
     label.sizeToFit()
     
     return label;
   }
   
-  static func textLabelWithTextAndSize(labelText: NSString, textColor: UIColor, fontSize: CGFloat) -> UILabel {
+  static func textLabelWithTextAndSize(_ labelText: NSString, textColor: UIColor, fontSize: CGFloat) -> UILabel {
     let label = UILabel();
     label.text = labelText as String;
     label.textColor = textColor;
-    label.textAlignment = NSTextAlignment.Center;
+    label.textAlignment = NSTextAlignment.center;
     label.numberOfLines = 0;
-    label.lineBreakMode = .ByWordWrapping;
-    label.font = UIFont.systemFontOfSize(fontSize);
+    label.lineBreakMode = .byWordWrapping;
+    label.font = UIFont.systemFont(ofSize: fontSize);
     
     label.sizeToFit()
     
@@ -293,14 +293,14 @@ class CRXViewFactory {
 //  }
   
   
-  static func errorLabelWithText(labelText: NSString, textColor: UIColor) -> UILabel {
+  static func errorLabelWithText(_ labelText: NSString, textColor: UIColor) -> UILabel {
     let label = UILabel();
     label.text = labelText as String;
     label.textColor = textColor;
-    label.textAlignment = NSTextAlignment.Left;
+    label.textAlignment = NSTextAlignment.left;
     label.numberOfLines = 0;
-    label.lineBreakMode = .ByWordWrapping;
-    label.font = UIFont.systemFontOfSize(10);
+    label.lineBreakMode = .byWordWrapping;
+    label.font = UIFont.systemFont(ofSize: 10);
     
     label.sizeToFit()
     
@@ -308,19 +308,19 @@ class CRXViewFactory {
   }
   
   
-  static func labelWithAttributedText(labelText: NSString, fontSize: CGFloat, textColor: UIColor) -> UILabel {
+  static func labelWithAttributedText(_ labelText: NSString, fontSize: CGFloat, textColor: UIColor) -> UILabel {
     let label = UILabel();
-    label.font = UIFont.systemFontOfSize(fontSize);
+    label.font = UIFont.systemFont(ofSize: fontSize);
     let style = NSMutableParagraphStyle()
-    style.lineBreakMode = NSLineBreakMode.ByWordWrapping
+    style.lineBreakMode = NSLineBreakMode.byWordWrapping
     let attributes = [NSFontAttributeName: label.font, NSParagraphStyleAttributeName: style]
     let attributedString = NSMutableAttributedString(string: labelText as String, attributes: attributes)
     label.attributedText = attributedString
     
     label.textColor = textColor;
-    label.textAlignment = NSTextAlignment.Center;
+    label.textAlignment = NSTextAlignment.center;
     label.numberOfLines = 0;
-    label.lineBreakMode = .ByWordWrapping;
+    label.lineBreakMode = .byWordWrapping;
     
     label.sizeToFit()
     
@@ -359,10 +359,10 @@ class CRXViewFactory {
 //  }
   
   
-  static func roundViewCorners(view: UIView, corners: UIRectCorner, radius: CGFloat){
+  static func roundViewCorners(_ view: UIView, corners: UIRectCorner, radius: CGFloat){
     let path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
     let mask = CAShapeLayer()
-    mask.path = path.CGPath
+    mask.path = path.cgPath
     view.layer.mask = mask
     view.layer.masksToBounds = true
   }

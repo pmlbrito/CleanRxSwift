@@ -21,7 +21,7 @@ class CRXAPIConfig {
   var apiSecret: String!;
   var service_base_url: String!
   
-  static func loadAPIConfigFromBundle(fileName: String?) -> NSMutableDictionary {
+  static func loadAPIConfigFromBundle(_ fileName: String?) -> NSMutableDictionary {
     if(fileName != nil){
       let apiConfig = CRXPListUtils.getPListFileForBundleConfigKey(fileName!);
       let configDictionary = NSMutableDictionary(dictionary: apiConfig!);
@@ -31,11 +31,10 @@ class CRXAPIConfig {
   }
   
   func setConfig(configDict: NSDictionary?){
-    let apiKEYS = configDict?["API"];
-    if(apiKEYS != nil){
-      self.service_base_url = apiKEYS!["API_URL"] as! String;
-      self.apiKey = apiKEYS!["API_PUBLIC_KEY"] as! String;
-      self.apiSecret = apiKEYS!["API_PRIVATE_KEY"] as! String;
+    if let apiKEYS = configDict?["API"] as? Dictionary<String, AnyObject> {
+      self.service_base_url = apiKEYS["API_URL"] as! String;
+      self.apiKey = apiKEYS["API_PUBLIC_KEY"] as! String;
+      self.apiSecret = apiKEYS["API_PRIVATE_KEY"] as! String;
     }
   }
 }

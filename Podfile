@@ -1,21 +1,21 @@
 # Podfile
-platform :ios, '8.0'
+platform :ios, '10.0'
 use_frameworks!
 
 def cleanrxswift_pods
-	pod 'RxSwift',    '~> 2.0'
-    pod 'RxCocoa',    '~> 2.0'
+	pod 'RxSwift',    '~> 3.0'
+    pod 'RxCocoa',    '~> 3.0'
     pod 'QuickShotUtils', :git => 'https://github.com/pmlbrito/QuickShotUtils.git'
     pod 'SnapKit'
     pod 'SwiftyUserDefaults'
     pod 'Locksmith'
     pod 'Kingfisher'
     pod "AsyncSwift"
-    pod 'SwiftEventBus', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
-    pod 'Swinject', '~> 1.1.0'
+    pod 'SwiftEventBus', :tag => '2.1.2', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
+    pod 'Swinject', '2.0.0-beta.2'
     pod 'RxAlamofire'
     pod 'CryptoSwift'
-    pod 'AlamofireObjectMapper'
+    pod 'AlamofireObjectMapper', '~> 4.0'
 end
 
 target 'CleanRxSwift' do

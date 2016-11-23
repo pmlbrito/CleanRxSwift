@@ -26,7 +26,7 @@ class CRXOnBoardingRouter: CRXOnBoardingRouterInput
 
   
   // MARK: Navigation
-  func navigateToNextScreen(destination: CRXOnBoardingDestination?, transitionType: ViewControllerPresentationType?)
+  func navigateToNextScreen(_ destination: CRXOnBoardingDestination?, transitionType: ViewControllerPresentationType?)
   {
     var destinationViewController: UIViewController? = nil
     
@@ -39,6 +39,6 @@ class CRXOnBoardingRouter: CRXOnBoardingRouterInput
       }
     }
     
-    viewController.transtitionToNextViewController(viewController, destinationViewController: destinationViewController, transitionType: transitionType);
+    viewController.transtitionToNextViewController(fromViewController: viewController, destinationViewController: destinationViewController, transitionType: transitionType);
   }
 }

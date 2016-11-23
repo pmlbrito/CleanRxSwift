@@ -28,26 +28,34 @@ class CRXSplashPresenter: CRXSplashPresenterProtocol
   
   init(interactor: CRXSplashInteractor){
     self.interactor = interactor
-    subscription = self.interactor.updateUserIsDone().observeOn(MainScheduler.instance).subscribeNext({ (result) in
-      self.processOnBoardingState(result);
+    
+    subscription = self.interactor.updateUserIsDone().observeOn(MainScheduler.instance).subscribe(onNext: { (result) in
+        self.processOnBoardingState(result);
+    }, onError: { (error) in
+        //TODO: log error
+    }, onCompleted: { 
+        //ended
+    }, onDisposed: { 
+        //disposed instance
     })
-    disposeBag.addDisposable(subscription);
+    
+    disposeBag.insert(subscription)
   }
 
   
   // MARK: Presentation logic
-  func presentNextScreen(response: CRXSplashResponse)
+  func presentNextScreen(_ response: CRXSplashResponse)
   {
     // NOTE: Format the response from the Interactor and pass the result back to the View Controller
     self.view.finishSplashPage(CRXSplashViewModel(destination: response.destination, transitionType: response.transitionType));
   }
 
   
-  func bindView(view: CRXViewProtocol){
+  func bindView(_ view: CRXViewProtocol){
     self.view = view as! CRXSplashViewController;
   }
 
-  func processOnBoardingState(isDone: Bool){
+  func processOnBoardingState(_ isDone: Bool){
     var response = CRXSplashResponse();
     response.destination = isDone == true ? CRXSplashDestination.InApp : CRXSplashDestination.OnBoarding;
     response.transitionType = ViewControllerPresentationType.ReplaceAtRoot;

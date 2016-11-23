@@ -57,7 +57,7 @@ class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
   
   //build page content layout
   func displayPageContent(){
-    self.view.backgroundColor = self.pageContent.bgColor != nil ? self.pageContent.bgColor! : UIColor.whiteColor();
+    self.view.backgroundColor = self.pageContent.bgColor != nil ? self.pageContent.bgColor! : UIColor.white;
     
     self.view.addSubview(self.headingContainer);
     
@@ -114,7 +114,7 @@ class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
     self.headingContainer.alpha = 0.1;
     self.descriptionContainer.alpha = 0.1;
     self.imageContainer.alpha = 0.1;
-    UIView.animateWithDuration(1.0, animations: { () -> Void in
+    UIView.animate(withDuration: 1.0, animations: { () -> Void in
       self.headingContainer.alpha = 1.0;
       self.descriptionContainer.alpha = 1.0;
       self.imageContainer.alpha = 1.0;
@@ -125,14 +125,14 @@ class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
       stepFinishButton = CRXViewFactory.circularButtonImage(UIImage(named:"ic_check_white")!, highlightedButtonImage: UIImage(named:"ic_check_primary")!, buttonColor: UIColor.randomColor(), highlightedButtonColor: UIColor.randomColor());
       stepFinishButton.center.x = self.view.frame.width - 60.0;
       stepFinishButton.center.y = self.view.frame.height - 60.0;
-      stepFinishButton.addTarget(self, action: #selector(CRXOnBoardingPageBaseViewController.doOnboardingFinishEventNotification(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+      stepFinishButton.addTarget(self, action: #selector(CRXOnBoardingPageBaseViewController.doOnboardingFinishEventNotification(_:)), for: UIControlEvents.touchUpInside)
       self.view.addSubview(stepFinishButton);
     }
   }
   
   
   // MARK: Event handling
-  func doOnboardingFinishEventNotification(sender:UIButton!) {
+  func doOnboardingFinishEventNotification(_ sender:UIButton!) {
     //notify anyone interested
     SwiftEventBus.post(CRXOnboardingEvents.FINISH.rawValue);
   }

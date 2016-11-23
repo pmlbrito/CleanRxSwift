@@ -11,11 +11,11 @@ import RxSwift
 
 class CRXOnBoardingProcess {
   
-  func updateUserOnboardingIsDone(isDone: Bool) -> Observable<Bool> {
+  func updateUserOnboardingIsDone(_ isDone: Bool) -> Observable<Bool> {
     return Observable.just(self.applyUserOnboardingIsDone(isDone));
   }
   
-  private func applyUserOnboardingIsDone(isDone: Bool) -> Bool {
+  fileprivate func applyUserOnboardingIsDone(_ isDone: Bool) -> Bool {
     let result = CRXUserDefaultsService.setUserOnboardingDone(isDone);
     return result;
   }
