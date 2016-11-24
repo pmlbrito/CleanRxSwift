@@ -49,14 +49,14 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
   {
     // NOTE: Ask the Interactor to do some work
     self.view.addSubview(self.splash_title);
-    splash_title.snp_makeConstraints { make in
+    splash_title.snp.makeConstraints { make in
       make.left.equalTo(self.view).offset(20)
       make.right.equalTo(self.view).offset(-20)
       make.top.equalTo(self.view).offset(70)
     }
     
     self.view.addSubview(box)
-    box.snp_makeConstraints { make in
+    box.snp.makeConstraints { make in
       make.width.equalTo(self.view.width - 50)
       make.height.equalTo(self.view.height / 3)
       make.center.equalTo(self.view)
@@ -64,7 +64,7 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
     
     imageView.image = UIImage(named: "splash_logo");
     box.addSubview(imageView);
-    imageView.snp_makeConstraints { make in
+    imageView.snp.makeConstraints { make in
       make.edges.equalTo(box).inset(UIEdgeInsets.zero);
     }
 

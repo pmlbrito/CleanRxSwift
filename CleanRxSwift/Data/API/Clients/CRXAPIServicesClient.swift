@@ -124,8 +124,8 @@ class CRXAPIServicesClient: CRXAPIServicesClientProtocol {
                 observer.on(.completed)
             }
         }
-        
-        return request.cancel() as! Disposable;
+
+        return request as! Disposable;
     }
   }
 }

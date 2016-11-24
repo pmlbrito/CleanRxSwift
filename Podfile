@@ -10,12 +10,13 @@ def cleanrxswift_pods
     pod 'SwiftyUserDefaults'
     pod 'Locksmith'
     pod 'Kingfisher'
-    pod "AsyncSwift"
+    pod 'AsyncSwift'
     pod 'SwiftEventBus', :tag => '2.1.2', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
     pod 'Swinject', '2.0.0-beta.2'
     pod 'RxAlamofire'
     pod 'CryptoSwift'
     pod 'AlamofireObjectMapper', '~> 4.0'
+    pod 'reddift'
 end
 
 target 'CleanRxSwift' do

@@ -61,8 +61,8 @@ class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
     
     self.view.addSubview(self.headingContainer);
     
-    self.headingContainer.snp_makeConstraints { make in
-      make.width.equalTo(self.view.snp_width).inset(25);
+    self.headingContainer.snp.makeConstraints { make in
+      make.width.equalTo(self.view.snp.width).inset(25);
       make.height.equalTo(40)
       make.top.equalTo(self.view).offset(30)
       make.centerX.equalTo(self.view);
@@ -71,43 +71,43 @@ class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
     self.headingContainer.addSubview(self.headingLabel)
     self.headingLabel.text = pageContent.titleText;
     self.headingLabel.sizeToFit();
-    self.headingLabel.snp_makeConstraints { make in
-      make.width.equalTo(self.headingContainer.snp_width).inset(20)
+    self.headingLabel.snp.makeConstraints { make in
+      make.width.equalTo(self.headingContainer.snp.width).inset(20)
       make.center.equalTo(self.headingContainer)
     }
     
     self.view.addSubview(self.imageContainer);
-    self.imageContainer.snp_makeConstraints { make in
-      make.width.equalTo(self.view.snp_width).inset(25)
-      make.height.equalTo(self.view.snp_height).multipliedBy(0.45)
-      make.top.equalTo(self.headingContainer.snp_bottom).offset(20)
+    self.imageContainer.snp.makeConstraints { make in
+      make.width.equalTo(self.view.snp.width).inset(25)
+      make.height.equalTo(self.view.snp.height).multipliedBy(0.45)
+      make.top.equalTo(self.headingContainer.snp.bottom).offset(20)
       make.centerX.equalTo(self.view);
     }
     
     
     self.view.addSubview(self.descriptionContainer);
-    self.descriptionContainer.snp_makeConstraints { make in
-      make.width.equalTo(self.view.snp_width).inset(25)
-      make.top.equalTo(self.imageContainer.snp_bottom).offset(10)
-      make.bottom.equalTo(self.view.snp_bottom).inset(40)
+    self.descriptionContainer.snp.makeConstraints { make in
+      make.width.equalTo(self.view.snp.width).inset(25)
+      make.top.equalTo(self.imageContainer.snp.bottom).offset(10)
+      make.bottom.equalTo(self.view.snp.bottom).inset(40)
       make.centerX.equalTo(self.view);
     }
     
     self.descriptionLabel.text = self.pageContent.descriptionText;
     self.descriptionLabel.sizeToFit();
     self.descriptionContainer.addSubview(self.descriptionLabel)
-    self.descriptionLabel.snp_makeConstraints { make in
-      make.width.equalTo(self.descriptionContainer.snp_width)
-      make.height.equalTo(self.descriptionContainer.snp_height)
+    self.descriptionLabel.snp.makeConstraints { make in
+      make.width.equalTo(self.descriptionContainer.snp.width)
+      make.height.equalTo(self.descriptionContainer.snp.height)
       make.edges.equalTo(self.descriptionContainer)
     }
     
     
     self.contentImageView.image = UIImage(named: self.pageContent.imageName);
     self.imageContainer.addSubview(self.contentImageView);
-    self.contentImageView.snp_makeConstraints { make in
-      make.width.equalTo(self.imageContainer.snp_width)
-      make.height.equalTo(self.imageContainer.snp_height)
+    self.contentImageView.snp.makeConstraints { make in
+      make.width.equalTo(self.imageContainer.snp.width)
+      make.height.equalTo(self.imageContainer.snp.height)
       make.center.equalTo(self.imageContainer);
     }
     

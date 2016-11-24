@@ -72,7 +72,7 @@
 		423607361D1ADCA300808990 /* CRXPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXPresenterProtocol.swift; sourceTree = "<group>"; };
 		423607491D1AEDB800808990 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		424F50321D4CBE14007DB0EE /* CRXPListUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXPListUtils.swift; sourceTree = "<group>"; };
-		424F50361D4CBEA7007DB0EE /* CRXAPIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXAPIConfig.swift; sourceTree = "<group>"; };
+		424F50361D4CBEA7007DB0EE /* CRXAPIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CRXAPIConfig.swift; sourceTree = "<group>"; tabWidth = 2; };
 		424F50391D4CBFB8007DB0EE /* CRXAPIServicesClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXAPIServicesClient.swift; sourceTree = "<group>"; };
 		424F503C1D4CC532007DB0EE /* APIConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIConfig.plist; sourceTree = "<group>"; };
 		424F503E1D4CC881007DB0EE /* APIListItemsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIListItemsResponse.swift; sourceTree = "<group>"; };
@@ -184,6 +184,7 @@
 		423607151D1AD08300808990 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				424D58A31DE786D5002BD6BE /* SubRedditsList */,
 				428D31471D26D9F0007C9BCC /* OnBoarding */,
 				423607171D1AD0DB00808990 /* Splash */,
 			);
@@ -250,6 +251,13 @@
 				423607491D1AEDB800808990 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		424D58A31DE786D5002BD6BE /* SubRedditsList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubRedditsList;
 			sourceTree = "<group>";
 		};
 		424F50311D4CBDD8007DB0EE /* Utils */ = {
@@ -791,7 +799,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 522B61BFDBB7B6D08D7C5A25 /* Pods-CleanRxSwift.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CleanRxSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -806,7 +814,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F4DDA3A558FBF50312BAC6B7 /* Pods-CleanRxSwift.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CleanRxSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -821,7 +829,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D10C0EF88C5E6B28C9339E4A /* Pods-CleanRxSwiftTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CleanRxSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -836,7 +844,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F8D9C8F921DB5B05E6889CBE /* Pods-CleanRxSwiftTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CleanRxSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

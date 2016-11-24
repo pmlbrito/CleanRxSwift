@@ -9,6 +9,9 @@ PODS:
   - Locksmith (3.0.0)
   - ObjectMapper (2.2.1)
   - QuickShotUtils (0.2.0)
+  - reddift (2.0.0):
+    - reddift/MiniKeychain (= 2.0.0)
+  - reddift/MiniKeychain (2.0.0)
   - RxAlamofire (3.0.0):
     - RxAlamofire/Core (= 3.0.0)
   - RxAlamofire/Core (3.0.0):
@@ -29,6 +32,7 @@ DEPENDENCIES:
   - Kingfisher
   - Locksmith
   - QuickShotUtils (from `https://github.com/pmlbrito/QuickShotUtils.git`)
+  - reddift
   - RxAlamofire
   - RxCocoa (~> 3.0)
   - RxSwift (~> 3.0)
@@ -61,6 +65,7 @@ SPEC CHECKSUMS:
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   ObjectMapper: 41e43e1a89f8060ef5ea5d04ba852e269a621d68
   QuickShotUtils: 2c60abe5f4e291b6c12c871eaea48f691f47d82c
+  reddift: 5eef0cb08a07ed8ad9abdc4d007a127e84fb6f5d
   RxAlamofire: 0b1fa48f545fffe7f7a28af2086bcaa3b5946cc9
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
   RxSwift: af5680055c4ad04480189c52d28385b1029493a6
@@ -69,6 +74,6 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   Swinject: 69a893192efa9f2cc44be79ef423d04d571b6af9
 
-PODFILE CHECKSUM: 5e5a2707efcb7035e21aa93763979cc7b114c8a5
+PODFILE CHECKSUM: a495e449fce222b289bf3b70a7c8c62617090516
 
 COCOAPODS: 1.1.1
