@@ -15,19 +15,18 @@ import QuickShotUtils
 
 protocol CRXOnBoardingViewControllerProtocol: CRXViewProtocol
 {
-  func displayOnboardingPages(_ viewModel: CRXOnBoardingViewModel)
+  func displayOnboardingPages(viewModel: CRXOnBoardingViewModel)
   
-  func userFinishedOnBoarding(_ viewModel: CRXOnBoardingViewModel);
+  func userFinishedOnBoarding(viewModel: CRXOnBoardingViewModel);
   
 }
 
-class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewControllerProtocol
-{
+class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewControllerProtocol {
 
   var presenter: CRXOnBoardingPresenter!
   var router: CRXOnBoardingRouter!
   
-  var contentPages = [CRXOnBoardingPageBaseViewController]();
+  var contentPages = [CRXOnBoardingPageBaseViewController]()
   
   // MARK: Object lifecycle
   override init() {
@@ -36,39 +35,37 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
   
   // MARK: View lifecycle
   
-  override func viewDidLoad()
-  {
+  override func viewDidLoad() {
     super.viewDidLoad()
     self.bindView();
   }
   
   // MARK: Event handling
-  func endContentPresentationEvent(){
-    self.onDonePressed();
+  func endContentPresentationEvent() {
+    self.onDonePressed()
   }
   
   // MARK: Display logic
-  var pagerViewController : CRXPagerViewController!
+  var pagerViewController: CRXPagerViewController!
   
-  func displayOnboardingPages(_ viewModel: CRXOnBoardingViewModel)
-  {
-    self.contentPages = viewModel.sliderItems!;
+  func displayOnboardingPages(viewModel: CRXOnBoardingViewModel) {
+    self.contentPages = viewModel.sliderItems!
     
-    //we need to register the listener for the end of presentation
-    //    let lastPage = self.contentPages.last;
+    // we need to register the listener for the end of presentation
+    // let lastPage = self.contentPages.last;
     
-    SwiftEventBus.onMainThread(self, name: CRXOnboardingEvents.FINISH.rawValue){ result in
-      self.endContentPresentationEvent();
+    SwiftEventBus.onMainThread(self, name: CRXOnboardingEvents.FINISH.rawValue) { result in
+      self.endContentPresentationEvent()
     }
     
     /* Getting the page View controller */
     pagerViewController = CRXPagerViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-    pagerViewController.sliderContent = self.contentPages;
+    pagerViewController.sliderContent = self.contentPages
     pagerViewController.sliderConfig = CRXPagerConfig(bounces: false, defaultSlide: 0, showDefaultPageIndicator: true, sendDefaultSlideChange: true)
     
     
     pagerViewController.didChangedSlide { value in
-      NSLog("current slide: %d", value);
+      NSLog("current slide: %d", value)
     }
     
     self.pagerViewController.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
@@ -110,19 +107,20 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
   //    }
   //  }
   
-  func userFinishedOnBoarding(_ viewModel: CRXOnBoardingViewModel){
-    self.hideProgressIndicator();
-    self.router.navigateToNextScreen(viewModel.destination, transitionType: viewModel.transitionType);
+  func userFinishedOnBoarding(viewModel: CRXOnBoardingViewModel) {
+    self.hideProgressIndicator()
+    self.router.navigateToNextScreen(viewModel.destination, transitionType: viewModel.transitionType)
   }
   
   
-  //MARK: Handlers
-  func onDonePressed(){
-    self.showProgressIndicator();
-    self.presenter?.userIsDoneWithOnBoarding();
+  // MARK: Handlers
+  func onDonePressed() {
+    self.showProgressIndicator()
+    self.presenter?.userIsDoneWithOnBoarding()
   }
 
   func bindView() {
-    self.presenter?.bindView(self);
+    self.presenter?.bindView(view: self)
   }
+  
 }

@@ -2,11 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>API</key>
-	<dict/>
-	<key>New item</key>
+	<key>REDIRECT_URI</key>
+	<string></string>
+	<key>DEVELOPER_NAME</key>
 	<string></string>
 	<key>API_URL</key>
+	<string></string>
+	<key>API_USERNAME</key>
+	<string></string>
+	<key>API_PASSWORD</key>
+	<string></string>
+	<key>API_CLIENTID</key>
+	<string></string>
+	<key>API_SECRET</key>
 	<string></string>
 </dict>
 </plist>

@@ -11,34 +11,35 @@ import Swinject
 
 class CRXOnBoardingSetup {
   
-  static let container = Container();
+  static let container = Container()
   
   static func setup() {
     
-    container.register(CRXOnBoardingViewController.self) { _ in
-      let controller = CRXOnBoardingViewController();
-      controller.presenter = CRXOnBoardingSetup.container.resolve(CRXOnBoardingPresenter.self)!;
-      return controller;
-      }.initCompleted { r, onboarding in
-        let router = CRXOnBoardingSetup.container.resolve(CRXOnBoardingRouter.self)!;
-        onboarding.router = router;
+    container.register(CRXOnBoardingViewController.self) { injector in
+      let controller = CRXOnBoardingViewController()
+      controller.presenter = CRXOnBoardingSetup.container.resolve(CRXOnBoardingPresenter.self)!
+      return controller
+      }.initCompleted { injector, onboarding in
+        let router = CRXOnBoardingSetup.container.resolve(CRXOnBoardingRouter.self)!
+        onboarding.router = router
     }
     
     
-    container.register(CRXOnBoardingPresenter.self) { r in
-      CRXOnBoardingPresenter(interactor: r.resolve(CRXOnBoardingInteractor.self)!);
+    container.register(CRXOnBoardingPresenter.self) { injector in
+      CRXOnBoardingPresenter(interactor: injector.resolve(CRXOnBoardingInteractor.self)!)
     }
     
-    container.register(CRXOnBoardingInteractor.self) { r in
-      CRXOnBoardingInteractor(process: r.resolve(CRXOnBoardingProcess.self)!);
+    container.register(CRXOnBoardingInteractor.self) { injector in
+      CRXOnBoardingInteractor(process: injector.resolve(CRXOnBoardingProcess.self)!)
     }
     
-    container.register(CRXOnBoardingProcess.self) { _ in
-      CRXOnBoardingProcess();
+    container.register(CRXOnBoardingProcess.self) { injector in
+      CRXOnBoardingProcess()
     }
     
-    container.register(CRXOnBoardingRouter.self) { r in
-      CRXOnBoardingRouter(viewController: r.resolve(CRXOnBoardingViewController.self)!);
+    container.register(CRXOnBoardingRouter.self) { injector in
+      CRXOnBoardingRouter(viewController: injector.resolve(CRXOnBoardingViewController.self)!)
     }
   }
+  
 }

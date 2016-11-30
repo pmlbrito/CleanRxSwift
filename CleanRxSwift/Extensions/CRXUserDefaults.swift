@@ -9,23 +9,24 @@
 import SwiftyUserDefaults
 
 open class CRXPreferencesConstants {
-  static let ONBOARDING_USER_DONE = "onboarding_user_done";
-
+  static let OnboardingUserDone = "onboarding_user_done"
 }
 
 
 extension DefaultsKeys {
-  static let onboarding_user_done = DefaultsKey<Bool>(CRXPreferencesConstants.ONBOARDING_USER_DONE)
+  static let onboardingUserDone = DefaultsKey<Bool>(CRXPreferencesConstants.OnboardingUserDone)
 }
 
 
 class CRXUserDefaultsService {
+  
   static func isUserOnboardingDone() -> Bool {
-    return Defaults[.onboarding_user_done];
+    return Defaults[.onboardingUserDone]
   }
   
-  static func setUserOnboardingDone(_ isDone: Bool) -> Bool {
-    Defaults[.onboarding_user_done] = isDone;
-    return true;
+  static func setUserOnboardingDone(isDone: Bool) -> Bool {
+    Defaults[.onboardingUserDone] = isDone
+    return true
   }
+  
 }

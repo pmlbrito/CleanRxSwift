@@ -17,13 +17,19 @@ class CRXAPIConfig {
   
   //API PARAMS
 
-  var apiKey: String!;
+  var apiUser: String!;
+  var apiPass: String!;
+  var apiClientId: String!;
   var apiSecret: String!;
   var service_base_url: String!
   
+  var appdeveloper: String!;
+  var redirect_uri: String!;
+  
+  
   static func loadAPIConfigFromBundle(_ fileName: String?) -> NSMutableDictionary {
     if(fileName != nil){
-      let apiConfig = CRXPListUtils.getPListFileForBundleConfigKey(fileName!);
+      let apiConfig = CRXPListUtils.getPListFileForBundleConfigKey(filenameKey: fileName!);
       let configDictionary = NSMutableDictionary(dictionary: apiConfig!);
       return configDictionary;
     }
@@ -33,8 +39,12 @@ class CRXAPIConfig {
   func setConfig(configDict: NSDictionary?){
     if let apiKEYS = configDict?["API"] as? Dictionary<String, AnyObject> {
       self.service_base_url = apiKEYS["API_URL"] as! String;
-      self.apiKey = apiKEYS["API_PUBLIC_KEY"] as! String;
-      self.apiSecret = apiKEYS["API_PRIVATE_KEY"] as! String;
+      self.apiUser = apiKEYS["API_USERNAME"] as! String;
+      self.apiPass = apiKEYS["API_PASSWORD"] as! String;
+      self.apiClientId = apiKEYS["API_CLIENTID"] as! String;
+      self.apiSecret = apiKEYS["API_SECRET"] as! String;
+      self.appdeveloper = apiKEYS["DEVELOPER_NAME"] as! String;
+      self.redirect_uri = apiKEYS["REDIRECT_URI"] as! String;
     }
   }
 }

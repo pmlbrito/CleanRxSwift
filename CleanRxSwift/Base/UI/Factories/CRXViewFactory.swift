@@ -11,25 +11,24 @@ import UIKit
 
 class CRXViewFactory {
 
-  //MARK: UIButton
-  
-  static func circularButtonImage(_ buttonImage:UIImage, highlightedButtonImage:UIImage, buttonColor: UIColor, highlightedButtonColor: UIColor) -> UIButton {
-    let button = UIButton(frame:CGRect(x: 0.0, y: 0.0, width: 56.0, height: 56.0));
+  // MARK: UIButton
+  static func circularButtonImage(buttonImage:UIImage, highlightedButtonImage:UIImage, buttonColor: UIColor, highlightedButtonColor: UIColor) -> UIButton {
+    let button = UIButton(frame:CGRect(x: 0.0, y: 0.0, width: 56.0, height: 56.0))
     
-    button.setBackgroundColor(buttonColor, forState: UIControlState());
-    button.setBackgroundColor(highlightedButtonColor, forState: UIControlState.highlighted);
-    button.setBackgroundColor(highlightedButtonColor, forState: UIControlState.selected);
+    button.setBackgroundColor(color: buttonColor, forState: UIControlState());
+    button.setBackgroundColor(color: highlightedButtonColor, forState: UIControlState.highlighted)
+    button.setBackgroundColor(color: highlightedButtonColor, forState: UIControlState.selected)
     
     button.setImage(buttonImage, for: UIControlState())
     button.setImage(highlightedButtonImage, for: UIControlState.highlighted)
     button.setImage(highlightedButtonImage, for: UIControlState.selected)
     
     button.layer.cornerRadius = 0.5 * button.bounds.size.width
-    button.layer.borderWidth = 1.0;
-    button.layer.borderColor = UIColor(hexString: "#E3E3E3FF")!.cgColor;
+    button.layer.borderWidth = 1.0
+    button.layer.borderColor = UIColor(hexString: "#E3E3E3FF")!.cgColor
     button.clipsToBounds = true
     
-    return button;
+    return button
   }
 
 //  
@@ -220,7 +219,7 @@ class CRXViewFactory {
 //    return label;
 //  }
   
-  static func boldLabelWithTextAndSize(_ labelText: NSString, textColor: UIColor, fontSize: CGFloat) -> UILabel {
+  static func boldLabelWithTextAndSize(labelText: NSString, textColor: UIColor, fontSize: CGFloat) -> UILabel {
     let label = UILabel();
     label.text = labelText as String;
     label.textColor = textColor;
@@ -234,7 +233,7 @@ class CRXViewFactory {
     return label;
   }
   
-  static func textLabelWithTextAndSize(_ labelText: NSString, textColor: UIColor, fontSize: CGFloat) -> UILabel {
+  static func textLabelWithTextAndSize(labelText: NSString, textColor: UIColor, fontSize: CGFloat) -> UILabel {
     let label = UILabel();
     label.text = labelText as String;
     label.textColor = textColor;

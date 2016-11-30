@@ -15,12 +15,11 @@ import SnapKit
 
 protocol CRXSplashViewControllerInput: CRXViewProtocol
 {
-  func finishSplashPage(_ viewModel: CRXSplashViewModel)
+  func finishSplashPage(viewModel: CRXSplashViewModel)
 }
 
 
-class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInput
-{
+class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInput {
   var presenter: CRXSplashPresenterProtocol!
   var router: CRXSplashRouterProtocol!
   
@@ -31,7 +30,7 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
   }
   
   // MARK: View lifecycle
-  lazy var splash_title = CRXViewFactory.boldLabelWithTextAndSize("Clean RxSwift", textColor: UIColor(hexString:"#344146FF")!, fontSize: CGFloat(24))
+  lazy var splash_title = CRXViewFactory.boldLabelWithTextAndSize(labelText: "Clean RxSwift", textColor: UIColor(hexString: "#344146FF")!, fontSize: CGFloat(24))
   lazy var box = UIView()
   lazy var imageView = UIImageView()
   
@@ -44,9 +43,7 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
   }
   
   // MARK: Event handling
-  
-  func buildViewLayout()
-  {
+  func buildViewLayout() {
     // NOTE: Ask the Interactor to do some work
     self.view.addSubview(self.splash_title);
     splash_title.snp.makeConstraints { make in
@@ -62,10 +59,10 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
       make.center.equalTo(self.view)
     }
     
-    imageView.image = UIImage(named: "splash_logo");
+    imageView.image = UIImage(named: "splash_logo")
     box.addSubview(imageView);
     imageView.snp.makeConstraints { make in
-      make.edges.equalTo(box).inset(UIEdgeInsets.zero);
+      make.edges.equalTo(box).inset(UIEdgeInsets.zero)
     }
 
     self.showProgressIndicator();
@@ -73,14 +70,14 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
   
   // MARK: Display logic
   
-  func finishSplashPage(_ viewModel: CRXSplashViewModel)
-  {
-    self.hideProgressIndicator();
-    self.router.navigateToNextScreen(viewModel.destination, transitionType: viewModel.transitionType);
+  func finishSplashPage(viewModel: CRXSplashViewModel) {
+    self.hideProgressIndicator()
+    self.router.navigateToNextScreen(viewModel.destination, transitionType: viewModel.transitionType)
   }
   
-  //MARK: Helpers
+  // MARK: Helpers
   func bindView() {
-    self.presenter?.bindView(self);
+    self.presenter?.bindView(view: self)
   }
+  
 }

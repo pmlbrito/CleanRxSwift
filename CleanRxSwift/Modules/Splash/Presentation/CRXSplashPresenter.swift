@@ -13,30 +13,28 @@ import UIKit
 import RxSwift
 import QuickShotUtils;
 
-protocol CRXSplashPresenterProtocol: CRXPresenterProtocol
-{
+protocol CRXSplashPresenterProtocol: CRXPresenterProtocol {
 }
 
-class CRXSplashPresenter: CRXSplashPresenterProtocol
-{
+class CRXSplashPresenter: CRXSplashPresenterProtocol {
   var view: CRXSplashViewController!
  
-  weak var interactor: CRXSplashInteractor!;
+  weak var interactor: CRXSplashInteractor!
   
   var disposeBag = DisposeBag()
   var subscription: Disposable!
   
-  init(interactor: CRXSplashInteractor){
+  init(interactor: CRXSplashInteractor) {
     self.interactor = interactor
     
     subscription = self.interactor.updateUserIsDone().observeOn(MainScheduler.instance).subscribe(onNext: { (result) in
-        self.processOnBoardingState(result);
+        self.processOnBoardingState(result)
     }, onError: { (error) in
-        //TODO: log error
+        // TODO: log error
     }, onCompleted: { 
-        //ended
+        // ended
     }, onDisposed: { 
-        //disposed instance
+        // disposed instance
     })
     
     disposeBag.insert(subscription)
@@ -44,22 +42,22 @@ class CRXSplashPresenter: CRXSplashPresenterProtocol
 
   
   // MARK: Presentation logic
-  func presentNextScreen(_ response: CRXSplashResponse)
-  {
+  func presentNextScreen(_ response: CRXSplashResponse) {
     // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-    self.view.finishSplashPage(CRXSplashViewModel(destination: response.destination, transitionType: response.transitionType));
+    self.view.finishSplashPage(viewModel: CRXSplashViewModel(destination: response.destination, transitionType: response.transitionType))
   }
 
   
-  func bindView(_ view: CRXViewProtocol){
-    self.view = view as! CRXSplashViewController;
+  func bindView(view: CRXViewProtocol) {
+    self.view = view as! CRXSplashViewController
   }
 
-  func processOnBoardingState(_ isDone: Bool){
+  func processOnBoardingState(_ isDone: Bool) {
     var response = CRXSplashResponse();
-    response.destination = isDone == true ? CRXSplashDestination.InApp : CRXSplashDestination.OnBoarding;
-    response.transitionType = ViewControllerPresentationType.ReplaceAtRoot;
+    response.destination = isDone == true ? CRXSplashDestination.InApp : CRXSplashDestination.OnBoarding
+    response.transitionType = ViewControllerPresentationType.ReplaceAtRoot
     
-    self.presentNextScreen(response);
+    self.presentNextScreen(response)
   }
+  
 }

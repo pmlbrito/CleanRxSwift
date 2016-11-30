@@ -10,16 +10,14 @@ import Foundation
 
 class CRXPListUtils {
   
-  static func getPListFileForBundleConfigKey(_ filenameKey: String) -> NSDictionary? {
-    let path = Bundle.main.path(forResource: filenameKey, ofType: "plist");
-    
+  static func getPListFileForBundleConfigKey(filenameKey: String) -> NSDictionary? {
+    let path = Bundle.main.path(forResource: filenameKey, ofType: "plist")
     var dict: NSDictionary?
-    dict = nil;
-    if(path != nil){
-      dict = NSDictionary(contentsOfFile: path!);
+    dict = nil
+    if path != nil {
+      dict = NSDictionary(contentsOfFile: path!)
     }
-    
-    return dict;
+    return dict
   }
   
 }

@@ -49,8 +49,8 @@ enum Router: URLRequestConvertible {
         switch self {
         case .getListItems(_, let parameters):
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
-        default:
-            break
+//        default:
+//            break
         }
         
         return urlRequest

@@ -16,17 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    self.initModules();
+    self.initModules()
     
     window = UIWindow(frame: UIScreen.main.bounds)
     if let window = window {
-      window.rootViewController = CRXSplashSetup.container.resolve(CRXSplashViewController.self);
+      window.rootViewController = CRXSplashSetup.container.resolve(CRXSplashViewController.self)
       window.makeKeyAndVisible()
     }
 
-    CRXAppUtils.checkForFirstLaunch(){ (isFirstRun: Bool?, error: NSError?) in
-      if(isFirstRun != nil && isFirstRun! == true){
-        //TODO: cleanup all data that can carry from install to install
+    CRXAppUtils.checkForFirstLaunch { (isFirstRun: Bool?, error: NSError?) in
+      if isFirstRun != nil && isFirstRun! == true {
+        // TODO: cleanup all data that can carry from install to install
       }
     }
     
@@ -55,9 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
 
-  func initModules(){
-    CRXSplashSetup.setup();
-    CRXOnBoardingSetup.setup();
+  func initModules() {
+    CRXSplashSetup.setup()
+    CRXOnBoardingSetup.setup()
   }
+  
 }
-

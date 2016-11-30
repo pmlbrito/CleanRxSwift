@@ -11,82 +11,81 @@
 
 import UIKit
 import RxSwift
-import QuickShotUtils;
+import QuickShotUtils
 
-protocol CRXOnBoardingPresenterProtocol: CRXPresenterProtocol
-{
+protocol CRXOnBoardingPresenterProtocol: CRXPresenterProtocol {
   func userIsDoneWithOnBoarding()
   
   func processOnBoardingPagesContent(_ content: [CRXOnBoardingContent])
 }
 
 
-class CRXOnBoardingPresenter: CRXOnBoardingPresenterProtocol
-{
+class CRXOnBoardingPresenter: CRXOnBoardingPresenterProtocol {
   var view: CRXOnBoardingViewController!
   
-  var interactor: CRXOnBoardingInteractor!;
+  var interactor: CRXOnBoardingInteractor!
   
   var disposeBag = DisposeBag()
   var contentLoadSubscription: Disposable!
   
   var userIsDoneSubscription: Disposable!
   
-  init(interactor: CRXOnBoardingInteractor){
+  init(interactor: CRXOnBoardingInteractor) {
     self.interactor = interactor
     contentLoadSubscription = self.interactor.getSlides().observeOn(MainScheduler.instance).subscribe(onNext: { (slides) in
-        self.processOnBoardingPagesContent(slides);
+        self.processOnBoardingPagesContent(slides)
     }, onError: { (error) in
-        //TODO: log error
+        // TODO: log error
     }, onCompleted: { 
-        //finished
+        // finished
     }, onDisposed: { 
-        //cleanup
+        // cleanup
     })
-    disposeBag.insert(contentLoadSubscription);
+    disposeBag.insert(contentLoadSubscription)
   }
   
   // MARK: Presentation logic
-  func bindView(_ view: CRXViewProtocol){
-    self.view = view as! CRXOnBoardingViewController;
+  func bindView(view: CRXViewProtocol) {
+    self.view = view as! CRXOnBoardingViewController
   }
   
   func userIsDoneWithOnBoarding() {
     userIsDoneSubscription = self.interactor.updateUserIsDone(true).observeOn(MainScheduler.instance).subscribe(onNext: { (success) in
-        var onBoardingResultModel = CRXOnBoardingViewModel();
-        onBoardingResultModel.destination = CRXOnBoardingDestination.InApp;
+        var onBoardingResultModel = CRXOnBoardingViewModel()
+        onBoardingResultModel.destination = CRXOnBoardingDestination.InApp
         onBoardingResultModel.transitionType = ViewControllerPresentationType.ReplaceAtRoot
         
-        self.view.userFinishedOnBoarding(onBoardingResultModel);
+        self.view.userFinishedOnBoarding(viewModel: onBoardingResultModel)
     }, onError: { (error) in
-        //TODO: log error
+        // TODO: log error
     }, onCompleted: { 
-        //completed action
+        // completed action
     }, onDisposed: { 
-        //cleanup
+        // cleanup
     }) 
-    disposeBag.insert(contentLoadSubscription);
+    disposeBag.insert(contentLoadSubscription)
   }
   
-  func processOnBoardingPagesContent(_ content: [CRXOnBoardingContent]){
-    //create page content controllers from content
-    var sliderPages = [CRXOnBoardingPageBaseViewController]();
+  func processOnBoardingPagesContent(_ content: [CRXOnBoardingContent]) {
+    // create page content controllers from content
+    var sliderPages = [CRXOnBoardingPageBaseViewController]()
     
-    var itemIdx = Int(-1);
+    var itemIdx = Int(-1)
     
     for iter in content {
-      itemIdx += 1;
-      let item = CRXOnBoardingPageBaseViewController();
-      item.pageContent = iter;
-      item.pageIndex = itemIdx;
+      itemIdx += 1
+      let item = CRXOnBoardingPageBaseViewController()
+      item.pageContent = iter
+      item.pageIndex = itemIdx
       
-      sliderPages.append(item);
+      sliderPages.append(item)
     }
     
-    sliderPages.last!.isFinalStep = true;
+    sliderPages.last!.isFinalStep = true
     
-    var viewModel = CRXOnBoardingViewModel();
+    var viewModel = CRXOnBoardingViewModel()
     viewModel.sliderItems = sliderPages
-    self.view.displayOnboardingPages(viewModel)
+    self.view.displayOnboardingPages(viewModel: viewModel)
   }
+  
 }

@@ -71,7 +71,7 @@
 		423607341D1ADC8000808990 /* CRXViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXViewProtocol.swift; sourceTree = "<group>"; };
 		423607361D1ADCA300808990 /* CRXPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXPresenterProtocol.swift; sourceTree = "<group>"; };
 		423607491D1AEDB800808990 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		424F50321D4CBE14007DB0EE /* CRXPListUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXPListUtils.swift; sourceTree = "<group>"; };
+		424F50321D4CBE14007DB0EE /* CRXPListUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CRXPListUtils.swift; sourceTree = "<group>"; tabWidth = 2; };
 		424F50361D4CBEA7007DB0EE /* CRXAPIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CRXAPIConfig.swift; sourceTree = "<group>"; tabWidth = 2; };
 		424F50391D4CBFB8007DB0EE /* CRXAPIServicesClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRXAPIServicesClient.swift; sourceTree = "<group>"; };
 		424F503C1D4CC532007DB0EE /* APIConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIConfig.plist; sourceTree = "<group>"; };
@@ -133,7 +133,9 @@
 				4CCC57FE693A4E2EE76A453B /* Pods */,
 				8853BEE501CEDAD31DD02BB4 /* Frameworks */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		423606F01D1ACA6800808990 /* Products */ = {
 			isa = PBXGroup;
@@ -444,6 +446,7 @@
 				423606ED1D1ACA6800808990 /* Resources */,
 				9469D78FE14AC229865FB3A3 /* [CP] Embed Pods Frameworks */,
 				91E62821815E2FBC46B0C798 /* [CP] Copy Pods Resources */,
+				A33C2749BAC6D9D1F9DE9319 /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -613,6 +616,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanRxSwift/Pods-CleanRxSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A33C2749BAC6D9D1F9DE9319 /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\n  tailor \nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+		};
 		C1F464E440B8E60DBD2DF319 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -749,7 +766,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -790,7 +807,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
