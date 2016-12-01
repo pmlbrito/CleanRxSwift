@@ -14,8 +14,8 @@ import ObjectMapper
 import AlamofireObjectMapper
 
 protocol CRXAPIServicesClientProtocol {
-  //unfortunatelly object mapper does not handle generic inner types well... no cigar for you there we have to use specific response types
-    func getListItems(_ offset: Int) -> Observable<APIListItemsResponse?>?
+  // unfortunatelly object mapper does not handle generic inner types well... no cigar for you there we have to use specific response types
+    func getListItems(offset: Int) -> Observable<APIListItemsResponse?>?
 }
 
 
@@ -26,7 +26,7 @@ enum Router: URLRequestConvertible {
     
     var method: HTTPMethod {
         switch self {
-        case .getListItems(_,_):
+        case .getListItems(_, _):
             return .get
         }
     }
@@ -55,6 +55,7 @@ enum Router: URLRequestConvertible {
         
         return urlRequest
     }
+  
 }
 
 
@@ -64,37 +65,37 @@ class CRXAPIServicesClient: CRXAPIServicesClientProtocol {
     var manager: Alamofire.SessionManager
   let apiconfigLoaded: NSDictionary?
   
-  var apiConfig: CRXAPIConfig?;
+  var apiConfig: CRXAPIConfig?
   
   required init() {
     let configuration = URLSessionConfiguration.default
     manager = Alamofire.SessionManager(configuration: configuration)
-    apiconfigLoaded = CRXAPIConfig.loadAPIConfigFromBundle("APIConfig");
+    apiconfigLoaded = CRXAPIConfig.loadAPIConfigFromBundle("APIConfig")
     
-    //parse API CONFIG
-    self.apiConfig = CRXAPIConfig();
-    self.apiConfig!.setConfig(configDict: apiconfigLoaded);
+    // parse API CONFIG
+    self.apiConfig = CRXAPIConfig()
+    self.apiConfig!.setConfig(configDict: apiconfigLoaded)
   }
   
-  func getURLRequest(_ apiURL: String) -> NSMutableURLRequest {
+  func getURLRequest(apiURL: String) -> NSMutableURLRequest {
     let URL = Foundation.URL(string: apiURL)!
     let mutableURLRequest = NSMutableURLRequest(url: URL)
     mutableURLRequest.httpMethod = HTTPMethod.get.rawValue
     
     
-    return mutableURLRequest;
+    return mutableURLRequest
   }
   
-  func getListItems(_ offset: Int) -> Observable<APIListItemsResponse?>? {
+  func getListItems(offset: Int) -> Observable<APIListItemsResponse?>? {
     
     return Observable.create { observer in
       
-      let apiPath = "\((self.apiConfig!.service_base_url!))/path_to_somewhere"
-      let requestParams = [CRXAPIConfig.REQUEST_PARAM_OFFSET : "\(offset)"]
+      let apiPath = "\((self.apiConfig!.serviceBaseUrl!))/path_to_somewhere"
+      let requestParams = [CRXAPIConfig.RequestParamOffset: "\(offset)"]
 
       
 //      let request = self.manager.request(.GET, apiPath, parameters: requestParams, encoding: .url, headers: nil).responseObject(keyPath: "") { (response: Response<APIListItemsResponse, NSError>) in
-//        //TODO:
+//        // TODO:
 //        print("\(response.result)");
 //        
 //        if ((response.result.error) != nil) {
@@ -111,13 +112,13 @@ class CRXAPIServicesClient: CRXAPIServicesClientProtocol {
         
         
         
-        let getListOfItemsRequest = Router.getListItems(baseAPIPath: apiPath, parameters: requestParams);
+        let getListOfItemsRequest = Router.getListItems(baseAPIPath: apiPath, parameters: requestParams)
         
-        let request = self.manager.request(getListOfItemsRequest).responseObject(keyPath: ""){ (response: DataResponse<APIListItemsResponse>) in
-            //TODO:
-            print("\(response.result)");
+        let request = self.manager.request(getListOfItemsRequest).responseObject(keyPath: "") { (response: DataResponse<APIListItemsResponse>) in
+            // TODO:
+            NSLog("\(response.result)")
             
-            if ((response.result.error) != nil) {
+            if (response.result.error) != nil {
                 observer.on(.error(response.result.error!))
             } else {
                 observer.on(.next(response.result.value))
@@ -125,7 +126,8 @@ class CRXAPIServicesClient: CRXAPIServicesClientProtocol {
             }
         }
 
-        return request as! Disposable;
+        return (request as? Disposable)!
     }
   }
+  
 }

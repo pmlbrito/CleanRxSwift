@@ -13,11 +13,10 @@ import UIKit
 import SwiftEventBus
 import QuickShotUtils
 
-protocol CRXOnBoardingViewControllerProtocol: CRXViewProtocol
-{
+protocol CRXOnBoardingViewControllerProtocol: CRXViewProtocol {
   func displayOnboardingPages(viewModel: CRXOnBoardingViewModel)
   
-  func userFinishedOnBoarding(viewModel: CRXOnBoardingViewModel);
+  func userFinishedOnBoarding(viewModel: CRXOnBoardingViewModel)
   
 }
 
@@ -37,7 +36,7 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.bindView();
+    self.bindView()
   }
   
   // MARK: Event handling
@@ -54,7 +53,7 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
     // we need to register the listener for the end of presentation
     // let lastPage = self.contentPages.last;
     
-    SwiftEventBus.onMainThread(self, name: CRXOnboardingEvents.FINISH.rawValue) { result in
+    SwiftEventBus.onMainThread(self, name: CRXOnboardingEvents.finish.rawValue) { result in
       self.endContentPresentationEvent()
     }
     
@@ -80,16 +79,16 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
   //
   //    if(viewModel.error != nil){
   //      switch viewModel.error!.type! {
-  //      case RFErrorType.DIALOG:
+  //      case ErrorType.DIALOG:
   //        //this should be a critical error and we should not be able to continue
   //        if(!isNilOrEmpty(viewModel.error?.title)){
-  //          RFAlertFactory.sharedInstance.showActionSheet((viewModel.error?.title)!, text: (viewModel.error?.message)!, actionsArray: nil, presentingViewController: self)
+  //          AlertFactory.sharedInstance.showActionSheet((viewModel.error?.title)!, text: (viewModel.error?.message)!, actionsArray: nil, presentingViewController: self)
   //        }else{
-  //          RFAlertFactory.sharedInstance.showAlertViewForErrorModel(viewModel.error!, presentingViewController: self);
+  //          AlertFactory.sharedInstance.showAlertViewForErrorModel(viewModel.error!, presentingViewController: self);
   //        }
   //
   //        break;
-  //      case RFErrorType.SNACK_BAR:
+  //      case ErrorType.SNACK_BAR:
   //        //        let snackBar = RFAlertFactory.sharedInstance.createSnackBarForErrorModel(viewModel.error!, actionText: transManager.getString(RFTranslationConstants.ACTION_RETRY));
   //        //        snackBar.actionBlock = { (snackBar) -> Void in
   //        //          //action to retry
@@ -97,7 +96,7 @@ class CRXOnBoardingViewController: CRXBaseViewController, CRXOnBoardingViewContr
   //        //          self.showProgressIndicator();
   //        //          self.output.triggerCompetitionsLoad();
   //        //        }
-  //        let snackBar = RFAlertFactory.sharedInstance.createSnackBarWithoutOptionsForErrorModel(viewModel.error!, duration: TTGSnackbarDuration.Middle);
+  //        let snackBar = AlertFactory.sharedInstance.createSnackBarWithoutOptionsForErrorModel(viewModel.error!, duration: TTGSnackbarDuration.Middle);
   //        snackBar.showInViewController(self);
   //        break;
   //      default:

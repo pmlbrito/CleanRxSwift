@@ -9,7 +9,7 @@
 import UIKit
 import QuickShotUtils
 
-class CRXBaseViewController :  QSUBaseViewController {
+class CRXBaseViewController: QSUBaseViewController {
   
   var didSetupConstraints = false
   
@@ -18,15 +18,15 @@ class CRXBaseViewController :  QSUBaseViewController {
   }
   
   required convenience init(coder: NSCoder) {
-    self.init();
+    self.init()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.view.backgroundColor = UIColor.white;
+    self.view.backgroundColor = UIColor.white
     
-    view.setNeedsUpdateConstraints() //bootstrap autolayout
+    view.setNeedsUpdateConstraints() // bootstrap autolayout
   }
   
   override func didReceiveMemoryWarning() {

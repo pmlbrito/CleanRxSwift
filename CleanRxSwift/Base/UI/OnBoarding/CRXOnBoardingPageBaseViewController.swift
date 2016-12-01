@@ -10,7 +10,7 @@ import UIKit
 import SwiftEventBus
 
 public enum CRXOnboardingEvents: String {
-  case FINISH = "finish_button_click"
+  case finish = "finish_button_click"
 }
 
 struct CRXOnBoardingContent {
@@ -23,9 +23,9 @@ struct CRXOnBoardingContent {
 class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
   
   lazy var headingContainer = UIView()
-  lazy var headingLabel =  CRXViewFactory.boldLabelWithTextAndSize(labelText: "", textColor: UIColor(hexString:"#000000FF")!, fontSize: CGFloat(24))
+  lazy var headingLabel =  CRXViewFactory.boldLabelWithTextAndSize(labelText: "", textColor: UIColor(hexString: "#000000FF")!, fontSize: CGFloat(24))
   lazy var descriptionContainer = UIView()
-  lazy var descriptionLabel = CRXViewFactory.textLabelWithTextAndSize(labelText: "", textColor: UIColor(hexString:"#000000FF")!, fontSize: CGFloat(16))
+  lazy var descriptionLabel = CRXViewFactory.textLabelWithTextAndSize(labelText: "", textColor: UIColor(hexString: "#000000FF")!, fontSize: CGFloat(16))
   lazy var imageContainer = UIView()
   lazy var contentImageView = UIImageView()
   lazy var stepFinishButton = UIButton()
@@ -54,11 +54,11 @@ class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
   }
   
   
-  //build page content layout
-  func displayPageContent(){
+  // build page content layout
+  func displayPageContent() {
     self.view.backgroundColor = self.pageContent.bgColor != nil ? self.pageContent.bgColor! : UIColor.white
     
-    self.view.addSubview(self.headingContainer);
+    self.view.addSubview(self.headingContainer)
     
     self.headingContainer.snp.makeConstraints { make in
       make.width.equalTo(self.view.snp.width).inset(25)
@@ -68,14 +68,14 @@ class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
     }
     
     self.headingContainer.addSubview(self.headingLabel)
-    self.headingLabel.text = pageContent.titleText;
-    self.headingLabel.sizeToFit();
+    self.headingLabel.text = pageContent.titleText
+    self.headingLabel.sizeToFit()
     self.headingLabel.snp.makeConstraints { make in
       make.width.equalTo(self.headingContainer.snp.width).inset(20)
       make.center.equalTo(self.headingContainer)
     }
     
-    self.view.addSubview(self.imageContainer);
+    self.view.addSubview(self.imageContainer)
     self.imageContainer.snp.makeConstraints { make in
       make.width.equalTo(self.view.snp.width).inset(25)
       make.height.equalTo(self.view.snp.height).multipliedBy(0.45)
@@ -84,7 +84,7 @@ class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
     }
     
     
-    self.view.addSubview(self.descriptionContainer);
+    self.view.addSubview(self.descriptionContainer)
     self.descriptionContainer.snp.makeConstraints { make in
       make.width.equalTo(self.view.snp.width).inset(25)
       make.top.equalTo(self.imageContainer.snp.bottom).offset(10)
@@ -117,22 +117,23 @@ class CRXOnBoardingPageBaseViewController: CRXBaseViewController {
       self.headingContainer.alpha = 1.0
       self.descriptionContainer.alpha = 1.0
       self.imageContainer.alpha = 1.0
-    });
+    })
     
     
-    if(self.isFinalStep != nil && self.isFinalStep == true){
-      stepFinishButton = CRXViewFactory.circularButtonImage(buttonImage: UIImage(named:"ic_check_white")!, highlightedButtonImage: UIImage(named:"ic_check_primary")!, buttonColor: UIColor.randomColor(), highlightedButtonColor: UIColor.randomColor())
+    if self.isFinalStep != nil && self.isFinalStep == true {
+      stepFinishButton = CRXViewFactory.circularButtonImage(buttonImage: UIImage(named: "ic_check_white")!, highlightedButtonImage: UIImage(named: "ic_check_primary")!, buttonColor: UIColor.randomColor(), highlightedButtonColor: UIColor.randomColor())
       stepFinishButton.center.x = self.view.frame.width - 60.0
       stepFinishButton.center.y = self.view.frame.height - 60.0
-      stepFinishButton.addTarget(self, action: #selector(CRXOnBoardingPageBaseViewController.doOnboardingFinishEventNotification(_:)), for: UIControlEvents.touchUpInside)
+      stepFinishButton.addTarget(self, action: #selector(CRXOnBoardingPageBaseViewController.doOnboardingFinishEventNotification(sender:)), for: UIControlEvents.touchUpInside)
       self.view.addSubview(stepFinishButton)
     }
   }
   
   
   // MARK: Event handling
-  func doOnboardingFinishEventNotification(_ sender:UIButton!) {
-    //notify anyone interested
-    SwiftEventBus.post(CRXOnboardingEvents.FINISH.rawValue);
+  func doOnboardingFinishEventNotification(sender: UIButton!) {
+    // notify anyone interested
+    SwiftEventBus.post(CRXOnboardingEvents.finish.rawValue)
   }
+  
 }

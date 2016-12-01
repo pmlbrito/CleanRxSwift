@@ -25,20 +25,20 @@ class CRXSplashSetup {
     }
     
     container.register(CRXSplashInteractor.self) { injector in
-      CRXSplashInteractor(process: injector.resolve(CRXSplashProcess.self)!);
+      CRXSplashInteractor(process: injector.resolve(CRXSplashProcess.self)!)
     }
     
     container.register(CRXSplashPresenter.self) { injector in
-      CRXSplashPresenter(interactor: injector.resolve(CRXSplashInteractor.self)!);
+      CRXSplashPresenter(interactor: injector.resolve(CRXSplashInteractor.self)!)
     }
     
     container.register(CRXSplashProcess.self) { injector in
-      CRXSplashProcess();
+      CRXSplashProcess()
     }
     
     container.register(CRXSplashRouter.self) { injector in
       CRXSplashRouter(viewController: injector.resolve(CRXSplashViewController.self)!)
     }
-    
   }
+  
 }

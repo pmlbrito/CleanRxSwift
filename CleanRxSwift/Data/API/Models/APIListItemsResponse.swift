@@ -27,13 +27,13 @@ class APIListItemsResponse: APIServicesBaseResponse {
 
 
 class APIListItemObject: Mappable {
-  var item_id: String?
+  var itemId: String?
   
   // MARK: JSON
-  required init?(map: Map) { }
+  required init?(map: Map) {}
   
   func mapping(map: Map) {
-    item_id <- map["item_id"]
+    itemId <- map["item_id"]
   }
   
 }

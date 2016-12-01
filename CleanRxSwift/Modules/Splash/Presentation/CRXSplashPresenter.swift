@@ -11,7 +11,7 @@
 
 import UIKit
 import RxSwift
-import QuickShotUtils;
+import QuickShotUtils
 
 protocol CRXSplashPresenterProtocol: CRXPresenterProtocol {
 }
@@ -49,11 +49,11 @@ class CRXSplashPresenter: CRXSplashPresenterProtocol {
 
   
   func bindView(view: CRXViewProtocol) {
-    self.view = view as! CRXSplashViewController
+    self.view = view as? CRXSplashViewController
   }
 
   func processOnBoardingState(_ isDone: Bool) {
-    var response = CRXSplashResponse();
+    var response = CRXSplashResponse()
     response.destination = isDone == true ? CRXSplashDestination.InApp : CRXSplashDestination.OnBoarding
     response.transitionType = ViewControllerPresentationType.ReplaceAtRoot
     

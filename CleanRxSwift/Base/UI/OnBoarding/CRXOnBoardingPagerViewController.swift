@@ -27,19 +27,16 @@ struct CRXPagerConfig {
 class CRXPagerViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate {
   var sliderConfig: CRXPagerConfig? {
     didSet {
-      _currentSlide = sliderConfig!.defaultSlide
+      currentSlide = sliderConfig!.defaultSlide
     }
   }
   
-  var sliderContent = [CRXOnBoardingPageBaseViewController]();
+  var sliderContent = [CRXOnBoardingPageBaseViewController]()
   
-  fileprivate var _currentSlide: Int = 0
-  var currentSlide: Int {
-    return _currentSlide
-  }
+  fileprivate var currentSlide: Int = 0
   
-  fileprivate var _applyControllerCallback: ((Int) -> UIViewController)?
-  fileprivate var _didChangedSlideCallback: ((Int) -> Void)?
+  fileprivate var applyControllerCallback: ((Int) -> UIViewController)?
+  fileprivate var didChangedSlideCallback: ((Int) -> Void)?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,22 +44,22 @@ class CRXPagerViewController: UIPageViewController, UIPageViewControllerDataSour
     dataSource = self
     (view.subviews.first as? UIScrollView)?.delegate = self
     
-    view.backgroundColor = UIColor.clear;
+    view.backgroundColor = UIColor.clear
     
-    //if we need to style the pager indicator, do it below
+    // if we need to style the pager indicator, do it below
     let pageControl = UIPageControl.appearance()
-    pageControl.pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.45);
-    pageControl.currentPageIndicatorTintColor = UIColor.black;
+    pageControl.pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.45)
+    pageControl.currentPageIndicatorTintColor = UIColor.black
     //    pageControl.backgroundColor = UIColor.yellowColor();
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    setViewControllers([viewControllerAtIndex(currentSlide)], direction: .forward, animated: true, completion: nil)
+    setViewControllers([viewControllerAtIndex(contentIndex: currentSlide)], direction: .forward, animated: true, completion: nil)
     
     if sliderConfig?.sendDefaultSlideChange == true {
-      _didChangedSlideCallback?(_currentSlide)
+      didChangedSlideCallback?(currentSlide)
     }
   }
   
@@ -82,7 +79,7 @@ class CRXPagerViewController: UIPageViewController, UIPageViewControllerDataSour
       }
     }
     
-    if (scrollView != nil && pageControl != nil) {
+    if scrollView != nil && pageControl != nil {
       scrollView?.frame = view.bounds
       view.bringSubview(toFront: pageControl!)
     }
@@ -90,33 +87,33 @@ class CRXPagerViewController: UIPageViewController, UIPageViewControllerDataSour
   
   // *** METHODS
   // * FUNCTIONS
-  func applyController(_ callback: @escaping (Int) -> UIViewController) {
-    _applyControllerCallback = callback
+  func applyController(callback: @escaping (Int) -> UIViewController) {
+    applyControllerCallback = callback
   }
   
-  func didChangedSlide(_ callback: @escaping (Int) -> Void) {
-    _didChangedSlideCallback = callback
+  func didChangedSlide(callback: @escaping (Int) -> Void) {
+    didChangedSlideCallback = callback
   }
   
   // PRIVATE
-  fileprivate func viewControllerAtIndex(_ contentIndex: Int?) -> UIViewController! {
+  fileprivate func viewControllerAtIndex(contentIndex: Int?) -> UIViewController! {
     guard let vcIndex = contentIndex else { return nil }
     
     let viewController: UIViewController
-    if let callback = _applyControllerCallback {
+    if let callback = applyControllerCallback {
       viewController = callback(vcIndex)
     }
     else {
-      viewController = sliderContent[vcIndex];
+      viewController = sliderContent[vcIndex]
     }
     
     return viewController
   }
   
-  fileprivate func getControllerIndex(_ vc: UIViewController) -> Int {
-    let vcCast = vc as! CRXOnBoardingPageBaseViewController;
+  fileprivate func getControllerIndex(vc: UIViewController) -> Int {
+    let vcCast = vc as? CRXOnBoardingPageBaseViewController
     
-    return vcCast.pageIndex!;
+    return vcCast?.pageIndex == nil ? 0 : (vcCast?.pageIndex!)!
   }
   
   // * DELEGATES
@@ -130,41 +127,42 @@ class CRXPagerViewController: UIPageViewController, UIPageViewControllerDataSour
   }
   
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-    let vcCast = viewController as! CRXOnBoardingPageBaseViewController;
-    var vcIndex = vcCast.pageIndex! as Int;
+    let vcCast = viewController as? CRXOnBoardingPageBaseViewController
+    var vcIndex = vcCast?.pageIndex == nil ? 0 : (vcCast?.pageIndex!)! as Int
     
-    if(vcIndex == 0 || vcIndex == NSNotFound){
-      return nil;
+    if vcIndex == 0 || vcIndex == NSNotFound {
+      return nil
     }
     
-    vcIndex -= 1;
-    return self.viewControllerAtIndex(vcIndex);
+    vcIndex -= 1
+    return self.viewControllerAtIndex(contentIndex: vcIndex)
   }
   
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-    let vcCast = viewController as! CRXOnBoardingPageBaseViewController;
-    var vcIndex = vcCast.pageIndex! as Int;
+    let vcCast = viewController as? CRXOnBoardingPageBaseViewController
+    var vcIndex = vcCast?.pageIndex == nil ? 0 : (vcCast?.pageIndex!)!
     
-    if(vcIndex == NSNotFound){
-      return nil;
+    if vcIndex == NSNotFound {
+      return nil
     }
     
-    vcIndex+=1;
+    vcIndex+=1
     
-    if(vcIndex == self.sliderContent.count){
-      return nil;
+    if vcIndex == self.sliderContent.count {
+      return nil
     }
     
-    return self.viewControllerAtIndex(vcIndex);
+    return self.viewControllerAtIndex(contentIndex: vcIndex)
   }
   
   // UIScrollViewDelegate
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     scrollView.bounces = sliderConfig?.bounces ?? true
     
-    guard let vc = viewControllers?[0], case let slide = getControllerIndex(vc), slide != _currentSlide else { return }
+    guard let vc = viewControllers?[0], case let slide = getControllerIndex(vc: vc), slide != currentSlide else { return }
     
-    _currentSlide = slide;
-    _didChangedSlideCallback?(_currentSlide)
+    currentSlide = slide
+    didChangedSlideCallback?(currentSlide)
   }
+  
 }

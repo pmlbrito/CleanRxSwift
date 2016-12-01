@@ -11,41 +11,39 @@ import UIKit
 import QuickShotUtils
 import RxSwift
 
-protocol CRXSplashRouterProtocol
-{
-  func navigateToNextScreen(_ destination: CRXSplashDestination?, transitionType: ViewControllerPresentationType?);
+protocol CRXSplashRouterProtocol {
+  func navigateToNextScreen(destination: CRXSplashDestination?, transitionType: ViewControllerPresentationType?)
 }
 
-class CRXSplashRouter: CRXSplashRouterProtocol
-{
+class CRXSplashRouter: CRXSplashRouterProtocol {
   var viewController: CRXSplashViewController!
   
   init(viewController: CRXSplashViewController!) {
-    self.viewController = viewController;
+    self.viewController = viewController
   }
   
   // MARK: Navigation
-  func navigateToNextScreen(_ destination: CRXSplashDestination?, transitionType: ViewControllerPresentationType?)
-  {
+  func navigateToNextScreen(destination: CRXSplashDestination?, transitionType: ViewControllerPresentationType?) {
     var destinationViewController: UIViewController? = nil
     
     if let dest = destination {
-      switch(dest){
+      switch dest {
       case .OnBoarding:
-        destinationViewController = CRXOnBoardingSetup.container.resolve(CRXOnBoardingViewController.self);
-        break;
+        destinationViewController = CRXOnBoardingSetup.container.resolve(CRXOnBoardingViewController.self)
+        break
       case .Login:
         //        destinationViewController = RFLoginViewController()
-        break;
+        break
       case .SignIn:
         //        destinationViewController = RFSignInChooserViewController();
-        break;
+        break
       case .InApp:
         //        destinationViewController = RFRootViewController()
-        break;
+        break
       }
     }
     
     viewController.transtitionToNextViewController(fromViewController: viewController, destinationViewController: destinationViewController, transitionType: transitionType);
   }
+  
 }
