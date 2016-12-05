@@ -43,7 +43,7 @@ class CRXSplashViewController: CRXBaseViewController, CRXSplashViewControllerInp
   // MARK: Event handling
   func buildViewLayout() {
     // NOTE: Ask the Interactor to do some work
-    self.view.addSubview(self.splashTitle);
+    self.view.addSubview(self.splashTitle)
     splashTitle.snp.makeConstraints { make in
       make.left.equalTo(self.view).offset(20)
       make.right.equalTo(self.view).offset(-20)

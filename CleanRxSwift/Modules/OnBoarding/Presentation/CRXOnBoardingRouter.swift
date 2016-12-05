@@ -12,33 +12,31 @@
 import UIKit
 import QuickShotUtils
 
-protocol CRXOnBoardingRouterInput
-{
+protocol CRXOnBoardingRouterInput {
 }
 
-class CRXOnBoardingRouter: CRXOnBoardingRouterInput
-{
-  weak var viewController: CRXOnBoardingViewController!
+class CRXOnBoardingRouter: CRXOnBoardingRouterInput {
+  var viewController: CRXOnBoardingViewController!
   
   init(viewController: CRXOnBoardingViewController!) {
-    self.viewController = viewController;
+    self.viewController = viewController
   }
 
   
   // MARK: Navigation
-  func navigateToNextScreen(_ destination: CRXOnBoardingDestination?, transitionType: ViewControllerPresentationType?)
-  {
+  func navigateToNextScreen(_ destination: CRXOnBoardingDestination?, transitionType: ViewControllerPresentationType?) {
     var destinationViewController: UIViewController? = nil
     
     if let dest = destination {
-      switch(dest){
-      case .InApp:
-        //TODO: change this
-        destinationViewController = CRXOnBoardingSetup.container.resolve(CRXOnBoardingViewController.self);
-        break;
+      switch dest {
+      case .inApp:
+        // TODO: change this
+        destinationViewController = CRXOnBoardingSetup.container.resolve(CRXOnBoardingViewController.self)
+        break
       }
     }
     
-    viewController.transtitionToNextViewController(fromViewController: viewController, destinationViewController: destinationViewController, transitionType: transitionType);
+    viewController.transtitionToNextViewController(fromViewController: viewController, destinationViewController: destinationViewController, transitionType: transitionType)
   }
+  
 }

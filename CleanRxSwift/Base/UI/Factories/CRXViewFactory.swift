@@ -312,7 +312,7 @@ class CRXViewFactory {
     label.font = UIFont.systemFont(ofSize: fontSize)
     let style = NSMutableParagraphStyle()
     style.lineBreakMode = NSLineBreakMode.byWordWrapping
-    let attributes = [NSFontAttributeName: label.font, NSParagraphStyleAttributeName: style]
+    let attributes = [NSFontAttributeName: label.font as Any, NSParagraphStyleAttributeName: style as Any]
     let attributedString = NSMutableAttributedString(string: labelText as String, attributes: attributes)
     label.attributedText = attributedString
     

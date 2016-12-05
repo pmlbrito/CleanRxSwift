@@ -13,24 +13,21 @@ import UIKit
 import QuickShotUtils
 
 enum CRXOnBoardingDestination: String {
-  case InApp
+  case inApp
 }
 
-struct CRXOnBoardingRequest
-{
+struct CRXOnBoardingRequest {
 }
 
-struct CRXOnBoardingResponse
-{
-  var sliderContent: [CRXOnBoardingContent];
+struct CRXOnBoardingResponse {
+  var sliderContent: [CRXOnBoardingContent]
   
   var destination: CRXOnBoardingDestination?
   var transitionType: ViewControllerPresentationType?
 }
 
-struct CRXOnBoardingViewModel
-{
-  var sliderItems: [CRXOnBoardingPageBaseViewController]?;
+struct CRXOnBoardingViewModel {
+  var sliderItems: [CRXOnBoardingPageBaseViewController]?
   
   var destination: CRXOnBoardingDestination?
   var transitionType: ViewControllerPresentationType?

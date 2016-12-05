@@ -12,34 +12,31 @@
 import UIKit
 import RxSwift
 
-protocol CRXSplashInteractorProtocol
-{
-  func updateUserIsDone() -> Observable<Bool>;
+protocol CRXSplashInteractorProtocol {
+  func updateUserIsDone() -> Observable<Bool>
 }
 
 
-class CRXSplashInteractor: CRXSplashInteractorProtocol
-{
+class CRXSplashInteractor: CRXSplashInteractorProtocol {
  
-  var _process: CRXSplashProcess!;
+  var process: CRXSplashProcess!
   
   init(process: CRXSplashProcess) {
-    self._process = process;
+    self.process = process
   }
   
   // MARK: Business logic
   
-  func updateUserIsDone() -> Observable<Bool>
-  {
+  func updateUserIsDone() -> Observable<Bool> {
 //    return self._process.checkIfOnboardingIsDone().delaySubscription(RxTimeInterval(5), scheduler: ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .background)).observeOn(MainScheduler.instance).doOnError { error in
 //      print("ERROR: \(error)");
 //    }
     
     
-    return self._process.checkIfOnboardingIsDone().delaySubscription(RxTimeInterval(2), scheduler: ConcurrentDispatchQueueScheduler(qos: .background)).observeOn(MainScheduler.instance).catchError({ (error) -> Observable<Bool> in
-        print("ERROR: \(error)");
-        return Observable.just(false);
-    })
-    
+    return self.process.checkIfOnboardingIsDone().delaySubscription(RxTimeInterval(2), scheduler: ConcurrentDispatchQueueScheduler(qos: .background)).observeOn(MainScheduler.instance).catchError { (error) -> Observable<Bool> in
+      print("ERROR: \(error)")
+      return Observable.just(false)
+    }
   }
+  
 }

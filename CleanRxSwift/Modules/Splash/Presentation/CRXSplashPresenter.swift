@@ -54,7 +54,7 @@ class CRXSplashPresenter: CRXSplashPresenterProtocol {
 
   func processOnBoardingState(_ isDone: Bool) {
     var response = CRXSplashResponse()
-    response.destination = isDone == true ? CRXSplashDestination.InApp : CRXSplashDestination.OnBoarding
+    response.destination = isDone == true ? CRXSplashDestination.inApp : CRXSplashDestination.onBoarding
     response.transitionType = ViewControllerPresentationType.ReplaceAtRoot
     
     self.presentNextScreen(response)

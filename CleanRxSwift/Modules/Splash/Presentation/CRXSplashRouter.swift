@@ -28,22 +28,22 @@ class CRXSplashRouter: CRXSplashRouterProtocol {
     
     if let dest = destination {
       switch dest {
-      case .OnBoarding:
+      case .onBoarding:
         destinationViewController = CRXOnBoardingSetup.container.resolve(CRXOnBoardingViewController.self)
         break
-      case .Login:
-        //        destinationViewController = RFLoginViewController()
+      case .login:
+        //        destinationViewController = CRXLoginViewController()
         break
-      case .SignIn:
-        //        destinationViewController = RFSignInChooserViewController();
+      case .signIn:
+        //        destinationViewController = CRXSignInChooserViewController();
         break
-      case .InApp:
-        //        destinationViewController = RFRootViewController()
+      case .inApp:
+        //        destinationViewController = CRXRootViewController()
         break
       }
     }
     
-    viewController.transtitionToNextViewController(fromViewController: viewController, destinationViewController: destinationViewController, transitionType: transitionType);
+    viewController.transtitionToNextViewController(fromViewController: viewController, destinationViewController: destinationViewController, transitionType: transitionType)
   }
   
 }

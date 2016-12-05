@@ -13,21 +13,18 @@ import UIKit
 import QuickShotUtils
 
 enum CRXSplashDestination: String {
-  case OnBoarding, Login, SignIn, InApp
+  case onBoarding, login, signIn, inApp
 }
 
-struct CRXSplashRequest
-{
+struct CRXSplashRequest {
 }
 
-struct CRXSplashResponse
-{
+struct CRXSplashResponse {
   var destination: CRXSplashDestination?
   var transitionType: ViewControllerPresentationType?
 }
 
-struct CRXSplashViewModel
-{
+struct CRXSplashViewModel {
   var destination: CRXSplashDestination?
   var transitionType: ViewControllerPresentationType?
 }

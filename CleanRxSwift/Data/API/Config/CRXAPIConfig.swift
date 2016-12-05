@@ -13,7 +13,7 @@ class CRXAPIConfig {
   // BASE API CONFIG
   static let RequestParamOffset = "offset"
   static let ApiPublicEndpoint = "v1/public/"
-  static let DefaultHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
+  static let DefaultHeaders = ["Accept": "application/json", "Content-Type": "application/json"]
   
   // API PARAMS
 

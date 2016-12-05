@@ -92,31 +92,11 @@ class CRXAPIServicesClient: CRXAPIServicesClientProtocol {
       
       let apiPath = "\((self.apiConfig!.serviceBaseUrl!))/path_to_somewhere"
       let requestParams = [CRXAPIConfig.RequestParamOffset: "\(offset)"]
-
       
-//      let request = self.manager.request(.GET, apiPath, parameters: requestParams, encoding: .url, headers: nil).responseObject(keyPath: "") { (response: Response<APIListItemsResponse, NSError>) in
-//        // TODO:
-//        print("\(response.result)");
-//        
-//        if ((response.result.error) != nil) {
-//          observer.on(.Error(response.result.error!))
-//        } else {
-//          observer.on(.Next(response.result.value))
-//          observer.on(.Completed)
-//        }
-//      }
-//      
-//      return AnonymousDisposable {
-//        request.cancel()
-//      }
-        
-        
-        
         let getListOfItemsRequest = Router.getListItems(baseAPIPath: apiPath, parameters: requestParams)
         
         let request = self.manager.request(getListOfItemsRequest).responseObject(keyPath: "") { (response: DataResponse<APIListItemsResponse>) in
-            // TODO:
-            NSLog("\(response.result)")
+            NSLog("<TODO(someone): log_debug>\n\(response.result)")
             
             if (response.result.error) != nil {
                 observer.on(.error(response.result.error!))

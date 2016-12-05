@@ -46,13 +46,13 @@ class CRXOnBoardingPresenter: CRXOnBoardingPresenterProtocol {
   
   // MARK: Presentation logic
   func bindView(view: CRXViewProtocol) {
-    self.view = view as! CRXOnBoardingViewController
+    self.view = view as? CRXOnBoardingViewController
   }
   
   func userIsDoneWithOnBoarding() {
     userIsDoneSubscription = self.interactor.updateUserIsDone(true).observeOn(MainScheduler.instance).subscribe(onNext: { (success) in
         var onBoardingResultModel = CRXOnBoardingViewModel()
-        onBoardingResultModel.destination = CRXOnBoardingDestination.InApp
+        onBoardingResultModel.destination = CRXOnBoardingDestination.inApp
         onBoardingResultModel.transitionType = ViewControllerPresentationType.ReplaceAtRoot
         
         self.view.userFinishedOnBoarding(viewModel: onBoardingResultModel)

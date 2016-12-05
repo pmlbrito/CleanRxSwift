@@ -17,7 +17,7 @@ class CRXOnBoardingProcess {
   
   fileprivate func applyUserOnboardingIsDone(_ isDone: Bool) -> Bool {
     let result = CRXUserDefaultsService.setUserOnboardingDone(isDone: isDone)
-    return result;
+    return result
   }
   
 }
